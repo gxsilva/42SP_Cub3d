@@ -1,0 +1,9 @@
+[submodule "lib/MLX42"]
+	path = lib/MLX42
+	url = "https://github.com/codam-coding-college/MLX42#"
+[submodule "lib/norminette-v2"]
+	path = lib/norminette-v2
+	url = https://github.com/42paris/norminette-v2
+[submodule "lib/GNL"]
+	path = lib/GNL
+	url = https://github.com/gxsilva/42SP_Libft
