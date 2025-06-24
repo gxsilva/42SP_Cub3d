@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
+#    By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/24 16:06:59 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/06/24 16:46:47 by ailbezer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,10 @@ $(GNL_LIB):
 	@echo "$(MAGENTA)🛠️  Building GNL...$(END)"
 	@make -C $(GNL_DIR) $(NO_PRINT) > /dev/null
 
+debug: $(OBJS) $(GNL_LIB) $(LIBFT_LIB) $(MLX_LIB)
+	@$(CC) $(CFLAGS) -D DEBUG_FLAG=1 $(HEADERS) $(OBJS) $(LIBS) $(MLXFLAGS) -o $@
+	@echo "$(GREEN)✅ $(BOLD)$(NAME) compiled debug successfully!$(END)"
+
 clean:
 	@rm -rf $(OBJ_DIR)
 	@make -C $(GNL_DIR) clean $(NO_PRINT) > /dev/null
@@ -92,6 +96,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f debug
 	@rm -rf $(MLX_DIR)/build
 	@make -C $(GNL_DIR) fclean $(NO_PRINT) > /dev/null
 	@make -C $(LIBFT_DIR) fclean $(NO_PRINT) > /dev/null
