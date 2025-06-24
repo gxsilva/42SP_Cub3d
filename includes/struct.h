@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/24 16:09:44 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/06/24 15:44:49 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/header.h"
+#include "header.h"
 
-void	check_map(char **argv)
-{
-	
-}
+#ifndef STRUCT_H
+#define STRUCT_H
 
-void	init_cube(t_cube *cube, char **argv)
+typedef struct s_map
 {
-	check_map(argv);
-	init_map(cube);
-}
+	int		height;
+	int		width;
+	int		fd;
+	int		**matrix;
+} t_map;
 
-int main(int argc, char **argv)
+typedef struct s_cube
 {
-	t_cube	cube;
-	
-	(void)argv; //!REMOVE
-	if (argc != 2)
-	{
-		printf ("Error\n");
-		printf (INVALID_ARGUMENTS_AMOUNT);
-		return(1);
-	}
-	init_cube(&cube, argv);
-	return 0;
-}
+	t_map	*map;
+} t_cube;
+
+
+#endif //STRUCT_H

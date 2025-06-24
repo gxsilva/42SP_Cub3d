@@ -1,39 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/24 16:09:44 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/06/24 15:13:57 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/06/24 15:42:01 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/header.h"
+#ifndef ERRORS_HPP
+#define ERRORS_HPP
 
-void	check_map(char **argv)
-{
-	
-}
+//Arguments error
+#define INVALID_ARGUMENTS_AMOUNT BRIGHT_RED"Invalid format: $>./cub3d <map_name>.cub\n"RESET
 
-void	init_cube(t_cube *cube, char **argv)
-{
-	check_map(argv);
-	init_map(cube);
-}
-
-int main(int argc, char **argv)
-{
-	t_cube	cube;
-	
-	(void)argv; //!REMOVE
-	if (argc != 2)
-	{
-		printf ("Error\n");
-		printf (INVALID_ARGUMENTS_AMOUNT);
-		return(1);
-	}
-	init_cube(&cube, argv);
-	return 0;
-}
+//Memory errors
+#define INVALID_MALLOC "Invalid Malloc\n"
+#endif // ERRORS_HPP

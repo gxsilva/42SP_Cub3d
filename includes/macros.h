@@ -1,39 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/24 16:09:44 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/06/24 15:35:15 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/06/24 15:36:28 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/header.h"
+#ifndef MACROS_HPP
+# define MACROS_HPP
 
-void	check_map(char **argv)
-{
-	
-}
+# ifndef DEBUG_FLAG
+#  define	DEBUG_FLAG 0
+# endif
 
-void	init_cube(t_cube *cube, char **argv)
-{
-	check_map(argv);
-	init_map(cube);
-}
-
-int main(int argc, char **argv)
-{
-	t_cube	cube;
-	
-	(void)argv; //!REMOVE
-	if (argc != 2)
-	{
-		printf ("Error\n");
-		printf (INVALID_ARGUMENTS_AMOUNT);
-		return(1);
-	}
-	init_cube(&cube, argv);
-	return 0;
-}
+#endif // MACROS_HPP

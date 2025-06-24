@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/23 19:20:13 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/06/24 16:06:59 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,13 @@ MLX_LIB		:= $(MLX_DIR)/build/$(MLX_A)
 LIBS = -L$(MLX_DIR)/build -L$(LIBFT_DIR)/bin -L$(GNL_DIR)/bin
 
 # FILES
-SRCS		:= $(addprefix $(SRCS_DIR), main.c)
-OBJS		:= $(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)/%.o,$(SRCS))
+SRCS		:= $(addprefix $(SRCS_DIR), \
+	main.c \
+	error/process_error.c \
+	map/fill_map.c \
+)
+
+OBJS		:= $(patsubst $(SRCS)%.c,$(OBJ_DIR)/%.o,$(SRCS))
 
 # MACROS
 NO_PRINT	:= --no-print-directory
@@ -54,10 +59,6 @@ WHITE = \033[37m
 GREEN := \033[1;32m
 END := \033[0m
 
-# all: gnl libmlx libft $(NAME)
-# $(NAME): $(OBJS)
-# 	@$(CC) $(CFLAGS) $(MLXFLAGS) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
-# 	@echo "🧊$(GREEN) Done!$(END)"
 all: $(NAME)
 
 $(NAME): $(OBJS) $(GNL_LIB) $(LIBFT_LIB) $(MLX_LIB)
@@ -95,27 +96,8 @@ fclean: clean
 	@make -C $(GNL_DIR) fclean $(NO_PRINT) > /dev/null
 	@make -C $(LIBFT_DIR) fclean $(NO_PRINT) > /dev/null
 	@echo "$(GREEN)🧹 $(RED)Full clean complete!$(END)"
-
-
 	
 re: fclean all
-
-# LIBRAYS
-
-
-
-# libmlx:
-# 	@cmake $(MLX_DIR) -B $(MLX_DIR)/build > /dev/null 2>&1 && \
-# 		make -C $(MLX_DIR)/build -j4 $(NO_PRINT) > /dev/null 2>&1
-# 	@echo "MLX Compiled"
-
-# gnl:
-# 	@make -s -C $(GNL_DIR)
-# 	@echo "GNL Compiled"
-
-# libft:
-# 	@make -s -C $(LIBFT_DIR) $(NO_PRINT)
-# 	@echo "Libft Compiled"
 
 .PHONY: libmlx gnl all clean fclean re
 

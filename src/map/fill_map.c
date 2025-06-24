@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fill_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/24 16:09:44 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/06/24 15:46:11 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/06/24 15:58:39 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/header.h"
+#include "../../includes/header.h"
 
-void	check_map(char **argv)
-{
-	
-}
+void	init_map(t_cube *cube);
 
-void	init_cube(t_cube *cube, char **argv)
+void	init_map(t_cube *cube)
 {
-	check_map(argv);
-	init_map(cube);
-}
-
-int main(int argc, char **argv)
-{
-	t_cube	cube;
-	
-	(void)argv; //!REMOVE
-	if (argc != 2)
-	{
-		printf ("Error\n");
-		printf (INVALID_ARGUMENTS_AMOUNT);
-		return(1);
-	}
-	init_cube(&cube, argv);
-	return 0;
+	cube->map = (t_map *)malloc(sizeof(t_map));
+	if (!cube->map)
+		error_msg(INVALID_MALLOC, DEBUG_FLAG, 1);
+	cube->map->fd = 0;
+	cube->map->height = 0;
+	cube->map->width = 0;
+	cube->map->matrix = NULL;
 }

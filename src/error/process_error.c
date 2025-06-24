@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   process_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/24 16:09:44 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/06/24 15:47:44 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/06/24 16:05:12 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/header.h"
+#include "../../includes/header.h"
 
-void	check_map(char **argv)
+void	error_msg (char *err_str, int debug_opt, int std_opt)
 {
-	
-}
-
-void	init_cube(t_cube *cube, char **argv)
-{
-	check_map(argv);
-	init_map(cube);
-}
-
-int main(int argc, char **argv)
-{
-	t_cube	cube;
-	
-	(void)argv; //!REMOVE
-	if (argc != 2)
+	if (debug_opt)
 	{
-		printf ("Error\n");
-		printf (INVALID_ARGUMENTS_AMOUNT);
-		return(1);
+		perror(strerror(errno));
+		printf ("%s\n", err_str);
 	}
-	init_cube(&cube, argv);
-	return 0;
+	if (std_opt)
+	{
+		printf("Error\n");
+		exit (1);
+	}
 }
