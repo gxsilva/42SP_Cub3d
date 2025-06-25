@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+         #
+#    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/24 16:46:47 by ailbezer         ###   ########.fr        #
+#    Updated: 2025/06/24 20:55:53 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,10 @@ LIBS = -L$(MLX_DIR)/build -L$(LIBFT_DIR)/bin -L$(GNL_DIR)/bin
 SRCS		:= $(addprefix $(SRCS_DIR), \
 	main.c \
 	error/process_error.c \
+	map/fill_file_struct.c \
 	map/fill_map.c \
+	utils/strlen_space.c \
+	debug/file_debug.c \
 )
 
 OBJS		:= $(patsubst $(SRCS)%.c,$(OBJ_DIR)/%.o,$(SRCS))

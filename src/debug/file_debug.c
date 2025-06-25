@@ -1,42 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   file_debug.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/24 19:03:19 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/06/24 20:30:51 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/06/24 20:54:02 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-#ifndef STRUCT_H
-#define STRUCT_H
-
-typedef struct s_map
+void	debug_file_struct(t_file *file)
 {
-	int		height;
-	int		width;
-	int		fd;
-	int		**matrix;
-} t_map;
-
-typedef struct s_file
-{
-	int		floor;
-	int		ceiling;
-	char	*NO_path;
-	char	*SO_path;
-	char	*WE_path;
-	char	*EA_path;
-} t_file;
-
-typedef struct s_cube
-{
-	t_map	*map;
-	t_file	*file;
-} t_cube;
-
-#endif //STRUCT_H
+	printf("File struct information:\n");
+	printf("Ceiling: %d\n", file->ceiling);
+	printf("Floor: %d\n", file->floor);
+	printf("EA_path: %s\n", file->EA_path);
+	printf("NO_path: %s\n", file->NO_path);
+	printf("SO_path: %s\n", file->SO_path);
+	printf("WE_path: %s\n", file->WE_path);
+}

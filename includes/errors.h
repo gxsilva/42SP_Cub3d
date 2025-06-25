@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:13:57 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/24 16:50:40 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/24 20:59:17 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,9 @@
 
 //open error
 #define INVALID_OPEN BRIGHT_RED"Invalid open"RESET
+
+//file format
+#define INVALID_FILE_FORMAT BRIGHT_RED"Invalid file format"RESET
+#define INVALID_FILE_CHAR BRIGHT_RED"Invalid type of char in file"RESET
+
 #endif // ERRORS_HPP

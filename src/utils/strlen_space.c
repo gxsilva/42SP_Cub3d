@@ -1,42 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   strlen_space.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/24 19:03:19 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/06/24 20:33:38 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/06/24 20:35:06 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-#ifndef STRUCT_H
-#define STRUCT_H
-
-typedef struct s_map
+int	strlen_space(char *line)
 {
-	int		height;
-	int		width;
-	int		fd;
-	int		**matrix;
-} t_map;
+	int		i;
 
-typedef struct s_file
-{
-	int		floor;
-	int		ceiling;
-	char	*NO_path;
-	char	*SO_path;
-	char	*WE_path;
-	char	*EA_path;
-} t_file;
-
-typedef struct s_cube
-{
-	t_map	*map;
-	t_file	*file;
-} t_cube;
-
-#endif //STRUCT_H
+	i = -1;
+	while (line[++i])
+		if (line[i + 1] == ' ')
+			break;
+	return (i - 1);
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/24 16:55:05 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/24 20:47:33 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	init_cube(t_cube *cube, char **argv)
 {
 	check_map(argv);
 	init_map(cube, argv);
+	//? try to recieve the fd to call 'check_file_origin' first than 'init_ma'
+	check_file_origin(cube);
 }
 
 int main(int argc, char **argv)
@@ -40,7 +42,7 @@ int main(int argc, char **argv)
 	if (argc != 2)
 	{
 		printf ("Error\n");
-		printf (INVALID_ARGUMENTS_AMOUNT);
+		printf ("%s\n",INVALID_ARGUMENTS_AMOUNT);
 		return(1);
 	}
 	init_cube(&cube, argv);
