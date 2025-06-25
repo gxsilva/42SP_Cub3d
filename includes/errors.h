@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:13:57 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/24 20:59:17 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/25 02:04:52 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 //Arguments error
 #define INVALID_ARGUMENTS_AMOUNT BRIGHT_RED"Invalid format: $>./cub3d <map_name>.cub"RESET
+
+//Variable erros
+#define NULL_POINTER BRIGHT_RED"Null pointer encountered"RESET
+#define INVALID_COLOR_FORMAT BRIGHT_RED"Invalid color format"RESET
 
 //Memory errors
 #define INVALID_MALLOC "Invalid Malloc"
