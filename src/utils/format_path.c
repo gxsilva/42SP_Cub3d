@@ -6,13 +6,13 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:48:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 15:48:32 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:40:29 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/header.h"
 
-void format_path(char **xpm_path)
+void	format_path(char **xpm_path)
 {
 	char	*new_str;
 	int		i;

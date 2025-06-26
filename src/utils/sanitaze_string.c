@@ -6,22 +6,23 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:52:15 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/25 18:52:23 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:39:24 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/header.h"
 
-char *sanitize_string(char *line)
+char	*sanitize_string(char *line)
 {
 	int		i;
+	int		j;
 
 	i = 0;
+	j = 0;
 	if (!line)
 		error_msg(NULL_POINTER, DEBUG_FLAG, 1);
 	while (line[i] == ' ' || line[i] == '\t')
 		i++;
-	int j = 0;
 	while (line[j])
 	{
 		if (!ft_isascii(line[j]))

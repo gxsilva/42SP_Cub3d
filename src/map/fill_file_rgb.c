@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:54:31 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 17:03:28 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:33:31 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	count_elements(char **array)
 		sanitized = sanitize_string(array[idx]);
 		len = strlen_space(sanitized);
 		if (len == 0)
-			break;
+			break ;
 		i = 0;
 		while (i < len)
 		{
@@ -47,7 +47,7 @@ int	rgb_to_int(char *str)
 {
 	int		color;
 	char	**rgb;
-	
+
 	str[ft_strlen(str) - 1] = '\0';
 	rgb = ft_split(str, ',');
 	if (count_elements(rgb) != 3)
@@ -59,4 +59,3 @@ int	rgb_to_int(char *str)
 	free_split((void **)rgb);
 	return (color);
 }
-

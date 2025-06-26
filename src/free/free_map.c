@@ -17,7 +17,7 @@ static void	tmp_free_buffer_gnl(int fd)
 {
 	char	*line;
 
-	while((line = get_next_line(fd)))
+	while ((line = get_next_line(fd)))
 		free(line);
 	return ;
 }

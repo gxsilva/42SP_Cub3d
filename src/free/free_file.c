@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 14:35:54 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/25 14:38:28 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:40:46 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	free_file(t_file *file)
 {
 	if (!file)
 		return ;
-	if (file->EA_path)
-		free(file->EA_path);
-	if (file->NO_path)
-		free(file->NO_path);
-	if (file->SO_path)
-		free(file->SO_path);
-	if (file->WE_path)
-		free(file->WE_path);
+	if (file->ea_path)
+		free(file->ea_path);
+	if (file->no_path)
+		free(file->no_path);
+	if (file->so_path)
+		free(file->so_path);
+	if (file->we_path)
+		free(file->we_path);
 	free(file);
 	file = NULL;
 }

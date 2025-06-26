@@ -6,15 +6,15 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:13:57 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 15:07:36 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:26:43 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERRORS_HPP
-#define ERRORS_HPP
+#ifndef ERRORS_H
+# define ERRORS_H
 
 //Arguments error
-#define INVALID_ARGUMENTS_AMOUNT BRIGHT_RED"Invalid format: $>./cub3d <map_name>.cub"RESET
+# define INVALID_ARGUMENTS_AMOUNT BRIGHT_RED"Invalid format: $>./cub3d <map_name>.cub"RESET
 
 //Variable erros
 #define NULL_POINTER BRIGHT_RED"Null pointer encountered"RESET
@@ -54,4 +54,4 @@
 #define INVALID_FLOOR_COLOR BRIGHT_RED"Invalid floor color"RESET
 #define INVALID_CEILING_COLOR BRIGHT_RED"Invalid ceiling color"RESET
 
-#endif // ERRORS_HPP
+#endif // ERRORS_H

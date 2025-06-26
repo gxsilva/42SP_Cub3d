@@ -6,12 +6,12 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:17:47 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/24 15:24:06 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:23:01 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLORS_HPP
-#define COLORS_HPP
+#ifndef COLORS_H
+# define COLORS_H
 
 # define RESET				"\e[0m"
 
@@ -56,4 +56,4 @@
 # define BG_BRIGHT_CYAN		"\e[106m"
 # define BG_BRIGHT_WHITE	"\e[107m"
 
-#endif // COLORS_HPP
+#endif // COLORS_H

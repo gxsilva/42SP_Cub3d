@@ -6,12 +6,12 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 15:54:34 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:19:59 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FUNCTIONS_HPP
-#define FUNCTIONS_HPP
+#ifndef FUNCTIONS_H
+# define FUNCTIONS_H
 
 # include "header.h"
 
@@ -20,7 +20,7 @@ void	init_map(t_cube *cube, char **argv);
 void	check_file(t_cube *cube);
 
 //Error
-void	error_msg (char *err_str, int debug_opt, int std_opt);
+void	error_msg(char *err_str, int debug_opt, int std_opt);
 int		error_stay(char *err_str);
 
 //Debug functions
@@ -56,5 +56,4 @@ void	free_split(void **matrix);
 void	free_file(t_file *file);
 void	free_map(t_map *map);
 
-
-#endif // FUNCTIONS_HPP
+#endif // FUNCTIONS_H

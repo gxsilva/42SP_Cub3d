@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 14:54:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/25 14:59:13 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:41:30 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	free_split(void **matrix)
 	i = -1;
 	if (!matrix || !(*matrix))
 		return ;
-	while(matrix[++i])
+	while (matrix[++i])
 		if (matrix[i])
 			free(matrix[i]);
 	free(matrix);
