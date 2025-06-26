@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/24 20:47:33 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/25 18:58:56 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	init_cube(t_cube *cube, char **argv)
 {
 	check_map(argv);
 	init_map(cube, argv);
-	//? try to recieve the fd to call 'check_file_origin' first than 'init_ma'
-	check_file_origin(cube);
+	//? try to recieve the fd to call 'check_file' first than 'init_map'
+	check_file(cube);
 }
 
 int main(int argc, char **argv)
@@ -46,5 +46,6 @@ int main(int argc, char **argv)
 		return(1);
 	}
 	init_cube(&cube, argv);
+	free_map (cube.map);
 	return 0;
 }

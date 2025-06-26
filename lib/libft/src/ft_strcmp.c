@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen_space.c                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 20:33:38 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/25 17:49:48 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/06/25 20:50:03 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/06/25 20:51:05 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../includes/libft.h"
 
-int	strlen_space(char *line)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int		i;
-
-	i = -1;
-	while (line[++i])
-		if (line[i + 1] == ' ')
-			break;
-	return (i);
+	while (*s1 && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

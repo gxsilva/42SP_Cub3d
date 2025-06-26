@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen_space.c                                     :+:      :+:    :+:   */
+/*   free_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 20:33:38 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/25 17:49:48 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/06/25 14:59:48 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/06/25 15:01:06 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../includes/header.h"
 
-int	strlen_space(char *line)
+void	free_map(t_map *map)
 {
-	int		i;
-
-	i = -1;
-	while (line[++i])
-		if (line[i + 1] == ' ')
-			break;
-	return (i);
+	if (!map)
+		return ;
+	free_split((void **)map->matrix);
+	free(map);
 }

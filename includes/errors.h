@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:13:57 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/25 02:04:52 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/25 20:57:27 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,20 @@
 //file format
 #define INVALID_FILE_FORMAT BRIGHT_RED"Invalid file format"RESET
 #define INVALID_FILE_CHAR BRIGHT_RED"Invalid type of char in file"RESET
+
+#define INVALID_NO_XPM BRIGHT_RED"Invalid NO xpm file"RESET
+#define INVALID_SO_XPM BRIGHT_RED"Invalid SO xpm file"RESET
+#define INVALID_WE_XPM BRIGHT_RED"Invalid WE xpm file"RESET
+#define INVALID_EA_XPM BRIGHT_RED"Invalid EA xpm file"RESET
+
+#define INVALID_NO_XPM_PATH BRIGHT_RED"Invalid NO xpm path file"RESET
+#define INVALID_SO_XPM_PATH BRIGHT_RED"Invalid SO xpm path file"RESET
+#define INVALID_WE_XPM_PATH BRIGHT_RED"Invalid WE xpm path file"RESET
+#define INVALID_EA_XPM_PATH BRIGHT_RED"Invalid EA xpm path file"RESET
+
+#define INVALID_DUPLICATE_XPM BRIGHT_RED"Duplicate xpm file entry"RESET
+
+#define INVALID_FLOOR_COLOR BRIGHT_RED"Invalid floor color"RESET
+#define INVALID_CEILING_COLOR BRIGHT_RED"Invalid ceiling color"RESET
 
 #endif // ERRORS_HPP

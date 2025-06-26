@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen_space.c                                     :+:      :+:    :+:   */
+/*   free_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 20:33:38 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/25 17:49:48 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/06/25 14:35:54 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/06/25 14:38:28 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../includes/header.h"
 
-int	strlen_space(char *line)
+void	free_file(t_file *file)
 {
-	int		i;
-
-	i = -1;
-	while (line[++i])
-		if (line[i + 1] == ' ')
-			break;
-	return (i);
+	if (!file)
+		return ;
+	if (file->EA_path)
+		free(file->EA_path);
+	if (file->NO_path)
+		free(file->NO_path);
+	if (file->SO_path)
+		free(file->SO_path);
+	if (file->WE_path)
+		free(file->WE_path);
+	free(file);
+	file = NULL;
 }

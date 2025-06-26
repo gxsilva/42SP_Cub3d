@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen_space.c                                     :+:      :+:    :+:   */
+/*   sanitaze_string.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 20:33:38 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/25 17:49:48 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/06/25 18:52:15 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/06/25 18:52:23 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../includes/header.h"
 
-int	strlen_space(char *line)
+char *sanitize_string(char *line)
 {
 	int		i;
 
-	i = -1;
-	while (line[++i])
-		if (line[i + 1] == ' ')
-			break;
-	return (i);
+	i = 0;
+	if (!line)
+		error_msg(NULL_POINTER, DEBUG_FLAG, 1);
+	while (line[i] == ' ' || line[i] == '\t')
+		i++;
+	int j = 0;
+	while (line[j])
+	{
+		if (!ft_isascii(line[j]))
+			error_msg(INVALID_FILE_CHAR, DEBUG_FLAG, 1);
+		j++;
+	}
+	return (&line[i]);
 }
