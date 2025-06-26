@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:54:31 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/25 19:05:16 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:03:28 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,50 +15,32 @@
 int		count_elements(char **array);
 int		rgb_to_int(char *str);
 
-/*
 int	count_elements(char **array)
 {
-	int count = 0;
-
-	if (!array)
-		return (0);
-	while (array[count] != NULL)
-	{
-		if (strlen_space(sanitize_string(array[count])) != 0)
-			count++;
-		else
-			break;
-	}
-	return (count);
-}
-*/
-
-int	count_elements(char **array)
-{
-	int		count;
-	int		j;
+	int		idx;
 	char	*sanitized;
 	int		len;
+	int		i;
 
-	count = 0;
+	idx = 0;
 	if (!array)
 		return (0);
-	while (array[count] != NULL)
+	while (array[idx] != NULL)
 	{
-		sanitized = sanitize_string(array[count]);
+		sanitized = sanitize_string(array[idx]);
 		len = strlen_space(sanitized);
 		if (len == 0)
 			break;
-		j = 0;
-		while (j < len)
+		i = 0;
+		while (i < len)
 		{
-			if (!ft_isdigit(sanitized[j]))
+			if (!ft_isdigit(sanitized[i]))
 				return (0);
-			j++;
+			i++;
 		}
-		count++;
+		idx++;
 	}
-	return (count);
+	return (idx);
 }
 
 int	rgb_to_int(char *str)

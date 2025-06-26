@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/25 21:12:12 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/06/26 17:15:16 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,11 +51,12 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	free/free_split.c \
 	free/free_map.c \
 	utils/strlen_space.c \
+	utils/format_path.c \
 	utils/sanitaze_string.c \
 	debug/file_debug.c \
 )
 
-OBJS		:= $(patsubst $(SRCS)%.c,$(OBJ_DIR)/%.o,$(SRCS))
+OBJS		:= $(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)/%.o,$(SRCS))
 
 # MACROS
 NO_PRINT	:= --no-print-directory
@@ -76,7 +77,8 @@ $(NAME): $(OBJS) $(GNL_LIB) $(LIBFT_LIB) $(MLX_LIB)
 	@echo "$(GREEN)✅ $(BOLD)$(NAME) compiled successfully!$(END)"
 	
 $(OBJ_DIR)/%.o: $(SRCS_DIR)%.c | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $@

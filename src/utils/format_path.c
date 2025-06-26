@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen_space.c                                     :+:      :+:    :+:   */
+/*   format_path.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 20:33:38 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 15:03:09 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/06/26 15:48:01 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/06/26 15:48:32 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../includes/header.h"
 
-int	strlen_space(char *line)
+void format_path(char **xpm_path)
 {
+	char	*new_str;
 	int		i;
 
-	i = 0;
-	while (line[i] && line[i] != ' ' && line[i] != '\n')
-		i++;
-	return (i);
+	i = -1;
+	new_str = (char *)malloc(ft_strlen(*xpm_path) + 3);
+	if (!new_str)
+		error_msg(INVALID_MALLOC, DEBUG_FLAG, 1); //TODO correct handle free structs
+	new_str[0] = '.';
+	new_str[1] = '/';
+	while ((*xpm_path)[++i])
+		new_str[i + 2] = (*xpm_path)[i];
+	new_str[i + 2] = '\0';
+	free (*xpm_path);
+	*xpm_path = new_str;
 }

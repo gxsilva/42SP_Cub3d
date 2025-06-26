@@ -1,9 +1,11 @@
 #!/bin/bash
 
-# Navigate to script directory (if needed)
-cd "$(dirname "$0")"
+# To better view enable Debug mode in make file
 
-CUB3D_EXEC="../cub3D"
+# Navigate to project root (../ from scripts/)
+cd "$(dirname "$0")/.."
+
+CUB3D_EXEC="./cub3D"
 
 # Check if cub3D exists
 if [ ! -f "$CUB3D_EXEC" ]; then
@@ -16,7 +18,7 @@ if [ ! -f "$CUB3D_EXEC" ]; then
 fi
 
 # Run for all good and bad maps
-for map in ../maps/good/*.cub ../maps/bad/*.cub; do
+for map in maps/good/*.cub maps/bad/*.cub; do
     if [ -f "$map" ]; then
         printf "\nRunning: $CUB3D_EXEC $map\n"
         $CUB3D_EXEC "$map"

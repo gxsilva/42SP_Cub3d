@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/25 21:11:55 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/26 15:54:34 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	check_file(t_cube *cube);
 
 //Error
 void	error_msg (char *err_str, int debug_opt, int std_opt);
-int	error_stay(char *err_str);
+int		error_stay(char *err_str);
 
 //Debug functions
 void	debug_file_struct(t_file *file);
@@ -29,18 +29,27 @@ void	debug_file_struct(t_file *file);
 //Utils
 int		strlen_space(char *line);
 char	*sanitize_string(char *line);
+void	format_path(char **xpm_path);
 
 //File functions
+void	check_file(t_cube *cube);
+void	init_file_struct(t_cube *cube);
+int		fill_file_struct(char *line, t_file *file);
+int		verify_file_struct(t_file *file);
+void	verify_format_path(t_file *file);
+
+//File functions struct
 void	fill_directions(char *line, t_file *file);
 void	fill_floor_ceiling(char *line, t_file *file);
+
+//RGB functions
 int		count_elements(char **array);
 int		rgb_to_int(char *str);
 
 //Xpm verify
-int			verify_xpm_extension(t_file *file);
-int			verify_xmp_duplicate(t_file *file);
-int			verify_coordinates(t_file *file);
-int			verify_xpm_path(t_file *file);
+int		verify_xpm_extension(t_file *file);
+int		verify_coordinates(t_file *file);
+int		verify_xpm_path(t_file *file);
 
 //Free functions
 void	free_split(void **matrix);

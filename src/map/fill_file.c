@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 20:39:09 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/25 21:14:29 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:10:51 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,6 @@ void		check_file(t_cube *cube);
 void		init_file_struct(t_cube *cube);
 int			fill_file_struct(char *line, t_file *file);
 int			verify_file_struct(t_file *file);
-
-//!REMOVE (or not ===============================
-static void	tmp_free_buffer_gnl(int fd) 
-{
-	char	*line;
-
-	while((line = get_next_line(fd)))
-		free(line);
-	return ;
-}
-//!============================================
 
 void	check_file(t_cube *cube)
 {
@@ -44,12 +33,14 @@ void	check_file(t_cube *cube)
 		}
 		free(line);
 	}
-	//?WIP
-	tmp_free_buffer_gnl(cube->map->fd); //!REMOVE
 	if(!verify_file_struct(cube->file))
+	{
+		free_map(cube->map);
+		free_file(cube->file);
 		exit (1);
-	debug_file_struct(cube->file);//!REMOVE
-	free_file(cube->file);
+	}
+	if (DEBUG_FLAG)
+		debug_file_struct(cube->file);
 }
 
 void init_file_struct(t_cube *cube)
@@ -67,27 +58,26 @@ void init_file_struct(t_cube *cube)
 
 int	fill_file_struct(char *line, t_file *file)
 {
-	char	*tmp_line;
+	char	*line_buffer;
 
-	tmp_line = sanitize_string(line);
-	if (*tmp_line == '\0')
+	line_buffer = sanitize_string(line);
+	if (*line_buffer == '\0')
 		return (0);
-	if (tmp_line[0] == '1' || tmp_line[0] == '0')
+	if (line_buffer[0] == '1' || line_buffer[0] == '0')
 		return (1);
-	fill_directions(tmp_line, file);
-	fill_floor_ceiling(tmp_line, file);
+	fill_directions(line_buffer, file);
+	fill_floor_ceiling(line_buffer, file);
 	return (0);
 }
 
 int	verify_file_struct(t_file *file)
 {
-	if (!verify_coordinates(file))//0 = error
+	if (!verify_coordinates(file))
 		return (0);
-	// if (!verify_xmp_duplicate(file))//0 = error
-	// 	return (0);
-	if (!verify_xpm_extension(file)) //0 = error
+	verify_format_path(file);
+	if (!verify_xpm_extension(file))
 		return (0);
-	if (!verify_xpm_path(file)) //0 = error
+	if (!verify_xpm_path(file))
 		return (0);
 	return (1);
 }
