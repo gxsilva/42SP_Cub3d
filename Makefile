@@ -6,14 +6,14 @@
 #    By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/24 16:46:47 by ailbezer         ###   ########.fr        #
+#    Updated: 2025/06/26 21:05:10 by ailbezer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # DEFINES
 NAME		:= cub3D
 CC			:= cc
-CFLAGS		:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
+CFLAGS		:= -Wextra -Wall -Werror -Wunreachable-code -Ofast -g3 -O0
 MLXFLAGS	:= -ldl -lglfw -lpthread -lm -lmlx42 -lft -lgnl
 
 # DIRECTORIES
@@ -42,13 +42,14 @@ LIBS = -L$(MLX_DIR)/build -L$(LIBFT_DIR)/bin -L$(GNL_DIR)/bin
 SRCS		:= $(addprefix $(SRCS_DIR), \
 	main.c \
 	error/process_error.c \
-	map/fill_map.c \
+	map/fill_map.c map/parse_map.c \
 )
 
 OBJS		:= $(patsubst $(SRCS)%.c,$(OBJ_DIR)/%.o,$(SRCS))
 
 # MACROS
 NO_PRINT	:= --no-print-directory
+VALGRIND	:= valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --track-fds=all
 
 BOLD = \033[1m
 YELLOW = \033[33m
@@ -104,6 +105,26 @@ fclean: clean
 	
 re: fclean all
 
-.PHONY: libmlx gnl all clean fclean re
+val: re
+	clear && ./cub3D maps/good/subject_map.cub
+	@./cub3D maps/good/cheese_maze.cub 
+	@./cub3D maps/good/creepy.cub 
+	@./cub3D maps/good/dungeon.cub 
+	@./cub3D maps/good/library.cub 
+	@./cub3D maps/good/matrix.cub 
+	@./cub3D maps/good/sad_face.cub 
+	@./cub3D maps/good/square_map.cub 
+	@./cub3D maps/good/subject_map.cub 
+	@./cub3D maps/good/test_map_hole.cub 
+	@./cub3D maps/good/test_map.cub 
+	@./cub3D maps/good/test_pos_bottom.cub 
+	@./cub3D maps/good/test_pos_left.cub
+	@./cub3D maps/good/test_pos_right.cub 
+	@./cub3D maps/good/test_pos_top.cub 
+	@./cub3D maps/good/test_textures.cub 
+	@./cub3D maps/good/test_whitespace.cub 
+	@./cub3D maps/good/works.cub
+	
+.PHONY: libmlx gnl all clean fclean re val
 
 default: all

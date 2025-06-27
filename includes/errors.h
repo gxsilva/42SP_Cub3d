@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:13:57 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/24 16:50:40 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/25 15:08:42 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,17 @@
 
 //open error
 #define INVALID_OPEN BRIGHT_RED"Invalid open"RESET
+
+// Empty map (gnl = NULL)
+#define INVALID_EMPTY_MAP BRIGHT_RED"Invalid empty map"RESET
+
+ // map doesn´t surround by walls
+#define INVALID_WALLS_FORMAT BRIGHT_RED"Invalid walls format"RESET
+
+// Empty line in map
+#define INVALID_EMPTY_LINE BRIGHT_RED"Invalid empty line"RESET
+
+// Invalid caracter in map
+#define INVALID_CARACTER BRIGHT_RED"Invalid CARACTER"RESET
+
 #endif // ERRORS_HPP
