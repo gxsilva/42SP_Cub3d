@@ -12,16 +12,6 @@
 
 #include "../../includes/header.h"
 
-// //!REMOVE (or not ===============================
-// static void	tmp_free_buffer_gnl(int fd) 
-// {
-// 	char	*line;
-
-// 	while ((line = get_next_line(fd)))
-// 		free(line);
-// 	return ;
-// }
-// //!============================================
 
 // void	free_map(t_map *map)
 // {

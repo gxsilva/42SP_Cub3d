@@ -6,7 +6,7 @@
 #    By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/27 18:01:28 by ailbezer         ###   ########.fr        #
+#    Updated: 2025/06/27 18:59:30 by ailbezer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,11 +43,14 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	main.c \
 	error/process_error.c \
 	map/fill_map.c \
-	map/parse_map.c \
 	map/fill_file_struct.c \
 	map/fill_file.c \
 	map/fill_file_rgb.c \
 	map/xpm_verify.c \
+	map/map_struct/map_infos.c \
+	map/map_struct/map_matrix.c \
+	map/map_struct/parse_map.c \
+	map/map_struct/validate_walls.c \
 	free/free_file.c \
 	free/free_split.c \
 	free/free_map.c \
@@ -56,6 +59,7 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	utils/print_color.c \
 	utils/sanitaze_string.c \
 	debug/file_debug.c \
+	debug/parse_debug.c \
 )
 
 OBJS		:= $(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)/%.o,$(SRCS))
@@ -137,39 +141,17 @@ g: re
 	@$(VALGRIND) ./cub3D maps/good/test_textures.cub 
 	@$(VALGRIND) ./cub3D maps/good/test_whitespace.cub 
 	@$(VALGRIND) ./cub3D maps/good/works.cub
-	
-# b: re
-# 	@clear && ./cub3D maps/bad/color_invalid_rgb.cub
-# 	@./cub3D maps/bad/color_missing_ceiling_rgb.cub
-# 	@./cub3D maps/bad/color_missing_floor_rgb.cub
-# 	@./cub3D maps/bad/color_missing.cub 
-# 	@./cub3D maps/bad/color_none.cub 
-# 	@./cub3D maps/bad/empty.cub
-# 	@./cub3D maps/bad/file_letter_end.cub
-# 	@./cub3D maps/bad/filetype_missing 
-# 	@./cub3D maps/bad/filetype_wrong.buc
-# 	@./cub3D maps/bad/forbidden.cub 
-# 	@./cub3D maps/bad/map_first.cub
-# 	@./cub3D maps/bad/map_middle.cub
-# 	@./cub3D maps/bad/map_missing.cub 
-# 	@./cub3D maps/bad/map_only.cub
-# 	@./cub3D maps/bad/map_too_small.cub
-# 	@./cub3D maps/bad/player_multiple.cub
-# 	@./cub3D maps/bad/player_none.cub 
-# 	@./cub3D maps/bad/player_on_edge.cub
-# 	@./cub3D maps/bad/textures_dir.cub 
-# 	@./cub3D maps/bad/textures_duplicates.cub 
-# 	@./cub3D maps/bad/textures_forbidden.cub 
-# 	@./cub3D maps/bad/textures_invalid.cub
-# 	@./cub3D maps/bad/textures_missing.cub 
-# 	@./cub3D maps/bad/textures_none.cub
-# 	@./cub3D maps/bad/textures_not_xpm.cub
-# 	@./cub3D maps/bad/wall_hole_east.cub
-# 	@./cub3D maps/bad/wall_hole_north.cub 
-# 	@./cub3D maps/bad/wall_hole_south.cub 
-# 	@./cub3D maps/bad/wall_hole_west.cub
-# 	@./cub3D maps/bad/wall_none.cub
-		 
-.PHONY: libmlx gnl all clean fclean re g #b
+
+norm:
+	@echo "\n$(CYAN)=======$(END) $(GREEN)LIBFT$(END) $(CYAN)=======$(END)"
+	@norminette lib/libft | sed 's/OK/\x1b[1;32m&\x1b[0m/g' | sed 's/libft/\x1b[1;31m&\x1b[0m/g'
+	@echo "\n$(CYAN)=======$(END) $(GREEN)GNL$(END) $(CYAN)=======$(END)"
+	@norminette lib/GNL | sed 's/OK/\x1b[1;32m&\x1b[0m/g' | sed 's/GNL/\x1b[1;31m&\x1b[0m/g'
+	@echo "\n$(CYAN)=======$(END) $(GREEN)MANDATORY$(END) $(CYAN)=======$(END)"
+	@norminette src | sed 's/OK/\x1b[1;32m&\x1b[0m/g' | sed 's/src/\x1b[1;33m&\x1b[0m/g'
+	@echo "\n$(CYAN)=======$(END) $(GREEN)INCLUDES$(END) $(CYAN)=======$(END)"
+	@norminette includes/ | sed 's/OK/\x1b[1;32m&\x1b[0m/g' | sed 's/includes/\x1b[1;36m&\x1b[0m/g'
+
+.PHONY: libmlx gnl all clean fclean re g norm
 
 default: all
