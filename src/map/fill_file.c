@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 20:39:09 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 18:49:57 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/27 19:24:31 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void		init_file_struct(t_cube *cube);
 int			fill_file_struct(char *line, t_file *file);
 int			verify_file_struct(t_file *file);
 
-
-// //!REMOVE (or not ===============================
+//!REMOVE (or not ===============================
 static void	tmp_free_buffer_gnl(int fd) 
 {
 	char	*line;
@@ -27,7 +26,7 @@ static void	tmp_free_buffer_gnl(int fd)
 		free(line);
 	return ;
 }
-// //!============================================
+//!============================================
 
 void	check_file(t_cube *cube)
 {
@@ -48,15 +47,13 @@ void	check_file(t_cube *cube)
 		free(line);
 	}
 	tmp_free_buffer_gnl(fd);
+	tmp_free_buffer_gnl(fd);
 	close(fd);
 	if (!verify_file_struct(cube->file))
 	{
-		// free_map(cube->map);
-		free_file(cube->file);
+		free_cube(cube);
 		exit (1);
 	}
-	if (DEBUG_FLAG)
-		debug_file_struct(cube->file);
 }
 
 void	init_file_struct(t_cube *cube)

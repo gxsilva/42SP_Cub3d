@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   fill_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:46:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 18:53:50 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/27 19:24:43 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/header.h"
 
-void	init_map(t_cube *cube, char **argv);
+void	init_map(t_cube *cube,  char **argv);
 
 void	init_map(t_cube *cube, char **argv)
 {
@@ -22,6 +22,7 @@ void	init_map(t_cube *cube, char **argv)
 	cube->map->height = 0;
 	cube->map->name = ft_strdup(argv[1]);
 	cube->map->width = 0;
+	cube->map->name = ft_strdup(argv[1]);
 	cube->map->matrix = NULL;
 	cube->player = NULL;
 }

@@ -5,6 +5,7 @@
         "libft.h": "c",
         "get_next_line.h": "c",
         "mlx42.h": "c",
-        "macros.h": "c"
+        "macros.h": "c",
+        "struct.h": "c"
     }
 }
