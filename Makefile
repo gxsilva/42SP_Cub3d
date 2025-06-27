@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+         #
+#    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/27 14:14:13 by ailbezer         ###   ########.fr        #
+#    Updated: 2025/06/27 15:32:14 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,9 +43,22 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	main.c \
 	error/process_error.c \
 	map/fill_map.c map/parse_map.c \
+	map/fill_file_struct.c \
+	map/fill_file.c \
+	map/fill_file_rgb.c \
+	map/fill_map.c \
+	map/xpm_verify.c \
+	free/free_file.c \
+	free/free_split.c \
+	free/free_map.c \
+	utils/strlen_space.c \
+	utils/format_path.c \
+	utils/print_color.c \
+	utils/sanitaze_string.c \
+	debug/file_debug.c \
 )
 
-OBJS		:= $(patsubst $(SRCS)%.c,$(OBJ_DIR)/%.o,$(SRCS))
+OBJS		:= $(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)/%.o,$(SRCS))
 
 # MACROS
 NO_PRINT	:= --no-print-directory
@@ -67,7 +80,8 @@ $(NAME): $(OBJS) $(GNL_LIB) $(LIBFT_LIB) $(MLX_LIB)
 	@echo "$(GREEN)✅ $(BOLD)$(NAME) compiled successfully!$(END)"
 	
 $(OBJ_DIR)/%.o: $(SRCS_DIR)%.c | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $@

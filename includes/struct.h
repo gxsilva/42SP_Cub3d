@@ -6,14 +6,14 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 20:28:35 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/26 17:21:42 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
-
 #ifndef STRUCT_H
-#define STRUCT_H
+# define STRUCT_H
+
+# include "header.h"
 
 typedef struct s_map
 {
@@ -23,7 +23,17 @@ typedef struct s_map
 	// int		fd;
 	char	*name;
 	int		**matrix;
-} t_map;
+}	t_map;
+
+typedef struct s_file
+{
+	int		floor;
+	int		ceiling;
+	char	*no_path;
+	char	*so_path;
+	char	*we_path;
+	char	*ea_path;
+}	t_file;
 
 typedef struct s_player
 {
@@ -37,8 +47,7 @@ typedef struct s_cube
 {
 	t_map		*map;
 	t_player	*player;
-} t_cube;
-
-
+	t_file	*file;
+}	t_cube;
 
 #endif //STRUCT_H
