@@ -6,7 +6,7 @@
 #    By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/26 21:05:10 by ailbezer         ###   ########.fr        #
+#    Updated: 2025/06/27 14:14:13 by ailbezer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ OBJS		:= $(patsubst $(SRCS)%.c,$(OBJ_DIR)/%.o,$(SRCS))
 
 # MACROS
 NO_PRINT	:= --no-print-directory
-VALGRIND	:= valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --track-fds=all
+VALGRIND	:= valgrind --quiet --leak-check=full --track-origins=yes --show-leak-kinds=all --track-fds=all
 
 BOLD = \033[1m
 YELLOW = \033[33m
@@ -105,26 +105,57 @@ fclean: clean
 	
 re: fclean all
 
-val: re
-	clear && ./cub3D maps/good/subject_map.cub
-	@./cub3D maps/good/cheese_maze.cub 
-	@./cub3D maps/good/creepy.cub 
-	@./cub3D maps/good/dungeon.cub 
-	@./cub3D maps/good/library.cub 
-	@./cub3D maps/good/matrix.cub 
-	@./cub3D maps/good/sad_face.cub 
-	@./cub3D maps/good/square_map.cub 
-	@./cub3D maps/good/subject_map.cub 
-	@./cub3D maps/good/test_map_hole.cub 
-	@./cub3D maps/good/test_map.cub 
-	@./cub3D maps/good/test_pos_bottom.cub 
-	@./cub3D maps/good/test_pos_left.cub
-	@./cub3D maps/good/test_pos_right.cub 
-	@./cub3D maps/good/test_pos_top.cub 
-	@./cub3D maps/good/test_textures.cub 
-	@./cub3D maps/good/test_whitespace.cub 
-	@./cub3D maps/good/works.cub
+g: re
+	@clear && $(VALGRIND) ./cub3D maps/good/cheese_maze.cub 
+	@$(VALGRIND) ./cub3D maps/good/creepy.cub 
+	@$(VALGRIND) ./cub3D maps/good/dungeon.cub 
+	@$(VALGRIND) ./cub3D maps/good/library.cub 
+	@$(VALGRIND) ./cub3D maps/good/matrix.cub 
+	@$(VALGRIND) ./cub3D maps/good/sad_face.cub 
+	@$(VALGRIND) ./cub3D maps/good/square_map.cub 
+	@$(VALGRIND) ./cub3D maps/good/subject_map.cub 
+	@$(VALGRIND) ./cub3D maps/good/test_map_hole.cub 
+	@$(VALGRIND) ./cub3D maps/good/test_map.cub 
+	@$(VALGRIND) ./cub3D maps/good/test_pos_bottom.cub 
+	@$(VALGRIND) ./cub3D maps/good/test_pos_left.cub
+	@$(VALGRIND) ./cub3D maps/good/test_pos_right.cub 
+	@$(VALGRIND) ./cub3D maps/good/test_pos_top.cub 
+	@$(VALGRIND) ./cub3D maps/good/test_textures.cub 
+	@$(VALGRIND) ./cub3D maps/good/test_whitespace.cub 
+	@$(VALGRIND) ./cub3D maps/good/works.cub
 	
-.PHONY: libmlx gnl all clean fclean re val
+# b: re
+# 	@clear && ./cub3D maps/bad/color_invalid_rgb.cub
+# 	@./cub3D maps/bad/color_missing_ceiling_rgb.cub
+# 	@./cub3D maps/bad/color_missing_floor_rgb.cub
+# 	@./cub3D maps/bad/color_missing.cub 
+# 	@./cub3D maps/bad/color_none.cub 
+# 	@./cub3D maps/bad/empty.cub
+# 	@./cub3D maps/bad/file_letter_end.cub
+# 	@./cub3D maps/bad/filetype_missing 
+# 	@./cub3D maps/bad/filetype_wrong.buc
+# 	@./cub3D maps/bad/forbidden.cub 
+# 	@./cub3D maps/bad/map_first.cub
+# 	@./cub3D maps/bad/map_middle.cub
+# 	@./cub3D maps/bad/map_missing.cub 
+# 	@./cub3D maps/bad/map_only.cub
+# 	@./cub3D maps/bad/map_too_small.cub
+# 	@./cub3D maps/bad/player_multiple.cub
+# 	@./cub3D maps/bad/player_none.cub 
+# 	@./cub3D maps/bad/player_on_edge.cub
+# 	@./cub3D maps/bad/textures_dir.cub 
+# 	@./cub3D maps/bad/textures_duplicates.cub 
+# 	@./cub3D maps/bad/textures_forbidden.cub 
+# 	@./cub3D maps/bad/textures_invalid.cub
+# 	@./cub3D maps/bad/textures_missing.cub 
+# 	@./cub3D maps/bad/textures_none.cub
+# 	@./cub3D maps/bad/textures_not_xpm.cub
+# 	@./cub3D maps/bad/wall_hole_east.cub
+# 	@./cub3D maps/bad/wall_hole_north.cub 
+# 	@./cub3D maps/bad/wall_hole_south.cub 
+# 	@./cub3D maps/bad/wall_hole_west.cub
+# 	@./cub3D maps/bad/wall_none.cub
+		 
+.PHONY: libmlx gnl all clean fclean re g #b
 
 default: all
