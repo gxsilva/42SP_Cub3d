@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 17:59:25 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/27 18:34:38 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 t_cube	*get_cube(void);
 
-void	init_map(t_cube *cube);
+void	init_map(t_cube *cube,  char **argv);
 
 void	leftovers(int fd);
 //========= map/parse_map =========
@@ -29,7 +29,7 @@ void	check_file(t_cube *cube);
 
 //Error
 void	error_msg(char *err_str, char *color, int debug_opt, int std_opt);
-int		error_stay(char *err_str);
+int		error_stay(char *err_str, char *color);
 
 //Debug functions
 void	debug_file_struct(t_file *file);
@@ -61,8 +61,12 @@ int		verify_coordinates(t_file *file);
 int		verify_xpm_path(t_file *file);
 
 //Free functions
-void	free_split(void **matrix);
+void	free_cube(t_cube *cube);
 void	free_file(t_file *file);
-// void	free_map(t_map *map);
+void	free_map(t_map *map);
+void	free_player (t_player *player);
+
+void	free_split(void **matrix);
+
 
 #endif // FUNCTIONS_H

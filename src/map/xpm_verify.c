@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 21:08:18 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 17:33:08 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/27 18:28:38 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ int	verify_coordinates(t_file *file)
 	valid = 1;
 	if (!file->no_path)
 	{
-		printf("%s\n", INVALID_NO_XPM);
+		print_color(INVALID_NO_XPM, BRIGHT_RED);
 		valid = 0;
 	}
 	if (!file->so_path)
 	{
-		printf("%s\n", INVALID_SO_XPM);
+		print_color(INVALID_SO_XPM, BRIGHT_RED);
 		valid = 0;
 	}
 	if (!file->we_path)
 	{
-		printf("%s\n", INVALID_WE_XPM);
+		print_color(INVALID_WE_XPM, BRIGHT_RED);
 		valid = 0;
 	}
 	valid = verify_file_node(file, valid); // hate u norm >:|
@@ -48,19 +48,19 @@ int	verify_xpm_path(t_file *file)
 
 	tmp_fd = open(file->ea_path, O_RDONLY);
 	if (tmp_fd == -1)
-		return (error_stay(INVALID_EA_XPM_PATH));
+		return (error_stay(INVALID_EA_XPM_PATH, BRIGHT_RED));
 	close(tmp_fd);
 	tmp_fd = open(file->no_path, O_RDONLY);
 	if (tmp_fd == -1)
-		return (error_stay(INVALID_NO_XPM_PATH));
+		return (error_stay(INVALID_NO_XPM_PATH, BRIGHT_RED));
 	close(tmp_fd);
 	tmp_fd = open(file->so_path, O_RDONLY);
 	if (tmp_fd == -1)
-		return (error_stay(INVALID_SO_XPM_PATH));
+		return (error_stay(INVALID_SO_XPM_PATH, BRIGHT_RED));
 	close(tmp_fd);
 	tmp_fd = open(file->we_path, O_RDONLY);
 	if (tmp_fd == -1)
-		return (error_stay(INVALID_WE_XPM_PATH));
+		return (error_stay(INVALID_WE_XPM_PATH, BRIGHT_RED));
 	close(tmp_fd);
 	return (1);
 }
@@ -73,16 +73,16 @@ int	verify_xpm_extension(t_file *file)
 	cod = 1;
 	tmp = ft_strrchr(file->no_path, '.');
 	if (!tmp || ft_strncmp(tmp, ".xpm", 4))
-		cod = error_stay(INVALID_NO_XPM);
+		cod = error_stay(INVALID_NO_XPM, BRIGHT_RED);
 	tmp = ft_strrchr(file->ea_path, '.');
 	if (!tmp || ft_strncmp(tmp, ".xpm", 4))
-		cod = error_stay(INVALID_EA_XPM);
+		cod = error_stay(INVALID_EA_XPM, BRIGHT_RED);
 	tmp = ft_strrchr(file->so_path, '.');
 	if (!tmp || ft_strncmp(tmp, ".xpm", 4))
-		cod = error_stay(INVALID_SO_XPM);
+		cod = error_stay(INVALID_SO_XPM, BRIGHT_RED);
 	tmp = ft_strrchr(file->we_path, '.');
 	if (!tmp || ft_strncmp(tmp, ".xpm", 4))
-		cod = error_stay(INVALID_WE_XPM);
+		cod = error_stay(INVALID_WE_XPM, BRIGHT_RED);
 	return (cod);
 }
 
@@ -93,17 +93,17 @@ static int	verify_file_node(t_file *file, int cod)
 	valid = cod;
 	if (!file->ea_path)
 	{
-		printf("%s\n", INVALID_EA_XPM);
+		print_color(INVALID_EA_XPM, BRIGHT_RED);
 		valid = 0;
 	}
 	if (file->floor < 0)
 	{
-		printf("%s\n", INVALID_FLOOR_COLOR);
+		print_color(INVALID_FLOOR_COLOR, BRIGHT_RED);
 		valid = 0;
 	}
 	if (file->ceiling < 0)
 	{
-		printf("%s\n", INVALID_CEILING_COLOR);
+		print_color(INVALID_CEILING_COLOR, BRIGHT_RED);
 		valid = 0;
 	}
 	return (valid);

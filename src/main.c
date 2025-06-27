@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 17:59:47 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/27 18:45:43 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ void	check_map(char **argv)
 void	init_cube(t_cube *cube, char **argv)
 {
 	check_map(argv);
-	init_map(cube);
+	init_map(cube, argv);
 	check_file(cube);
+	if (DEBUG_FLAG)
+		debug_file_struct(cube->file);
 	parse_map(cube->map);
 }
 
@@ -54,18 +56,17 @@ int	main(int argc, char **argv)
 {
 	t_cube	*cube;
 
-	(void)argv; //!REMOVE
-  cube = get_cube();
+	cube = get_cube();
 	if (argc != 2)
 	{
 		printf ("Error\n");
 		print_color (INVALID_ARGUMENTS_AMOUNT, BRIGHT_RED);
 		return (1);
-  }
+	}
 	init_cube(cube, argv);
-	// free_map (cube->map);
-	free(cube->player);
-	free_file(cube->file);
+	
+	// ============WIP=============
+	free_cube(get_cube());
 	return (0);
 
 }

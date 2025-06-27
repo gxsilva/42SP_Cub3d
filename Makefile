@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+         #
+#    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/27 18:01:28 by ailbezer         ###   ########.fr        #
+#    Updated: 2025/06/27 18:22:59 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,9 +48,8 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	map/fill_file.c \
 	map/fill_file_rgb.c \
 	map/xpm_verify.c \
-	free/free_file.c \
 	free/free_split.c \
-	free/free_map.c \
+	free/free_cube.c \
 	utils/strlen_space.c \
 	utils/format_path.c \
 	utils/print_color.c \
