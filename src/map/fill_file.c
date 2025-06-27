@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 20:39:09 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 18:45:35 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/27 19:24:31 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	check_file(t_cube *cube)
 		}
 		free(line);
 	}
+	tmp_free_buffer_gnl(fd);
 	tmp_free_buffer_gnl(fd);
 	close(fd);
 	if (!verify_file_struct(cube->file))

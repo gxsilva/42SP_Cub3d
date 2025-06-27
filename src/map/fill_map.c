@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:46:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 18:35:43 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/27 19:24:43 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	init_map(t_cube *cube, char **argv)
 	if (!cube->map)
 	  error_msg(INVALID_MALLOC, BRIGHT_RED, DEBUG_FLAG, 1);
 	cube->map->height = 0;
+	cube->map->name = ft_strdup(argv[1]);
 	cube->map->width = 0;
 	cube->map->name = ft_strdup(argv[1]);
 	cube->map->matrix = NULL;
