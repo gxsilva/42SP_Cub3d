@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 20:39:09 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 15:41:44 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/27 17:57:50 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ int			verify_file_struct(t_file *file);
 void	check_file(t_cube *cube)
 {
 	char	*line;
+	int		fd;
 
 	init_file_struct(cube);
+	fd = open(cube->map->name, O_RDONLY);
 	while (true)
 	{
-		line = get_next_line(cube->map->fd);
+		line = get_next_line(fd);
 		if (!line || fill_file_struct(line, cube->file))
 		{
 			if (line)
@@ -33,9 +35,10 @@ void	check_file(t_cube *cube)
 		}
 		free(line);
 	}
+	close(fd);
 	if (!verify_file_struct(cube->file))
 	{
-		free_map(cube->map);
+		// free_map(cube->map);
 		free_file(cube->file);
 		exit (1);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 15:36:12 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/27 17:59:25 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,13 @@
 
 t_cube	*get_cube(void);
 
-void	init_map(t_cube *cube, char **argv);
-
-void	error_msg (char *err_str, int debug_opt, int std_opt);
+void	init_map(t_cube *cube);
 
 void	leftovers(int fd);
 //========= map/parse_map =========
 void 	parse_map(t_map *map);
 
 //Common functions
-void	init_map(t_cube *cube, char **argv);
 void	check_file(t_cube *cube);
 
 //Error
@@ -66,6 +63,6 @@ int		verify_xpm_path(t_file *file);
 //Free functions
 void	free_split(void **matrix);
 void	free_file(t_file *file);
-void	free_map(t_map *map);
+// void	free_map(t_map *map);
 
 #endif // FUNCTIONS_H
