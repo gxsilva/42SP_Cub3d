@@ -27,6 +27,20 @@
 # define INVALID_EXT "Invalid extension"
 
 //open error
+#define INVALID_OPEN BRIGHT_RED"Invalid open"RESET
+
+// Empty map (gnl = NULL)
+#define INVALID_EMPTY_MAP BRIGHT_RED"Invalid empty map"RESET
+
+ // map doesn´t surround by walls
+#define INVALID_WALLS_FORMAT BRIGHT_RED"Invalid walls format"RESET
+
+// Empty line in map
+#define INVALID_EMPTY_LINE BRIGHT_RED"Invalid empty line"RESET
+
+// Invalid caracter in map
+#define INVALID_CARACTER BRIGHT_RED"Invalid CARACTER"RESET
+
 # define INVALID_OPEN "Invalid open"
 
 //file format

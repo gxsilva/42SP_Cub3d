@@ -15,6 +15,17 @@
 
 # include "header.h"
 
+
+t_cube	*get_cube(void);
+
+void	init_map(t_cube *cube, char **argv);
+
+void	error_msg (char *err_str, int debug_opt, int std_opt);
+
+void	leftovers(int fd);
+//========= map/parse_map =========
+void 	parse_map(t_map *map);
+
 //Common functions
 void	init_map(t_cube *cube, char **argv);
 void	check_file(t_cube *cube);

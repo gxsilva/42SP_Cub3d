@@ -18,9 +18,10 @@ void	init_map(t_cube *cube, char **argv)
 {
 	cube->map = (t_map *)malloc(sizeof(t_map));
 	if (!cube->map)
-		error_msg(INVALID_MALLOC, BRIGHT_RED, DEBUG_FLAG, 1);
+	  error_msg(INVALID_MALLOC, BRIGHT_RED, DEBUG_FLAG, 1);
 	cube->map->fd = open(argv[1], O_RDONLY);
 	cube->map->height = 0;
 	cube->map->width = 0;
 	cube->map->matrix = NULL;
+	cube->player = NULL;
 }
