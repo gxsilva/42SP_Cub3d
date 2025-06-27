@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 17:21:42 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/27 19:05:51 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ typedef struct s_map
 	int		start_map;
 	int		height;
 	int		width;
-	// int		fd;
 	char	*name;
 	int		**matrix;
 }	t_map;
@@ -37,17 +36,17 @@ typedef struct s_file
 
 typedef struct s_player
 {
-	int map_pos_x;
-	int map_pos_y;
-	int dir_x;
-	int dir_y;
-} t_player;
+	int		map_pos_x;
+	int		map_pos_y;
+	int		dir_x;
+	int		dir_y;
+}	t_player;
 
 typedef struct s_cube
 {
 	t_map		*map;
 	t_player	*player;
-	t_file	*file;
+	t_file		*file;
 }	t_cube;
 
 #endif //STRUCT_H

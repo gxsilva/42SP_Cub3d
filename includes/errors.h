@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:13:57 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 17:48:14 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/27 19:06:38 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,19 @@
 # define INVALID_EXT "Invalid extension"
 
 //open error
-#define INVALID_OPEN "Invalid open"
+# define INVALID_OPEN "Invalid open"
 
 // Empty map (gnl = NULL)
-#define INVALID_EMPTY_MAP "Invalid empty map"
+# define INVALID_EMPTY_MAP "Invalid empty map"
 
- // map doesn´t surround by walls
-#define INVALID_WALLS_FORMAT "Invalid walls format"
+// map doesn´t surround by walls
+# define INVALID_WALLS_FORMAT "Invalid walls format"
 
 // Empty line in map
-#define INVALID_EMPTY_LINE "Invalid empty line"
+# define INVALID_EMPTY_LINE "Invalid empty line"
 
 // Invalid caracter in map
-#define INVALID_CARACTER "Invalid CARACTER"
-
+# define INVALID_CARACTER "Invalid CARACTER"
 
 //file format
 # define INVALID_FILE_FORMAT "Invalid file format"

@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 17:59:47 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/27 18:48:04 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	check_map(char **argv)
 void	init_cube(t_cube *cube, char **argv)
 {
 	check_map(argv);
-	init_map(cube);
+	init_map(cube, argv);
 	check_file(cube);
 	parse_map(cube->map);
 }
