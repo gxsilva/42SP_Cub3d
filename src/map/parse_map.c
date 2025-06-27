@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 18:20:03 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/27 16:19:51 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/27 17:50:07 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	end_of_map(int fd, char *line)
 		{
 			close(fd);
 			free(line);
-			error_msg(INVALID_EMPTY_LINE, DEBUG_FLAG, 1);
+			error_msg(INVALID_EMPTY_LINE, BRIGHT_RED, DEBUG_FLAG, 1);
 		}
 	}
 }
@@ -117,7 +117,7 @@ int	width_len(char *line, int fd)
 	{
 		close(fd);
 		free(line);
-		error_msg(INVALID_CARACTER, DEBUG_FLAG, 1);
+		error_msg(INVALID_CARACTER, BRIGHT_RED, DEBUG_FLAG, 1);
 	}
 	return (width + 1);
 }
@@ -176,7 +176,7 @@ void	check_wall_init(char *line, int fd, int i)
 		close(fd);
 		free(line);
 		//  funcão de liberar matrix
-		error_msg(INVALID_WALLS_FORMAT, DEBUG_FLAG, 1);
+		error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
 	}
 }
 
@@ -343,7 +343,7 @@ void	north_and_south(t_map *map)
 		while (y < map->height - 1 && map->matrix[y][x] == 2)
 			y++;
 		if (map->matrix[y][x] != 1 && map->matrix[y][x] != 2)
-			error_msg(INVALID_WALLS_FORMAT, DEBUG_FLAG, 1);
+			error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
 	}
 	x = -1;
 	while (++x < map->width)
@@ -352,7 +352,7 @@ void	north_and_south(t_map *map)
 		while (y <= 0 && map->matrix[y][x] == 2)
 			y--;
 		if (map->matrix[y][x] != 1 && map->matrix[y][x] != 2)
-			error_msg(INVALID_WALLS_FORMAT, DEBUG_FLAG, 1);
+			error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
 	}
 }
 
@@ -368,7 +368,7 @@ void	check_walls(t_map *map)
 		while (y < map->width && map->matrix[y][x] == 2)
 			x++;
 		if (map->matrix[y][x] != 1)
-			error_msg(INVALID_WALLS_FORMAT, DEBUG_FLAG, 1);
+			error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
 	}
 	y = -1;
 	while (++y < map->height)
@@ -377,7 +377,7 @@ void	check_walls(t_map *map)
 		while (map->matrix[y][x] == 2)
 			x--;
 		if (map->matrix[y][x] != 1)
-			error_msg(INVALID_WALLS_FORMAT, DEBUG_FLAG, 1);
+			error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED,  DEBUG_FLAG, 1);
 	}
 	north_and_south(map);
 }

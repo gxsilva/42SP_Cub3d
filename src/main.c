@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 15:36:27 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/27 17:59:47 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	check_map(char **argv)
 void	init_cube(t_cube *cube, char **argv)
 {
 	check_map(argv);
-	init_map(cube, argv);
-  check_file(cube);
+	init_map(cube);
+	check_file(cube);
 	parse_map(cube->map);
 }
 
@@ -63,8 +63,8 @@ int	main(int argc, char **argv)
 		return (1);
   }
 	init_cube(cube, argv);
-	free_map (cube->map);
-  free(cube->player);
+	// free_map (cube->map);
+	free(cube->player);
 	free_file(cube->file);
 	return (0);
 
