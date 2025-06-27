@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:53:09 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 17:39:55 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/27 15:44:47 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ static void	fill_directions_node(char *line_buffer, t_file *file)
 	if (ft_strnstr(line_buffer, "WE", 2))
 	{
 		if (file->we_path != NULL)
-			error_msg(INVALID_WE_DUPLICATE, DEBUG_FLAG, 1);
+			error_msg(INVALID_WE_DUPLICATE, BRIGHT_RED, DEBUG_FLAG, 1);
 		line_buffer = sanitize_string(line_buffer + 2);
 		file->we_path = ft_substr(line_buffer, 0, strlen_space(line_buffer));
 	}
 	else if (ft_strnstr(line_buffer, "EA", 2))
 	{
 		if (file->ea_path != NULL)
-			error_msg(INVALID_EA_DUPLICATE, DEBUG_FLAG, 1);
+			error_msg(INVALID_EA_DUPLICATE, BRIGHT_RED, DEBUG_FLAG, 1);
 		line_buffer = sanitize_string(line_buffer + 2);
 		file->ea_path = ft_substr(line_buffer, 0, strlen_space(line_buffer));
 	}
@@ -38,21 +38,22 @@ void	fill_directions(char *line, t_file *file)
 {
 	char	*line_buffer;
 
+	line_buffer = NULL;
 	if (ft_strnstr(line, "NO", 2))
 	{
 		if (file->no_path != NULL)
-			error_msg(INVALID_NO_DUPLICATE, DEBUG_FLAG, 1);
+			error_msg(INVALID_NO_DUPLICATE, BRIGHT_RED, DEBUG_FLAG, 1);
 		line_buffer = sanitize_string(line + 2);
 		file->no_path = ft_substr(line_buffer, 0, strlen_space(line_buffer));
 	}
 	else if (ft_strnstr(line, "SO", 2))
 	{
 		if (file->so_path != NULL)
-			error_msg(INVALID_SO_DUPLICATE, DEBUG_FLAG, 1);
+			error_msg(INVALID_SO_DUPLICATE, BRIGHT_RED, DEBUG_FLAG, 1);
 		line_buffer = sanitize_string(line + 2);
 		file->so_path = ft_substr(line_buffer, 0, strlen_space(line_buffer));
 	}
-	fill_directions_node(line_buffer, file);
+	fill_directions_node(line, file);
 }
 
 void	fill_floor_ceiling(char *line, t_file *file)
@@ -68,7 +69,7 @@ void	fill_floor_ceiling(char *line, t_file *file)
 		color_buffer = ft_substr(line_buffer, 0, ft_strlen(line_buffer));
 		color = rgb_to_int(color_buffer);
 		if (color == -1)//TODO fakeglobal and recursive to fix
-			error_msg(INVALID_COLOR_FORMAT, DEBUG_FLAG, 1);
+			error_msg(INVALID_COLOR_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
 		file->floor = color;
 	}
 	else if (ft_strnstr(line, "C", 1))
@@ -77,7 +78,7 @@ void	fill_floor_ceiling(char *line, t_file *file)
 		color_buffer = ft_substr(line_buffer, 0, ft_strlen(line_buffer));
 		color = rgb_to_int(color_buffer);
 		if (color == -1)
-			error_msg(INVALID_COLOR_FORMAT, DEBUG_FLAG, 1);
+			error_msg(INVALID_COLOR_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
 		file->ceiling = color;
 	}
 	if (color_buffer)

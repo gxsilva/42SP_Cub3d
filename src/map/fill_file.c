@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 20:39:09 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 17:38:40 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/27 15:41:44 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	init_file_struct(t_cube *cube)
 {
 	cube->file = (t_file *)malloc(sizeof(t_file));
 	if (!cube->file)
-		error_msg(INVALID_MALLOC, DEBUG_FLAG, 1);
+		error_msg(INVALID_MALLOC, BRIGHT_RED, DEBUG_FLAG, 1);
 	cube->file->ceiling = -1;
 	cube->file->floor = -1;
 	cube->file->ea_path = NULL;

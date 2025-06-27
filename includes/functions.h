@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 17:19:59 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/27 15:36:12 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_map(t_cube *cube, char **argv);
 void	check_file(t_cube *cube);
 
 //Error
-void	error_msg(char *err_str, int debug_opt, int std_opt);
+void	error_msg(char *err_str, char *color, int debug_opt, int std_opt);
 int		error_stay(char *err_str);
 
 //Debug functions
@@ -30,6 +30,7 @@ void	debug_file_struct(t_file *file);
 int		strlen_space(char *line);
 char	*sanitize_string(char *line);
 void	format_path(char **xpm_path);
+void	print_color(char *str, char *color);
 
 //File functions
 void	check_file(t_cube *cube);

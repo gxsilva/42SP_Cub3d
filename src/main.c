@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 17:30:29 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/27 15:36:27 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	check_map(char **argv)
 
 	tmp = ft_strrchr(argv[1], '.');
 	if (!tmp || ft_strncmp(tmp, ".cub", 4))
-		error_msg(INVALID_EXT, DEBUG_FLAG, 1);
+		error_msg(INVALID_EXT, BRIGHT_RED, DEBUG_FLAG, 1);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		error_msg(INVALID_OPEN, DEBUG_FLAG, 1);
+		error_msg(INVALID_OPEN, BRIGHT_RED, DEBUG_FLAG, 1);
 	close(fd);
 }
 
@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 	{
 		printf ("Error\n");
-		printf ("%s\n", INVALID_ARGUMENTS_AMOUNT);
+		print_color (INVALID_ARGUMENTS_AMOUNT, BRIGHT_RED);
 		return (1);
 	}
 	init_cube(&cube, argv);

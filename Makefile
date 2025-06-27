@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/26 17:15:16 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/06/27 15:32:14 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	free/free_map.c \
 	utils/strlen_space.c \
 	utils/format_path.c \
+	utils/print_color.c \
 	utils/sanitaze_string.c \
 	debug/file_debug.c \
 )

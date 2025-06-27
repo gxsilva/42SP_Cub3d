@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:46:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/24 16:55:52 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/27 15:37:08 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_map(t_cube *cube, char **argv)
 {
 	cube->map = (t_map *)malloc(sizeof(t_map));
 	if (!cube->map)
-		error_msg(INVALID_MALLOC, DEBUG_FLAG, 1);
+		error_msg(INVALID_MALLOC, BRIGHT_RED, DEBUG_FLAG, 1);
 	cube->map->fd = open(argv[1], O_RDONLY);
 	cube->map->height = 0;
 	cube->map->width = 0;
