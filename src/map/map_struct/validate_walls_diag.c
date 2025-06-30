@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 12:38:40 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 17:44:04 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/30 16:22:38 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	check_diag_e(int x, int w, int y, int h)
 		&& m[y - 1][x + 1] != 2)
 			|| (is_valid_index(x + 1, w, y + 1, h) && m[y + 1][x + 1] != 1
 			&& m[y + 1][x + 1] != 2))
-			error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
+		error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
 }
 
 void	check_diag_w(int x, int w, int y, int h)
@@ -40,11 +40,11 @@ void	check_diag_w(int x, int w, int y, int h)
 	int	**m;
 
 	m = (get_cube())->map->matrix;
-	if ((is_valid_index( x -1, w, y - 1, h) && m[y - 1][x - 1] != 1
+	if ((is_valid_index(x -1, w, y - 1, h) && m[y - 1][x - 1] != 1
 		&& m[y - 1][x - 1] != 2)
 		|| (is_valid_index(x - 1, w, y + 1, h) && m[y + 1][x - 1] != 1
 		&& m[y + 1][x - 1] != 2))
-			error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
+		error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
 }
 
 void	check_diag_n(int x, int w, int y, int h)
@@ -56,7 +56,7 @@ void	check_diag_n(int x, int w, int y, int h)
 		&& m[y - 1][x - 1] != 2)
 		|| (is_valid_index(x + 1, w, y - 1, h) && m[y - 1][x + 1] != 1
 		&& m[y - 1][x + 1] != 2))
-			error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
+		error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
 }
 
 void	check_diag_s(int x, int w, int y, int h)
@@ -68,5 +68,5 @@ void	check_diag_s(int x, int w, int y, int h)
 		&& m[y + 1][x - 1] != 2)
 		|| (is_valid_index(x + 1, w, y + 1, h) && m[y + 1][x + 1] != 1
 		&& m[y + 1][x + 1] != 2))
-			error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
+		error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
 }

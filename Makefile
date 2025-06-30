@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/30 17:16:13 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/06/30 16:36:34 by ailbezer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,7 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	utils/sanitaze_string.c \
 	debug/file_debug.c \
 	debug/parse_debug.c \
+	player/init_player.c \
 )
 
 OBJS		:= $(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)/%.o,$(SRCS))

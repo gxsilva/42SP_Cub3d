@@ -96,21 +96,18 @@ int	get_start(char *map_name)
 	{
 		i = 0;
 		line = get_next_line(fd);
-		if (!line)
-		{
-			close(fd);
-			error_msg(INVALID_MISSING_MAP, BRIGHT_RED, DEBUG_FLAG, 1);
-		}
+		if (!line || line[i] == '1')
+			break ;
 		while (line[i] && (line[i] == ' ' || line[i] == '\t'))
 			i++;
 		check_wall_init(line, fd, i);
-		if (line[i] == '1')
-			break ;
 		start++;
 		free(line);
 	}
 	clean_static(fd);
 	close(fd);
+	if (!line)
+		error_msg(INVALID_MISSING_MAP, BRIGHT_RED, DEBUG_FLAG, 1);
 	free(line);
 	return (start);
 }

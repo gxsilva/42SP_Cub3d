@@ -19,11 +19,13 @@ t_cube		*get_cube(void);
 
 void		init_map(t_cube *cube, char **argv);
 
+//Player functions
+t_player	*init_player(int i, int *j, char dir);
+
 //Map functions
 void		clean_static(int fd);
 void		end_of_map(int fd, char *line);
 int			is_empty_line(char *line, int pos);
-t_player	*set_player(int i, int *j, char dir, int fd);
 void		parse_map(t_map *map);
 
 //Map infos
@@ -36,7 +38,7 @@ char		*jump_to_map(t_map *map, char *line, int fd);
 //Map matrix
 void		clear_matrix(t_map *map);
 void		alloc_matrix(t_map *map);
-void		put_in_matrix(t_map *map, int i, int *j, char *line, int fd);
+void		put_in_matrix(t_map *map, int i, int *j, char *line);
 void		fill_matrix(t_map *map);
 
 // Validate walls
@@ -93,7 +95,6 @@ void		free_file(t_file *file);
 void		free_map(t_map *map);
 void		free_player(t_cube *cube);
 void		free_matrix(t_map *map);
-
 void		free_split(void **matrix);
 
 #endif // FUNCTIONS_H

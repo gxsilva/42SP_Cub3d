@@ -15,7 +15,6 @@
 void		clean_static(int fd);
 void		end_of_map(int fd, char *line);
 int			is_empty_line(char *line, int pos);
-t_player	*set_player(int i, int *j, char dir, int fd);
 void		parse_map(t_map *map);
 
 int	is_empty_line(char *line, int pos)
@@ -43,37 +42,15 @@ void	end_of_map(int fd, char *line)
 	}
 }
 
-t_player	*set_player(int i, int *j, char dir, int fd)
+// ! verificar se é preciso mesmo ====
+void	leftovers(int fd)
 {
-	t_player	*player;
+	char	*line;
 
-	(void)fd;
-	if ((get_cube())->player)
-	{
-		free((get_cube())->player);
-		(get_cube())->player = NULL;
-		return NULL;
-	}
-	player = malloc(sizeof(t_player));
-	player->map_pos_x = *j;
-	player->map_pos_y = i;
-	player->qtd = 1;
-	if (dir == 'N' || dir == 'S')
-	{
-		player->dir_x = 0;
-		player->dir_y = 1;
-		if (dir == 'S')
-			player->dir_y = -1;
-	}
-	else if (dir == 'E' || dir == 'W')
-	{
-		player->dir_x = 1;
-		player->dir_y = 0;
-		if (dir == 'W')
-			player->dir_x = -1;
-	}
-	return (player);
+	while ((line = get_next_line(fd)))
+		free(line);
 }
+// !===================================
 
 void	parse_map(t_map *map)
 {
