@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:15:59 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 14:18:14 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 18:38:11 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void		check_walls(t_map *map);
 
 void	check_wall_init(char *line, int fd, int i)
 {
+	if (!line)
+		return ;
 	if (line[i] == '0')
 	{
 		close(fd);

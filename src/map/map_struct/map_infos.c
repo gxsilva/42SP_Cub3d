@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_infos.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:22:33 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 17:01:14 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/30 18:43:24 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,11 @@ int	get_start(char *map_name)
 	{
 		i = 0;
 		line = get_next_line(fd);
-		if (!line || line[i] == '1')
-			break ;
-		while (line[i] && (line[i] == ' ' || line[i] == '\t'))
+		while (line && line[i] && (line[i] == ' ' || line[i] == '\t'))
 			i++;
 		check_wall_init(line, fd, i);
+		if (!line || (line[i] && line[i] == '1'))
+			break;
 		start++;
 		free(line);
 	}
