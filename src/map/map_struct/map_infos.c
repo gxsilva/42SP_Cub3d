@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:22:33 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 14:11:04 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 16:50:17 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,21 +96,18 @@ int	get_start(char *map_name)
 	{
 		i = 0;
 		line = get_next_line(fd);
-		if (!line)
-		{
-			close(fd);
-			error_msg(INVALID_MISSING_MAP, BRIGHT_RED, DEBUG_FLAG, 1);
-		}
+		if (!line || line[i] == '1')
+			break ;
 		while (line[i] && (line[i] == ' ' || line[i] == '\t'))
 			i++;
 		check_wall_init(line, fd, i);
-		if (line[i] == '1')
-			break ;
 		start++;
 		free(line);
 	}
 	leftovers(fd);
 	close(fd);
+	if (!line)
+		error_msg(INVALID_MISSING_MAP, BRIGHT_RED, DEBUG_FLAG, 1);
 	free(line);
 	return (start);
 }

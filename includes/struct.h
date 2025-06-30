@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 13:59:37 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 16:29:17 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct s_file
 
 typedef struct s_player
 {
-	int		qtd;
 	int		map_pos_x;
 	int		map_pos_y;
 	int		dir_x;

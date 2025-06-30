@@ -6,7 +6,7 @@
 cd "$(dirname "$0")/.."
 
 CUB3D_EXEC="./cub3D"
-CUB3D_VAL="valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=all"
+CUB3D_VAL="valgrind --quiet --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=all"
 
 RED="\e[31m"
 RESET="\e[0m"

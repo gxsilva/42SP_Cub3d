@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:13:57 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 11:31:22 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 16:13:12 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@
 # define INVALID_EMPTY_LINE "Invalid empty line"
 
 // Player validate
-# define INVALID_MULTIPLAYER "Too many players"
-# define INVALID_MISSING_PLAYER "Missing Player"
+# define INVALID_PLAYER_COUNT "Invalid number of players"
 # define INVALID_PLAYER_DIR "Invalid player direction"
 
 // Map format
