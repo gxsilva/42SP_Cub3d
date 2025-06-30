@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 18:20:03 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 11:16:11 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:02:01 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		leftovers(int fd);
 void		end_of_map(int fd, char *line);
 int			is_empty_line(char *line, int pos);
-t_player	*set_player(int i, int *j, char dir);
+t_player	*set_player(int i, int *j, char dir, int fd);
 void		parse_map(t_map *map);
 
 int	is_empty_line(char *line, int pos)
@@ -35,19 +35,25 @@ void	end_of_map(int fd, char *line)
 		line = get_next_line(fd);
 		if (line && !is_empty_line(line, 0))
 		{
-			close(fd);
 			free(line);
+			leftovers(fd);
+			close(fd);
 			error_msg(INVALID_EMPTY_LINE, BRIGHT_RED, DEBUG_FLAG, 1);
 		}
 	}
 }
 
-t_player	*set_player(int i, int *j, char dir)
+t_player	*set_player(int i, int *j, char dir, int fd)
 {
 	t_player	*player;
 
+	(void)fd;
 	if ((get_cube())->player)
-		error_msg(INVALID_MULTIPLAYER, BRIGHT_RED, DEBUG_FLAG, 1);
+	{
+		free((get_cube())->player);
+		(get_cube())->player = NULL;
+		return NULL;
+	}
 	player = malloc(sizeof(t_player));
 	player->map_pos_x = *j;
 	player->map_pos_y = i;

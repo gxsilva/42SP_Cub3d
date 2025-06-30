@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_file_struct.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:53:09 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 15:44:47 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:05:03 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,10 @@ void	fill_floor_ceiling(char *line, t_file *file)
 		color_buffer = ft_substr(line_buffer, 0, ft_strlen(line_buffer));
 		color = rgb_to_int(color_buffer);
 		if (color == -1)//TODO fakeglobal and recursive to fix
+		{
+			// ailton:add
 			error_msg(INVALID_COLOR_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
+		}
 		file->floor = color;
 	}
 	else if (ft_strnstr(line, "C", 1))
@@ -78,7 +81,10 @@ void	fill_floor_ceiling(char *line, t_file *file)
 		color_buffer = ft_substr(line_buffer, 0, ft_strlen(line_buffer));
 		color = rgb_to_int(color_buffer);
 		if (color == -1)
+		{
+			// ailton:add
 			error_msg(INVALID_COLOR_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
+		}
 		file->ceiling = color;
 	}
 	if (color_buffer)

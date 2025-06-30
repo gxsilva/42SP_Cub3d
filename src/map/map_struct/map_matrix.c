@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:18:35 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 11:18:32 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:09:47 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	clear_matrix(t_map *map);
 void	alloc_matrix(t_map *map);
-void	put_in_matrix(t_map *map, int i, int *j, char *line);
+void	put_in_matrix(t_map *map, int i, int *j, char *line, int fd);
 void	fill_matrix(t_map *map);
 
 // ! verificar se é preciso mesmo ====
@@ -52,13 +52,19 @@ void	alloc_matrix(t_map *map)
 	}
 }
 
-void	put_in_matrix(t_map *map, int i, int *j, char *line)
+void	put_in_matrix(t_map *map, int i, int *j, char *line, int fd)
 {
 	if (ft_isdigit(line[*j]))
 		map->matrix[i][*j] = line[*j] - 48;
 	else if (ft_strchr("NSWE", line[*j]))
 	{
-		(get_cube())->player = set_player(i, j, line[*j]);
+		(get_cube())->player = set_player(i, j, line[*j], fd);
+		if (!(get_cube())->player)
+		{
+			close(fd);
+			free(line);
+			error_msg(INVALID_MULTIPLAYER, BRIGHT_RED, DEBUG_FLAG, 1);
+		}
 		map->matrix[i][*j] = 0;
 	}
 	else if (line[*j] == '\n')
@@ -88,13 +94,13 @@ void	fill_matrix(t_map *map)
 	{
 		j = -1;
 		while (++j < map->width)
-			put_in_matrix(map, i, &j, line + start);
+			put_in_matrix(map, i, &j, line + start, fd);
 		free(line);
 		line = get_next_line(fd);
 	}
-	if (!(get_cube())->player)
-		error_msg(INVALID_MISSING_PLAYER, BRIGHT_RED, DEBUG_FLAG, 1);
 	leftovers(fd);
 	free(line);
 	close(fd);
+	if (!(get_cube())->player)
+		error_msg(INVALID_MISSING_PLAYER, BRIGHT_RED, DEBUG_FLAG, 1);
 }

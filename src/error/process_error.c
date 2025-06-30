@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   process_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:47:44 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 18:24:52 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/30 13:45:18 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	error_msg(char *err_str, char *color, int debug_opt, int std_opt)
 {
 	if (debug_opt)
 		perror(strerror(errno));
+	free_cube(get_cube());
 	if (std_opt)
 	{
 		printf ("Error\n");

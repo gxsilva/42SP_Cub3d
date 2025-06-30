@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 20:39:09 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 19:24:31 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/30 14:06:36 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	check_file(t_cube *cube)
 	fd = open(cube->map->name, O_RDONLY);
 	while (true)
 	{
-		line = get_next_line(fd);
+		line = get_next_line(cube->map->fd);
 		if (!line || fill_file_struct(line, cube->file))
 		{
 			if (line)
