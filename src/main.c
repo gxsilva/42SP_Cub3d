@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 13:17:44 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:42:57 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	check_map(char **argv)
 		error_msg(INVALID_EMPTY_FILE, BRIGHT_RED, DEBUG_FLAG, 1);
 	}
 	free(tmp);
-	leftovers(fd);
+	clean_static(fd);
 	close(fd);
 }
 

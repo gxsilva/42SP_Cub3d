@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_infos.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:22:33 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 14:11:04 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:42:57 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int	get_start(char *map_name)
 		start++;
 		free(line);
 	}
-	leftovers(fd);
+	clean_static(fd);
 	close(fd);
 	free(line);
 	return (start);

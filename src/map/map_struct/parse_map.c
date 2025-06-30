@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 18:20:03 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 15:02:01 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:42:57 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/header.h"
 
-void		leftovers(int fd);
+void		clean_static(int fd);
 void		end_of_map(int fd, char *line);
 int			is_empty_line(char *line, int pos);
 t_player	*set_player(int i, int *j, char dir, int fd);
@@ -36,7 +36,7 @@ void	end_of_map(int fd, char *line)
 		if (line && !is_empty_line(line, 0))
 		{
 			free(line);
-			leftovers(fd);
+			clean_static(fd);
 			close(fd);
 			error_msg(INVALID_EMPTY_LINE, BRIGHT_RED, DEBUG_FLAG, 1);
 		}
@@ -76,7 +76,7 @@ t_player	*set_player(int i, int *j, char dir, int fd)
 }
 
 // ! verificar se é preciso mesmo ====
-void	leftovers(int fd)
+void	clean_static(int fd)
 {
 	char	*line;
 

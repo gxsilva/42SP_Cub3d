@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 21:08:18 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 18:28:38 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:49:15 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,12 @@ int	verify_coordinates(t_file *file)
 
 	valid = 1;
 	if (!file->no_path)
-	{
-		print_color(INVALID_NO_XPM, BRIGHT_RED);
-		valid = 0;
-	}
+		valid = error_stay(INVALID_NO_XPM, BRIGHT_RED);
 	if (!file->so_path)
-	{
-		print_color(INVALID_SO_XPM, BRIGHT_RED);
-		valid = 0;
-	}
+		valid = error_stay(INVALID_SO_XPM, BRIGHT_RED);
 	if (!file->we_path)
-	{
-		print_color(INVALID_WE_XPM, BRIGHT_RED);
-		valid = 0;
-	}
-	valid = verify_file_node(file, valid); // hate u norm >:|
+		valid = error_stay(INVALID_WE_XPM, BRIGHT_RED);
+	valid = verify_file_node(file, valid);
 	return (valid);
 }
 
@@ -92,20 +83,11 @@ static int	verify_file_node(t_file *file, int cod)
 
 	valid = cod;
 	if (!file->ea_path)
-	{
-		print_color(INVALID_EA_XPM, BRIGHT_RED);
-		valid = 0;
-	}
+		valid = error_stay(INVALID_EA_XPM, BRIGHT_RED);
 	if (file->floor < 0)
-	{
-		print_color(INVALID_FLOOR_COLOR, BRIGHT_RED);
-		valid = 0;
-	}
+		valid = error_stay(INVALID_FLOOR_COLOR, BRIGHT_RED);
 	if (file->ceiling < 0)
-	{
-		print_color(INVALID_CEILING_COLOR, BRIGHT_RED);
-		valid = 0;
-	}
+		valid = error_stay(INVALID_CEILING_COLOR, BRIGHT_RED);
 	return (valid);
 }
 

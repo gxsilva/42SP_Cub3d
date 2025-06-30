@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_matrix.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:18:35 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 15:09:47 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:42:57 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	fill_matrix(t_map *map)
 		free(line);
 		line = get_next_line(fd);
 	}
-	leftovers(fd);
+	clean_static(fd);
 	free(line);
 	close(fd);
 	if (!(get_cube())->player)
