@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   validate_walls_diag.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 12:38:40 by ailbezer          #+#    #+#             */
 /*   Updated: 2025/06/30 16:22:38 by ailbezer         ###   ########.fr       */

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_cube.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:13:39 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 15:07:01 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 16:17:54 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	free_matrix(t_map *map)
 	if (!map->matrix)
 		return ;
 	while (++i < map->height)
-			free(map->matrix[i]);
+		free(map->matrix[i]);
 	free(map->matrix);
 	map->matrix = NULL;
 }
@@ -57,21 +57,17 @@ void	free_map(t_map *map)
 {
 	if (!map)
 		return ;
-	// ! não precisa mais
-	// if (map->name)
-	// 	free (map->name);
 	if (map->matrix)
-		// free_split((void **)map->matrix);
 		free_matrix(map);
 	if (map->fd > 0)
 	{
-		leftovers(map->fd);
+		clean_static(map->fd);
 		close(map->fd);
 	}
 	free(map);
 }
 
-void	free_player (t_cube *cube)
+void	free_player(t_cube *cube)
 {
 	if (!cube->player)
 		return ;

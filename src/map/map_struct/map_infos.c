@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_infos.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:22:33 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 17:26:56 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 17:01:14 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	get_start(char *map_name)
 		start++;
 		free(line);
 	}
-	leftovers(fd);
+	clean_static(fd);
 	close(fd);
 	if (!line)
 		error_msg(INVALID_MISSING_MAP, BRIGHT_RED, DEBUG_FLAG, 1);

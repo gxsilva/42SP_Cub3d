@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_color.c                                      :+:      :+:    :+:   */
+/*   free_two.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/27 15:28:39 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 16:17:31 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/06/30 16:08:45 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/06/30 16:17:21 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/header.h"
 
-void	print_color(char *str, char *color)
+void	free_two(void *ptr, void *ptr2)
 {
-	printf("%s%s%s\n", color, str, RESET);
+	if (ptr)
+		free(ptr);
+	if (ptr2)
+		free(ptr2);
 }

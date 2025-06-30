@@ -3,7 +3,7 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+         #
+#    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
 #    Updated: 2025/06/30 16:36:34 by ailbezer         ###   ########.fr        #
@@ -36,6 +36,11 @@ GNL_LIB		:= $(GNL_DIR)/bin/$(GNL_A)
 LIBFT_LIB	:= $(LIBFT_DIR)/bin/$(LIBFT_A)
 MLX_LIB		:= $(MLX_DIR)/build/$(MLX_A)
 
+# DEBUG
+DEBUG_OBJ_DIR = debug_objs
+DEBUG_OBJS = $(SRCS:$(SRCS_DIR)%.c=$(DEBUG_OBJ_DIR)/%.o)
+SH_PATH_DEBUG := ./scripts/run_leak.sh
+
 LIBS = -L$(MLX_DIR)/build -L$(LIBFT_DIR)/bin -L$(GNL_DIR)/bin
 
 # FILES
@@ -56,7 +61,9 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	free/free_cube.c \
 	utils/strlen_space.c \
 	utils/format_path.c \
+	utils/free_two.c \
 	utils/print_color.c \
+	utils/clean_static.c \
 	utils/sanitaze_string.c \
 	debug/file_debug.c \
 	debug/parse_debug.c \
@@ -104,19 +111,28 @@ $(GNL_LIB):
 	@echo "$(MAGENTA)🛠️  Building GNL...$(END)"
 	@make -C $(GNL_DIR) $(NO_PRINT) > /dev/null
 
-debug: $(OBJS) $(GNL_LIB) $(LIBFT_LIB) $(MLX_LIB)
-	@$(CC) $(CFLAGS) -D DEBUG_FLAG=1 $(HEADERS) $(OBJS) $(LIBS) $(MLXFLAGS) -o $@
-	@echo "$(GREEN)✅ $(BOLD)$(NAME) compiled debug successfully!$(END)"
+$(DEBUG_OBJ_DIR)/%.o: $(SRCS_DIR)%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -D DEBUG_FLAG=1 $(HEADERS) -c $< -o $@
+
+# debug: fclean $(OBJS) $(GNL_LIB) $(LIBFT_LIB) $(MLX_LIB)
+# 	@$(CC) $(CFLAGS) -D DEBUG_FLAG=1 $(HEADERS) $(OBJS) $(LIBS) $(MLXFLAGS) -o $@
+# 	@echo "$(GREEN)✅ $(BOLD)$(NAME) compiled debug successfully!$(END)"
+
+debug: $(DEBUG_OBJS) $(GNL_LIB) $(LIBFT_LIB) $(MLX_LIB)
+	@$(CC) $(CFLAGS) -D DEBUG_FLAG=1 $(HEADERS) $(DEBUG_OBJS) $(LIBS) $(MLXFLAGS) -o debug_bin
+	@echo "$(GREEN)✅ $(BOLD)Debug build successful!$(END)"
 
 clean:
 	@rm -rf $(OBJ_DIR)
+	@rm -rf $(DEBUG_OBJ_DIR)
 	@make -C $(GNL_DIR) clean $(NO_PRINT) > /dev/null
 	@make -C $(LIBFT_DIR) clean $(NO_PRINT) > /dev/null
 	@echo "$(GREEN)🧹 Cleaned object files$(END)"
 
 fclean: clean
 	@rm -f $(NAME)
-	@rm -f debug
+	@rm -f debug_bin
 	@rm -rf $(MLX_DIR)/build
 	@make -C $(GNL_DIR) fclean $(NO_PRINT) > /dev/null
 	@make -C $(LIBFT_DIR) fclean $(NO_PRINT) > /dev/null
@@ -153,6 +169,9 @@ norm:
 	@echo "\n$(CYAN)=======$(END) $(GREEN)INCLUDES$(END) $(CYAN)=======$(END)"
 	@norminette includes/ | sed 's/OK/\x1b[1;32m&\x1b[0m/g' | sed 's/includes/\x1b[1;36m&\x1b[0m/g'
 
-.PHONY: libmlx gnl all clean fclean re g norm
+leak: fclean debug
+	@$(SH_PATH_DEBUG)
+
+.PHONY: libmlx gnl all clean fclean re g norm leak
 
 default: all

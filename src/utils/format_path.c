@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_path.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:48:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 10:28:51 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:47:36 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	format_path(char **xpm_path)
 	i = -1;
 	new_str = (char *)malloc(ft_strlen(*xpm_path) + 3);
 	if (!new_str)
-		error_msg(INVALID_MALLOC, BRIGHT_RED, DEBUG_FLAG, 1); //TODO correct handle free structs
+		error_msg(INVALID_MALLOC, BRIGHT_RED, DEBUG_FLAG, 1);
 	new_str[0] = '.';
 	new_str[1] = '/';
 	while ((*xpm_path)[++i])
