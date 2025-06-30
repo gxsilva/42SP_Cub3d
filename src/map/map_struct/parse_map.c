@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 18:20:03 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 16:33:16 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 17:30:06 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void		leftovers(int fd);
 void		end_of_map(int fd, char *line);
 int			is_empty_line(char *line, int pos);
-t_player	*set_player(int i, int *j, char dir);
 void		parse_map(t_map *map);
 
 int	is_empty_line(char *line, int pos)
