@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 18:20:03 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/27 18:36:29 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 11:16:11 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,12 @@ t_player	*set_player(int i, int *j, char dir)
 {
 	t_player	*player;
 
+	if ((get_cube())->player)
+		error_msg(INVALID_MULTIPLAYER, BRIGHT_RED, DEBUG_FLAG, 1);
 	player = malloc(sizeof(t_player));
 	player->map_pos_x = *j;
 	player->map_pos_y = i;
+	player->qtd = 1;
 	if (dir == 'N' || dir == 'S')
 	{
 		player->dir_x = 0;

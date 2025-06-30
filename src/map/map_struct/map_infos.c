@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:22:33 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/27 18:26:20 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 11:29:17 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	width_len(char *line, int fd)
 	{
 		close(fd);
 		free(line);
-		error_msg(INVALID_CARACTER, BRIGHT_RED, DEBUG_FLAG, 1);
+		error_msg(INVALID_PLAYER_DIR, BRIGHT_RED, DEBUG_FLAG, 1);
 	}
 	return (width + 1);
 }
@@ -96,6 +96,8 @@ int	get_start(char *map_name)
 	{
 		i = 0;
 		line = get_next_line(fd);
+		if (!line)
+			error_msg(INVALID_MISSING_MAP, BRIGHT_RED, DEBUG_FLAG, 1);
 		while (line[i] && (line[i] == ' ' || line[i] == '\t'))
 			i++;
 		check_wall_init(line, fd, i);

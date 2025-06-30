@@ -6,15 +6,15 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:15:59 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/27 19:02:06 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 13:15:33 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/header.h"
 
-void	check_wall_init(char *line, int fd, int i);
-void	north_and_south(t_map *map);
-void	check_walls(t_map *map);
+void		check_wall_init(char *line, int fd, int i);
+static void	north_and_south(t_map *map);
+void		check_walls(t_map *map);
 
 void	check_wall_init(char *line, int fd, int i)
 {
@@ -27,7 +27,7 @@ void	check_wall_init(char *line, int fd, int i)
 	}
 }
 
-void	north_and_south(t_map *map)
+static void	north_and_south(t_map *map)
 {
 	int	x;
 	int	y;
@@ -40,6 +40,7 @@ void	north_and_south(t_map *map)
 			y++;
 		if (map->matrix[y][x] != 1 && map->matrix[y][x] != 2)
 			error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
+		check_diag_n(x, map->width, y, map->height);
 	}
 	x = -1;
 	while (++x < map->width)
@@ -49,6 +50,7 @@ void	north_and_south(t_map *map)
 			y--;
 		if (map->matrix[y][x] != 1 && map->matrix[y][x] != 2)
 			error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
+		check_diag_s(x, map->width, y, map->height);
 	}
 }
 
@@ -65,6 +67,7 @@ void	check_walls(t_map *map)
 			x++;
 		if (map->matrix[y][x] != 1)
 			error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
+		check_diag_w(x, map->width, y, map->height);
 	}
 	y = -1;
 	while (++y < map->height)
@@ -73,7 +76,8 @@ void	check_walls(t_map *map)
 		while (map->matrix[y][x] == 2)
 			x--;
 		if (map->matrix[y][x] != 1)
-			error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED,  DEBUG_FLAG, 1);
+			error_msg(INVALID_WALLS_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
+		check_diag_e(x, map->width, y, map->height);
 	}
 	north_and_south(map);
 }

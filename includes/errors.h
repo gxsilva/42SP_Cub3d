@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:13:57 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 19:06:38 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 11:31:22 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,21 @@
 //open error
 # define INVALID_OPEN "Invalid open"
 
-// Empty map (gnl = NULL)
-# define INVALID_EMPTY_MAP "Invalid empty map"
-
-// map doesn´t surround by walls
-# define INVALID_WALLS_FORMAT "Invalid walls format"
+// Empty file (gnl = NULL)
+# define INVALID_EMPTY_FILE "Invalid empty file"
 
 // Empty line in map
 # define INVALID_EMPTY_LINE "Invalid empty line"
 
-// Invalid caracter in map
-# define INVALID_CARACTER "Invalid CARACTER"
+// Player validate
+# define INVALID_MULTIPLAYER "Too many players"
+# define INVALID_MISSING_PLAYER "Missing Player"
+# define INVALID_PLAYER_DIR "Invalid player direction"
+
+// Map format
+# define INVALID_MISSING_MAP "Missing map"
+# define INVALID_MISSING_WALL "Missing wall"
+# define INVALID_WALLS_FORMAT "map doesn´t surround by walls"
 
 //file format
 # define INVALID_FILE_FORMAT "Invalid file format"

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 19:26:05 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/30 13:11:56 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 # include "header.h"
 
+t_cube		*get_cube(void);
 
-t_cube	*get_cube(void);
-
-void	init_map(t_cube *cube,  char **argv);
+void		init_map(t_cube *cube, char **argv);
 
 //Map functions
 void		leftovers(int fd);
@@ -42,15 +41,18 @@ void		fill_matrix(t_map *map);
 
 // Validate walls
 void		check_wall_init(char *line, int fd, int i);
-void		north_and_south(t_map *map);
 void		check_walls(t_map *map);
+void		check_diag_e(int x, int w, int y, int h);
+void		check_diag_w(int x, int w, int y, int h);
+void		check_diag_n(int x, int w, int y, int h);
+void		check_diag_s(int x, int w, int y, int h);
 
 //Common functions
 void		check_file(t_cube *cube);
 
 //Error
-void	error_msg(char *err_str, char *color, int debug_opt, int std_opt);
-int		error_stay(char *err_str, char *color);
+void		error_msg(char *err_str, char *color, int debug_opt, int std_opt);
+int			error_stay(char *err_str, char *color);
 
 //Debug functions
 void		debug_file_struct(t_file *file);
@@ -85,12 +87,11 @@ int			verify_coordinates(t_file *file);
 int			verify_xpm_path(t_file *file);
 
 //Free functions
-void	free_cube(t_cube *cube);
-void	free_file(t_file *file);
-void	free_map(t_map *map);
-void	free_player (t_player *player);
+void		free_cube(t_cube *cube);
+void		free_file(t_file *file);
+void		free_map(t_map *map);
+void		free_player(t_player *player);
 
-void	free_split(void **matrix);
-
+void		free_split(void **matrix);
 
 #endif // FUNCTIONS_H

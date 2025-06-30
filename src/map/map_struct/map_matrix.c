@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:18:35 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/27 19:02:23 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/30 11:18:32 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ void	fill_matrix(t_map *map)
 		free(line);
 		line = get_next_line(fd);
 	}
+	if (!(get_cube())->player)
+		error_msg(INVALID_MISSING_PLAYER, BRIGHT_RED, DEBUG_FLAG, 1);
 	leftovers(fd);
 	free(line);
 	close(fd);

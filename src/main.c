@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/27 19:22:53 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/30 13:17:44 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/header.h"
 
-t_cube *get_cube(void)
+t_cube	*get_cube(void)
 {
-	static t_cube cube;
-	
+	static t_cube	cube;
+
 	return (&cube);
 }
 
@@ -35,7 +35,7 @@ void	check_map(char **argv)
 	{
 		free(tmp);
 		close(fd);
-		error_msg(INVALID_EMPTY_MAP, BRIGHT_RED, DEBUG_FLAG, 1);
+		error_msg(INVALID_EMPTY_FILE, BRIGHT_RED, DEBUG_FLAG, 1);
 	}
 	free(tmp);
 	leftovers(fd);
@@ -64,9 +64,8 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	init_cube(cube, argv);
-	
+
 	// ============WIP=============
 	free_cube(get_cube());
 	return (0);
-
 }
