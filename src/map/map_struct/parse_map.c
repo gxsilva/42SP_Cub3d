@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 18:20:03 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 15:42:57 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/30 16:35:16 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,6 @@ t_player	*set_player(int i, int *j, char dir, int fd)
 	}
 	return (player);
 }
-
-// ! verificar se é preciso mesmo ====
-void	clean_static(int fd)
-{
-	char	*line;
-
-	while ((line = get_next_line(fd)))
-		free(line);
-}
-// !===================================
 
 void	parse_map(t_map *map)
 {

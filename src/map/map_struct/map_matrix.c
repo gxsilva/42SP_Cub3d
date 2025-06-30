@@ -6,29 +6,15 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:18:35 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 15:42:57 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/30 17:34:59 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/header.h"
 
-void	clear_matrix(t_map *map);
 void	alloc_matrix(t_map *map);
 void	put_in_matrix(t_map *map, int i, int *j, char *line, int fd);
 void	fill_matrix(t_map *map);
-
-// ! verificar se é preciso mesmo ====
-void	clear_matrix(t_map *map)
-{
-	int	i;
-
-	i = 0;
-	while (i < map->height)
-		free(map->matrix[i++]);
-	free(map->matrix);
-	map->matrix = NULL;
-}
-// !===================================
 
 void	alloc_matrix(t_map *map)
 {

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 16:18:11 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/06/30 17:35:35 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void		free_cube(t_cube *cube);
 void		free_file(t_file *file);
 void		free_map(t_map *map);
 void		free_player(t_cube *cube);
+void		free_matrix(t_map *map);
 
 void		free_split(void **matrix);
 

@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   clean_static.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 15:35:15 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 17:11:23 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/06/30 16:35:04 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/06/30 16:35:18 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+#include "../../includes/header.h"
 
-# ifndef DEBUG_FLAG
-#  define DEBUG_FLAG 1
-# endif
+void	clean_static(int fd)
+{
+	char	*line;
 
-#endif // MACROS_H
+	while ((line = get_next_line(fd)))
+		free(line);
+}
