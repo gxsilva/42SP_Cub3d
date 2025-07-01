@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 18:20:03 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 18:28:41 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/01 00:26:13 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,9 @@ void	end_of_map(int fd, char *line)
 	}
 }
 
-// // ! verificar se é preciso mesmo ====
-// void	leftovers(int fd)
-// {
-// 	char	*line;
-
-// 	while ((line = get_next_line(fd)))
-// 		free(line);
-// }
-// // !===================================
-
 void	parse_map(t_map *map)
 {
 	map->start_map = get_start(map->name);
-	printf("satart: %d", map->start_map);
 	map->height = get_height(map);
 	map->width = get_width(map);
 	fill_matrix(map);

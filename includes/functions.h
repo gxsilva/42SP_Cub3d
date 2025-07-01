@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 18:14:42 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/01 02:43:13 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,10 @@ int			verify_xpm_path(t_file *file);
 void		free_cube(t_cube *cube);
 void		free_file(t_file *file);
 void		free_map(t_map *map);
-void		free_player(t_cube *cube);
-void		free_matrix(t_map *map);
+void		free_player(t_player *player);
 void		free_split(void **matrix);
+
+//MLX functions
+void	set_hooks(mlx_key_data_t keydata, void *param);
 
 #endif // FUNCTIONS_H
