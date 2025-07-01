@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:35:15 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 17:11:23 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/01 00:25:03 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MACROS_H
 
 # ifndef DEBUG_FLAG
-#  define DEBUG_FLAG 1
+#  define DEBUG_FLAG 0
 # endif
 
 #endif // MACROS_H

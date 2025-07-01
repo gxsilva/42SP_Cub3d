@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 20:39:09 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 15:53:56 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/01 00:28:48 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	check_file(t_cube *cube)
 	clean_static(cube->map->fd);
 	if (!verify_file_struct(cube->file))
 	{
+		printf("Error\n");
 		free_cube(cube);
 		exit (1);
 	}

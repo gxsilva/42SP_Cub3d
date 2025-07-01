@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_infos.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:22:33 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/30 18:43:24 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/01 00:24:26 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,11 @@ int	width_len(char *line, int fd)
 
 int	get_width(t_map *map)
 {
-	int		i;
 	int		fd;
 	int		width;
 	char	*line;
 
 	line = NULL;
-	i = -1;
 	width = 0;
 	fd = open(map->name, O_RDONLY);
 	line = jump_to_map(map, line, fd);
@@ -62,13 +60,11 @@ int	get_width(t_map *map)
 
 int	get_height(t_map *map)
 {
-	int		i;
 	int		fd;
 	int		height;
 	char	*line;
 
 	line = NULL;
-	i = -1;
 	height = 0;
 	fd = open(map->name, O_RDONLY);
 	line = jump_to_map(map, line, fd);
