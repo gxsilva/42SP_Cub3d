@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_cube.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:13:39 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 18:06:24 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/01 02:20:11 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	free_cube(t_cube *cube);
 void	free_file(t_file *file);
 void	free_map(t_map *map);
-void	free_player(t_cube *cube);
+void	free_player(t_player *player);
 
 void	free_cube(t_cube *cube)
 {
 	free_file(cube->file);
 	free_map(cube->map);
-	free_player(cube);
+	free_player(cube->player);
 }
 
 void	free_file(t_file *file)
@@ -67,10 +67,10 @@ void	free_map(t_map *map)
 	free(map);
 }
 
-void	free_player(t_cube *cube)
+void	free_player(t_player *player)
 {
-	if (!cube->player)
+	if (!player)
 		return ;
-	free(cube->player);
-	cube->player = NULL;
+	free(player);
+	player = NULL;
 }

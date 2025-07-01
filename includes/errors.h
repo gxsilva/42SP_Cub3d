@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:13:57 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 16:55:24 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/01 01:35:22 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,8 @@
 
 # define INVALID_FLOOR_COLOR "Invalid floor color"
 # define INVALID_CEILING_COLOR "Invalid ceiling color"
+
+//MLX errors
+# define UNABLE_INIT_MLX "Unable to initialize MLX"
 
 #endif // ERRORS_H

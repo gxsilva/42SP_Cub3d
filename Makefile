@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/06/30 16:36:34 by ailbezer         ###   ########.fr        #
+#    Updated: 2025/07/01 02:43:29 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME		:= cub3D
 CC			:= cc
 CFLAGS		:= -Wextra -Wall -Werror -Wunreachable-code -Ofast -g3 -O0
-MLXFLAGS	:= -ldl -lglfw -lpthread -lm -lmlx42 -lft -lgnl
+MLXFLAGS	:= -ldl -lmlx42 -lglfw -lpthread -lm -lft -lgnl
 
 # DIRECTORIES
 SRCS_DIR	:= src/
@@ -68,6 +68,7 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	debug/file_debug.c \
 	debug/parse_debug.c \
 	player/init_player.c \
+	mlx/mlx_hooks.c 
 )
 
 OBJS		:= $(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)/%.o,$(SRCS))

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 15:42:57 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/01 02:43:31 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,18 @@ void	init_cube(t_cube *cube, char **argv)
 	parse_map(cube->map);
 }
 
+void	init_mlx(t_cube *cube)
+{
+	cube->mlx = mlx_init(WIN_WIDTH, WIN_HEIGHT, "cub3d", false);
+	if (!cube->mlx)
+		error_msg (UNABLE_INIT_MLX, BRIGHT_RED, DEBUG_FLAG, 1);
+	if (DEBUG_FLAG)
+		print_color ("MLX initialize", BRIGHT_YELLOW);
+	mlx_key_hook(cube->mlx, set_hooks, cube);
+	mlx_loop(cube->mlx);
+	mlx_terminate(cube->mlx);
+}
+
 int	main(int argc, char **argv)
 {
 	t_cube	*cube;
@@ -64,8 +76,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	init_cube(cube, argv);
-
-	// ============WIP=============
+	init_mlx(cube);
 	free_cube(get_cube());
 	return (0);
 }
