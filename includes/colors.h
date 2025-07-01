@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:17:47 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 17:23:01 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:38:34 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,11 @@
 # define BG_BRIGHT_PURPLE	"\e[105m"
 # define BG_BRIGHT_CYAN		"\e[106m"
 # define BG_BRIGHT_WHITE	"\e[107m"
+
+# define BLACK_PX 0x000000FF
+# define WHITE_PX 0xFFFFFFFF
+# define GREEN_PX 0x228B22FF
+# define GRAY_PX 0x808080FF
+# define RED_PX 0xFF0000FF
 
 #endif // COLORS_H
