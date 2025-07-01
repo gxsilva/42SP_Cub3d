@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/01 02:43:13 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:55:11 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ void		end_of_map(int fd, char *line);
 int			is_empty_line(char *line, int pos);
 void		parse_map(t_map *map);
 // void		leftovers(int fd);
+
+//Minimap functions
+void		draw_minimap(t_cube *cube);
 
 //Map infos
 int			width_len(char *line, int fd);
@@ -98,6 +101,6 @@ void		free_player(t_player *player);
 void		free_split(void **matrix);
 
 //MLX functions
-void	set_hooks(mlx_key_data_t keydata, void *param);
+void		set_hooks(mlx_key_data_t keydata, void *param);
 
 #endif // FUNCTIONS_H

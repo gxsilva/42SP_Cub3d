@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
+#    By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/01 02:43:29 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/07/01 17:58:32 by ailbezer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	map/map_struct/parse_map.c \
 	map/map_struct/validate_walls.c \
 	map/map_struct/validate_walls_diag.c \
+	map/minimap/minimap.c \
 	free/free_split.c \
 	free/free_cube.c \
 	utils/strlen_space.c \
@@ -68,7 +69,7 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	debug/file_debug.c \
 	debug/parse_debug.c \
 	player/init_player.c \
-	mlx/mlx_hooks.c 
+	mlx/mlx_hooks.c \
 )
 
 OBJS		:= $(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)/%.o,$(SRCS))
@@ -141,25 +142,6 @@ fclean: clean
 	
 re: fclean all
 
-g: re
-	@clear && $(VALGRIND) ./cub3D maps/good/cheese_maze.cub 
-	@$(VALGRIND) ./cub3D maps/good/creepy.cub 
-	@$(VALGRIND) ./cub3D maps/good/dungeon.cub 
-	@$(VALGRIND) ./cub3D maps/good/library.cub 
-	@$(VALGRIND) ./cub3D maps/good/matrix.cub 
-	@$(VALGRIND) ./cub3D maps/good/sad_face.cub 
-	@$(VALGRIND) ./cub3D maps/good/square_map.cub 
-	@$(VALGRIND) ./cub3D maps/good/subject_map.cub 
-	@$(VALGRIND) ./cub3D maps/good/test_map_hole.cub 
-	@$(VALGRIND) ./cub3D maps/good/test_map.cub 
-	@$(VALGRIND) ./cub3D maps/good/test_pos_bottom.cub 
-	@$(VALGRIND) ./cub3D maps/good/test_pos_left.cub
-	@$(VALGRIND) ./cub3D maps/good/test_pos_right.cub 
-	@$(VALGRIND) ./cub3D maps/good/test_pos_top.cub 
-	@$(VALGRIND) ./cub3D maps/good/test_textures.cub 
-	@$(VALGRIND) ./cub3D maps/good/test_whitespace.cub 
-	@$(VALGRIND) ./cub3D maps/good/works.cub
-
 norm:
 	@echo "\n$(CYAN)=======$(END) $(GREEN)LIBFT$(END) $(CYAN)=======$(END)"
 	@norminette lib/libft | sed 's/OK/\x1b[1;32m&\x1b[0m/g' | sed 's/libft/\x1b[1;31m&\x1b[0m/g'
@@ -173,6 +155,6 @@ norm:
 leak: fclean debug
 	@$(SH_PATH_DEBUG)
 
-.PHONY: libmlx gnl all clean fclean re g norm leak
+.PHONY: libmlx gnl all clean fclean re norm leak
 
 default: all

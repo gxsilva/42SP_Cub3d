@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:13:57 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/01 01:35:22 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/01 13:58:32 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@
 
 //MLX errors
 # define UNABLE_INIT_MLX "Unable to initialize MLX"
+# define UNABLE_CREAT_MINIMAP "Unable to creat minimap image"
 
 #endif // ERRORS_H
