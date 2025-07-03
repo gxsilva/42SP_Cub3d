@@ -6,7 +6,7 @@
 #    By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/02 19:41:47 by ailbezer         ###   ########.fr        #
+#    Updated: 2025/07/03 20:07:47 by ailbezer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	map/map_struct/validate_walls_diag.c \
 	map/draw/minimap.c \
 	map/draw/principal.c \
+	map/draw/dda.c \
 	free/free_split.c \
 	free/free_cube.c \
 	utils/strlen_space.c \

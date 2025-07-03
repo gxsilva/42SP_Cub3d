@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/03 17:56:51 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/03 20:01:30 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,18 @@ typedef struct s_player
 	double	plane_y;
 }	t_player;
 
-typedef struct s_dda 
+typedef struct s_dda
 {
-	int	step_x;
-	int	step_y;
+	int		step_x;
+	int		step_y;
 	double	side_dist_y;
 	double	side_dist_x;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
 }	t_dda;
 
-typedef struct s_ray 
+typedef struct s_ray
 {
 	double	camera_x;
 	double	dir_x;
