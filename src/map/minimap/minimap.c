@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:57:51 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/01 17:53:50 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/03 19:12:18 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	draw_minimap(t_cube *cube)
 
 	y = -1;
 	color = BLACK_PX;
-	player_x = cube->player->map_pos_x;
-	player_y = cube->player->map_pos_y;
+	player_x = cube->player->pos.x;
+	player_y = cube->player->pos.y;
 	while (++y < cube->map->height)
 	{
 		x = -1;

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 16:25:45 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 17:22:40 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/03 18:59:23 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h> //printf, exit
 # include <unistd.h> //write, close, read
 # include <fcntl.h> //open
+# include <math.h>
 # include <stdlib.h> //malloc, free
 # include <sys/time.h> //gettimeofday
 # include <errno.h> //perror

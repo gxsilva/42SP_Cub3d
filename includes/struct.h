@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/01 13:53:53 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/03 19:11:00 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,27 @@ typedef struct s_file
 	char	*ea_path;
 }	t_file;
 
+typedef struct s_vec
+{
+	double	x;
+	double	y;
+} t_vec;
+
 typedef struct s_player
 {
-	int		map_pos_x;
-	int		map_pos_y;
-	int		dir_x;
-	int		dir_y;
+	//pos_x	pos_y
+	t_vec	pos;
+
+	//dir_x dir_y
+	t_vec	dir;
+	
+	//plane_x plane_y
+	t_vec	plane;
+	
+	double	rot_angle;
+	
+	double	rot_speed;
+	double	move_speed;
 }	t_player;
 
 typedef struct s_cube
