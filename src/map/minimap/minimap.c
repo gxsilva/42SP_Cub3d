@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:57:51 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/03 19:12:18 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/03 19:18:22 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,5 @@ void	draw_minimap(t_cube *cube)
 			pixel_to_img(cube->minimap, color, y, x);
 		}
 	}
-	pixel_to_img(cube->minimap, RED_PX, player_y, player_x);
+	pixel_to_img(cube->minimap, ORANGE_PX, player_y, player_x);
 }
