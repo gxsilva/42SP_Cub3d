@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:35:15 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/01 17:56:48 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/03 18:23:27 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Height: 720 px
 */
 
 # ifndef WIN_WIDTH
-#  define WIN_WIDTH 1280
+#  define WIN_WIDTH 1920
 # endif
 
 # ifndef TILE
@@ -32,7 +32,7 @@ Height: 720 px
 # endif
 
 # ifndef WIN_HEIGHT
-#  define WIN_HEIGHT 720
+#  define WIN_HEIGHT 960
 # endif
 
 #endif // MACROS_H

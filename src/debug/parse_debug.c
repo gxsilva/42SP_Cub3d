@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:11:37 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/27 18:13:40 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/03 14:38:47 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,11 @@ void	print_player_struct(void)
 
 	player = get_cube()->player;
 	printf(YELLOW"=========== PLAYER ============\n"RESET);
-	printf("POS_X: %d\n", player->map_pos_x);
-	printf("POS_Y: %d\n", player->map_pos_y);
+	printf("POS_X: %f\n", player->pos_x);
+	printf("POS_Y: %f\n", player->pos_y);
 	printf("DIR_X: %d\n", player->dir_x);
 	printf("DIR_Y: %d\n", player->dir_y);
+	printf("PLANE_X: %f\n", player->plane_x);
+	printf("PLANE_Y: %f\n", player->plane_y);
 	printf(YELLOW"===============================\n"RESET);
 }
