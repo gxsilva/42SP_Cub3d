@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:35:15 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 15:35:51 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 19:46:41 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 # endif
 
 # ifndef ROT_SPEED
-#  define ROT_SPEED 0.045
+#  define ROT_SPEED 0.065
 # endif
 
 #endif // MACROS_H

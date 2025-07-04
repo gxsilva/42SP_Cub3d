@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+         #
+#    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/01 17:58:32 by ailbezer         ###   ########.fr        #
+#    Updated: 2025/07/04 20:07:13 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,10 +47,10 @@ LIBS = -L$(MLX_DIR)/build -L$(LIBFT_DIR)/bin -L$(GNL_DIR)/bin
 SRCS		:= $(addprefix $(SRCS_DIR), \
 	main.c \
 	error/process_error.c \
-	map/fill_map.c \
-	map/fill_file_struct.c \
-	map/fill_file.c \
-	map/fill_file_rgb.c \
+	map/file/fill_map.c \
+	map/file/fill_file_struct.c \
+	map/file/fill_file.c \
+	map/file/fill_file_rgb.c \
 	map/xpm_verify.c \
 	map/map_struct/map_infos.c \
 	map/map_struct/map_matrix.c \
@@ -58,6 +58,8 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	map/map_struct/validate_walls.c \
 	map/map_struct/validate_walls_diag.c \
 	map/minimap/minimap.c \
+	map/minimap/minimap_utils.c \
+	map/minimap/player_minimap.c \
 	free/free_split.c \
 	free/free_cube.c \
 	utils/strlen_space.c \
@@ -70,6 +72,9 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	debug/parse_debug.c \
 	player/init_player.c \
 	mlx/mlx_hooks.c \
+	mlx/left_right.c \
+	mlx/up_down.c \
+	mlx/utils_key_hooks.c \
 )
 
 OBJS		:= $(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)/%.o,$(SRCS))

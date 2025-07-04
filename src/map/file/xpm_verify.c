@@ -6,11 +6,11 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 21:08:18 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 15:49:15 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:07:29 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/header.h"
+#include "../../../includes/header.h"
 
 static int	verify_file_node(t_file *file, int cod);
 int			verify_coordinates(t_file *file);

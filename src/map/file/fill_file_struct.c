@@ -6,11 +6,11 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:53:09 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 16:16:57 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:07:35 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/header.h"
+#include "../../../includes/header.h"
 
 void			fill_directions(char *line, t_file *file);
 void			fill_floor_ceiling(char *line, t_file *file);

@@ -1,0 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   left_right.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 15:41:22 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/07/04 16:04:28 by lsilva-x         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../includes/header.h"
+
+void	set_left_right(mlx_key_data_t keydata, void *param);
+
+void	set_left_right(mlx_key_data_t keydata, void *param)
+{
+	t_cube *cube = (t_cube *)param;
+	
+	if (keydata.key == MLX_KEY_D && (keydata.action == MLX_REPEAT
+			|| keydata.action == MLX_PRESS))
+	{
+		if (DEBUG_FLAG)
+			print_color("D key pressed", BRIGHT_YELLOW);
+		if (wall_colision_player(cube, 1, 0))
+			return ;
+		cube->player->pos.x -= calc_pst(cube->player->rot_angle, 1);
+		cube->player->pos.y += calc_pst(cube->player->rot_angle, 0);
+	}
+	else if (keydata.key == MLX_KEY_A && (keydata.action == MLX_REPEAT
+			|| keydata.action == MLX_PRESS))
+	{
+		if (DEBUG_FLAG)
+			print_color("A key pressed", BRIGHT_YELLOW);
+		if (wall_colision_player(cube, -1, 0))
+			return ;
+		cube->player->pos.x += calc_pst(cube->player->rot_angle, 1);
+		cube->player->pos.y -= calc_pst(cube->player->rot_angle, 0);
+	}
+}
