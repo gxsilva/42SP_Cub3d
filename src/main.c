@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/03 18:52:20 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 15:32:03 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@ void	render_minimap(void *param)
 	memset(cube->minimap->pixels,
 		0,
 		cube->minimap->height * cube->minimap->width * sizeof(uint32_t));
+		
 	draw_minimap(cube);
+	draw_player(cube->minimap, cube->player->pos.x, cube->player->pos.y);
 }
 
 void	init_mlx(t_cube *cube)

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:57:51 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/03 19:18:22 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 15:37:19 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,43 @@ static void	pixel_to_img(mlx_image_t *img, uint32_t color, int y, int x)
 	}
 }
 
+void	draw_player(mlx_image_t *img, double player_x, double player_y)
+{
+	int	i;
+	int	j;
+	int	center_x;
+	int	center_y;
+	int	size;
+	int	px;
+	int	py;
+
+	center_x = (int)round(player_x * TILE);
+	center_y = (int)round(player_y * TILE);
+	size = TILE / 4;
+	i = -size / 2;
+	while (i <= size / 2)
+	{
+		j = -size / 2;
+		while (j <= size / 2)
+		{
+			px = center_x + j;
+			py = center_y + i;
+			mlx_put_pixel(img, px, py, RED_PX);
+			j++;
+		}
+		i++;
+	}
+}
+
 void	draw_minimap(t_cube *cube)
 {
 	int			y;
 	int			x;
 	uint32_t	color;
-	int			player_x;
-	int			player_y;
 
 	y = -1;
 	color = BLACK_PX;
-	player_x = cube->player->pos.x;
-	player_y = cube->player->pos.y;
+
 	while (++y < cube->map->height)
 	{
 		x = -1;
@@ -67,5 +92,5 @@ void	draw_minimap(t_cube *cube)
 			pixel_to_img(cube->minimap, color, y, x);
 		}
 	}
-	pixel_to_img(cube->minimap, ORANGE_PX, player_y, player_x);
 }
+

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/03 19:11:00 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 15:04:02 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,10 @@ typedef struct s_vec
 
 typedef struct s_player
 {
-	//pos_x	pos_y
 	t_vec	pos;
-
-	//dir_x dir_y
 	t_vec	dir;
-	
-	//plane_x plane_y
 	t_vec	plane;
-	
 	double	rot_angle;
-	
 	double	rot_speed;
 	double	move_speed;
 }	t_player;
