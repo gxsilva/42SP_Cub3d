@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 15:41:22 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 16:04:28 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:18:31 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ void	set_left_right(mlx_key_data_t keydata, void *param);
 
 void	set_left_right(mlx_key_data_t keydata, void *param)
 {
-	t_cube *cube = (t_cube *)param;
-	
+	t_cube	*cube;
+
+	cube = (t_cube *)param;
 	if (keydata.key == MLX_KEY_D && (keydata.action == MLX_REPEAT
 			|| keydata.action == MLX_PRESS))
 	{

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:35:04 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 16:35:18 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:25:04 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ void	clean_static(int fd)
 {
 	char	*line;
 
-	while ((line = get_next_line(fd)))
+	line = get_next_line(fd);
+	while (line)
+	{
 		free(line);
+		line = get_next_line(fd);
+	}
 }

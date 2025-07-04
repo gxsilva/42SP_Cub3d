@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 15:41:22 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 16:03:42 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:23:10 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ void	set_up_down(mlx_key_data_t keydata, void *param);
 
 void	set_up_down(mlx_key_data_t keydata, void *param)
 {
-	t_cube *cube = (t_cube *)param;
+	t_cube	*cube;
 
+	cube = (t_cube *)param;
 	if (keydata.key == MLX_KEY_W && (keydata.action == MLX_REPEAT
 			|| keydata.action == MLX_PRESS))
 	{

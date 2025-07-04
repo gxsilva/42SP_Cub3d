@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 20:05:12 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:14:31 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	init_cube(t_cube *cube, char **argv)
 	parse_map(cube->map);
 }
 
-
 int	wall_colision_minimap(t_cube *cube)
 {
 	int	center_x;
@@ -64,14 +63,11 @@ int	wall_colision_minimap(t_cube *cube)
 	size = TILE / 4;
 	center_x = (int)round(cube->player->pos.x * TILE);
 	center_y = (int)round(cube->player->pos.y * TILE);
-
 	map_x = center_x / TILE;
 	map_y = center_y / TILE;
-
-	if (map_x < 0 || map_x >= cube->map->width ||
-		map_y < 0 || map_y >= cube->map->height)
+	if (map_x < 0 || map_x >= cube->map->width
+		|| map_y < 0 || map_y >= cube->map->height)
 		return (0);
-
 	if (cube->map->matrix[map_y][map_x] > 0)
 		return (0);
 	return (1);
@@ -79,13 +75,12 @@ int	wall_colision_minimap(t_cube *cube)
 
 void	render_minimap(void *param)
 {
-	t_cube *cube;
+	t_cube	*cube;
 
 	cube = (t_cube *)param;
 	memset(cube->minimap->pixels,
 		0,
 		cube->minimap->height * cube->minimap->width * sizeof(uint32_t));
-		
 	draw_minimap(cube);
 	// if (wall_colision_minimap(cube))
 	draw_player(cube->minimap, cube->player->pos.x, cube->player->pos.y);

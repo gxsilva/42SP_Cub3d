@@ -6,26 +6,26 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 20:00:35 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 20:02:47 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:15:49 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/header.h"
 
-static double dda_set_step(double dx, double dy)
+static double	dda_set_step(double dx, double dy)
 {
 	if (fabs(dx) > fabs(dy))
 		return (fabs(dx));
 	return (fabs(dy));
 }
 
-void draw_line_dda(t_vec init, t_vec end, uint32_t color)
+void	draw_line_dda(t_vec init, t_vec end, uint32_t color)
 {
-	int steps;
+	int		steps;
 	t_vec	inc;
 	t_vec	loop;
 	t_vec	d;
-	int i;
+	int		i;
 
 	i = 0;
 	d.x = end.x - init.x;

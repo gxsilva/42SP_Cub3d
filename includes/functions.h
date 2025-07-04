@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 20:06:04 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:25:36 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ void		init_map(t_cube *cube, char **argv);
 //Player functions
 t_player	*init_player(int i, int *j, char dir);
 void		draw_player(mlx_image_t *img, double player_x, double player_y);
-int			wall_colision_player (t_cube *cube, int dirX, int dirY);
-double		calc_pst(double	rot_angle, int opt);
+int			wall_colision_player(t_cube *cube, int dirX, int dirY);
+double		calc_pst(double rot_angle, int opt);
 void		draw_line_dda(t_vec init, t_vec end, uint32_t color);
-
 
 //Map functions
 void		clean_static(int fd);

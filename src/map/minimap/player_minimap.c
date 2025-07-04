@@ -6,13 +6,13 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 20:00:14 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 20:03:09 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:16:14 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/header.h"
 
-void draw_player_direction(int cX, int cY)
+void	draw_player_direction(int cX, int cY)
 {
 	t_vec	init;
 	t_vec	end;
@@ -26,11 +26,11 @@ void draw_player_direction(int cX, int cY)
 
 void	draw_player(mlx_image_t *img, double player_x, double player_y)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	t_vec	center;
 	t_vec	p;
-	int	size;
+	int		size;
 
 	center.x = (int)round(player_x * TILE);
 	center.y = (int)round(player_y * TILE);

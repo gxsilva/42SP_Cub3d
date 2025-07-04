@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 02:42:22 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 20:08:59 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:26:30 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		set_hooks(mlx_key_data_t keydata, void *param);
 static void	set_escape_hooks(mlx_key_data_t keydata, void *param);
 static void	set_keys_hooks(mlx_key_data_t keydata, void *param);
 static void	set_arrows_hooks(mlx_key_data_t keydata, void *param);
-static void	rotateDirection (int turn_direction, t_cube *cube);
+static void	rotate_direction(int turn_direction, t_cube *cube);
 
 void	set_hooks(mlx_key_data_t keydata, void *param)
 {
@@ -43,26 +43,25 @@ static void	set_keys_hooks(mlx_key_data_t keydata, void *param)
 
 static void	set_arrows_hooks(mlx_key_data_t keydata, void *param)
 {
-
 	if (keydata.key == MLX_KEY_LEFT && (keydata.action == MLX_REPEAT
 			|| keydata.action == MLX_PRESS))
 	{
 		if (DEBUG_FLAG)
 			print_color("Left arrow key pressed", BRIGHT_YELLOW);
-		rotateDirection(-1, (t_cube *)param);
+		rotate_direction(-1, (t_cube *)param);
 	}
 	else if (keydata.key == MLX_KEY_RIGHT && (keydata.action == MLX_REPEAT
 			|| keydata.action == MLX_PRESS))
 	{
 		if (DEBUG_FLAG)
 			print_color("Right arrow key pressed", BRIGHT_YELLOW);
-		rotateDirection(1, (t_cube *)param);
+		rotate_direction(1, (t_cube *)param);
 	}
 }
 
-static void	rotateDirection (int turn_direction, t_cube *cube)
+static void	rotate_direction(int turn_direction, t_cube *cube)
 {
-	cube->player->rot_angle += turn_direction * ROT_SPEED;
+	cube->player->rot_angle += turn_direction * cube->player->rot_speed;
 	cube->player->dir.x = cos(cube->player->rot_angle);
 	cube->player->dir.y = sin(cube->player->rot_angle);
 }

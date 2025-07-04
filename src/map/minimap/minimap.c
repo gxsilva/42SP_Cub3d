@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:57:51 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/04 20:03:18 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:15:07 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	draw_minimap(t_cube *cube)
 
 	y = -1;
 	color = BLACK_PX;
-
 	while (++y < cube->map->height)
 	{
 		x = -1;

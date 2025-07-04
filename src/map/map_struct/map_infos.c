@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:22:33 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/01 00:24:26 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:15:02 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	get_start(char *map_name)
 			i++;
 		check_wall_init(line, fd, i);
 		if (!line || (line[i] && line[i] == '1'))
-			break;
+			break ;
 		start++;
 		free(line);
 	}
