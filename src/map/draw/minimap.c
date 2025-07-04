@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:57:51 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/03 15:24:05 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/04 14:34:27 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,17 +81,16 @@ void	draw_rays_on_minimap(t_cube *cube)
 
 		// Calcular a distância perpendicular do jogador até a parede
 		double perp_wall_dist;
+		if (ray.side == 0)
+			perp_wall_dist = ddad->side_dist_x - ray.deltadist_x;
+		else
+			perp_wall_dist = ddad->side_dist_y - ray.deltadist_y;
 		// if (ray.side == 0)
-		// 	perp_wall_dist = ddad->side_dist_x - ray.deltadist_x;
+ 	    //    perp_wall_dist = (ray.map_x - player->pos_x + (1 - ddad->step_x) / 2) / ray.dir_x;
 		// else
-		// 	perp_wall_dist = ddad->side_dist_y - ray.deltadist_y;
-		if (ray.side == 0) {
-        perp_wall_dist = (ray.map_x - player->pos_x + (1 - ddad->step_x) / 2) / ray.dir_x;
-		} else {
-			perp_wall_dist = (ray.map_y - player->pos_y + (1 - ddad->step_y) / 2) / ray.dir_y;
-		}
-		if (perp_wall_dist < 0)
-			perp_wall_dist = 0.0001;
+		// 	perp_wall_dist = (ray.map_y - player->pos_y + (1 - ddad->step_y) / 2) / ray.dir_y;
+		// if (perp_wall_dist < 0)
+		// 	perp_wall_dist = 0.0001;
 
 		// Calcular ponto real de colisão do raio
 		double hit_x = player->pos_x + ray.dir_x * perp_wall_dist;
@@ -110,7 +109,7 @@ void	draw_rays_on_minimap(t_cube *cube)
 				mlx_put_pixel(cube->minimap, px, py, 0xFF0000FF); // azul
 		}
 		x += 10;
-		// free(ddad);
+		free(ddad);
 	}
 }
 

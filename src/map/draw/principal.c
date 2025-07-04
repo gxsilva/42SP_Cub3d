@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:14:07 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/03 20:06:44 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/04 14:32:01 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	draw_3dmap(t_dda *dda, int x, mlx_image_t *map)
 	while (++y < WIN_HEIGHT)
 	{
 		if (y < dda->draw_start)
-			mlx_put_pixel(map, x, y, GRAY_PX);
+			mlx_put_pixel(map, x, y, BLUE_PX);
 		else if (y >= dda->draw_start && y < dda->draw_end)
 			mlx_put_pixel(map, x, y, RED_PX);
 		else
@@ -79,5 +79,7 @@ void	raycast(t_cube *cube)
 		// 	print_ray_struct(ray);
 		// 	print_dda_struct(ddad);
 		// }
+		free(ddad);
 	}
+	free(ray);
 }
