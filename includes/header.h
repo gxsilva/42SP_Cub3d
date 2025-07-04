@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 16:25:45 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 17:22:40 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/02 18:20:32 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <sys/time.h> //gettimeofday
 # include <errno.h> //perror
 # include <string.h> //strerror
+# include <math.h> //fabs
 
 //extern libraries
 # include "../lib/GNL/includes/get_next_line.h"
