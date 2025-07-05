@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 02:42:22 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/05 18:24:28 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/05 19:32:29 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	set_hooks(mlx_key_data_t keydata, void *param)
 	set_escape_hooks(keydata, param);
 	set_keys_hooks(keydata, param);
 	set_arrows_hooks(keydata, param);
+	set_player_plane(get_cube()->player);
 }
 
 static void	set_escape_hooks(mlx_key_data_t keydata, void *param)

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:31:36 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/05 18:27:19 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/05 19:30:59 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ static void	set_player_dir(t_player *player, char dir)
 
 void	set_player_plane(t_player *player)
 {
-	player->plane_x = -(player->pos_y) * FOV;
-	player->plane_y = player->pos_x * FOV;
+	player->plane_x = -(player->dir_y) * FOV;
+	player->plane_y = player->dir_x * FOV;
 }
 
 t_player	*init_player(int i, int *j, char dir)
