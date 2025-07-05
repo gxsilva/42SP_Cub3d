@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 02:42:22 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 20:26:30 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:24:28 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ static void	set_arrows_hooks(mlx_key_data_t keydata, void *param)
 static void	rotate_direction(int turn_direction, t_cube *cube)
 {
 	cube->player->rot_angle += turn_direction * cube->player->rot_speed;
-	cube->player->dir.x = cos(cube->player->rot_angle);
-	cube->player->dir.y = sin(cube->player->rot_angle);
+	cube->player->dir_x = cos(cube->player->rot_angle);
+	cube->player->dir_y = sin(cube->player->rot_angle);
 }

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 20:00:14 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 20:16:14 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:24:07 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	draw_player_direction(int cX, int cY)
 
 	init.x = cX;
 	init.y = cY;
-	end.x = init.x + get_cube()->player->dir.x * TILE;
-	end.y = init.y + get_cube()->player->dir.y * TILE;
+	end.x = init.x + get_cube()->player->dir_x * TILE;
+	end.y = init.y + get_cube()->player->dir_y * TILE;
 	draw_line_dda(init, end, RED_PX);
 }
 

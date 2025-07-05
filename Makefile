@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/05 15:47:08 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/07/05 18:29:03 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,9 +57,11 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	map/map_struct/parse_map.c \
 	map/map_struct/validate_walls.c \
 	map/map_struct/validate_walls_diag.c \
-	map/minimap/minimap.c \
 	map/minimap/minimap_utils.c \
+	map/minimap/minimap.c \
 	map/minimap/player_minimap.c \
+	map/draw/principal.c \
+	map/draw/dda.c \
 	free/free_split.c \
 	free/free_cube.c \
 	utils/strlen_space.c \
@@ -70,6 +72,7 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	utils/sanitaze_string.c \
 	debug/file_debug.c \
 	debug/parse_debug.c \
+	debug/raytrace_debug.c \
 	player/init_player.c \
 	mlx/mlx_hooks.c \
 	mlx/left_right.c \

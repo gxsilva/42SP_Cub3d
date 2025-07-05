@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/05 15:46:48 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:27:09 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ int	wall_colision_minimap(t_cube *cube)
 	int	map_y;
 
 	// size = TILE / 4;
-	center_x = (int)round(cube->player->pos.x * TILE);
-	center_y = (int)round(cube->player->pos.y * TILE);
+	center_x = (int)round(cube->player->pos_x * TILE);
+	center_y = (int)round(cube->player->pos_y * TILE);
 	map_x = center_x / TILE;
 	map_y = center_y / TILE;
 	if (map_x < 0 || map_x >= cube->map->width
@@ -83,7 +83,7 @@ void	render_minimap(void *param)
 		cube->minimap->height * cube->minimap->width * sizeof(uint32_t));
 	draw_minimap(cube);
 	// if (wall_colision_minimap(cube))
-	draw_player(cube->minimap, cube->player->pos.x, cube->player->pos.y);
+	draw_player(cube->minimap, cube->player->pos_x, cube->player->pos_y);
 }
 
 void	init_mlx(t_cube *cube)
@@ -96,8 +96,18 @@ void	init_mlx(t_cube *cube)
 	cube->minimap = mlx_new_image(cube->mlx, cube->map->width * TILE, cube->map->height * TILE);
 	if (!cube->minimap)
 		error_msg (UNABLE_CREAT_MINIMAP, BRIGHT_RED, DEBUG_FLAG, 1);
+
+	cube->principal_map = mlx_new_image(cube->mlx, WIN_WIDTH, WIN_HEIGHT);
+	if (!cube->principal_map)
+		error_msg (UNABLE_CREAT_MAP, BRIGHT_RED, DEBUG_FLAG, 1);
+
+	// raycast(cube);
+	mlx_image_to_window(cube->mlx, cube->principal_map, 0, 0);
 	mlx_image_to_window(cube->mlx, cube->minimap, 0, 0);
+
 	mlx_loop_hook(cube->mlx, render_minimap, cube);
+	mlx_loop_hook(cube->mlx, raycast, cube);
+	
 	mlx_key_hook(cube->mlx, set_hooks, cube);
 	mlx_loop(cube->mlx);
 	mlx_terminate(cube->mlx);
