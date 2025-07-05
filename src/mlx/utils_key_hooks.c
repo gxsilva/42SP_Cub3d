@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 15:50:37 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/05 16:17:15 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/05 16:18:51 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ double	calc_pst(double rot_angle, int opt)
 		return ((sin(rot_angle) * PLAYER_SPEED));
 }
 
-static void wall_colission_node(t_vec pos, t_vec offset, char direction)
+static void	wall_colission_node(t_vec pos, t_vec offset, char direction)
 {
 	(void)pos;
 	if (direction == 'D')
@@ -40,7 +40,7 @@ int	wall_collision_player(t_cube *cube, int direction)
 	int		**matrix;
 	t_vec	pos;
 	t_vec	offset;
-	
+
 	matrix = cube->map->matrix;
 	offset.x = calc_pst(cube->player->rot_angle, 0);
 	offset.y = calc_pst(cube->player->rot_angle, 1);
