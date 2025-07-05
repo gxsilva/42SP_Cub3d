@@ -7,6 +7,7 @@
         "mlx42.h": "c",
         "macros.h": "c",
         "struct.h": "c",
-        "random": "c"
+        "random": "c",
+        "string_view": "c"
     }
 }

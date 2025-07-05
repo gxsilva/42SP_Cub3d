@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 16:25:45 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/02 18:20:32 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:18:28 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h> //printf, exit
 # include <unistd.h> //write, close, read
 # include <fcntl.h> //open
+# include <math.h>
 # include <stdlib.h> //malloc, free
 # include <sys/time.h> //gettimeofday
 # include <errno.h> //perror

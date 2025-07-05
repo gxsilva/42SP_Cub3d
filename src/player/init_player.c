@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:31:36 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/03 18:19:21 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:27:19 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,30 @@ static void	set_player_dir(t_player *player, char dir)
 	{
 		player->dir_x = 0;
 		player->dir_y = -1;
-		player->plane_x = 0.66;
-		player->plane_y = 0;
+		player->rot_angle = 3 * M_PI / 2;
 		if (dir == 'S')
 		{
+			player->rot_angle = M_PI / 2;
 			player->dir_y = 1;
-			player->plane_x = -0.66;
 		}
 	}
 	else if (dir == 'E' || dir == 'W')
 	{
 		player->dir_x = 1;
 		player->dir_y = 0;
-		player->plane_x = 0;
-		player->plane_y = 0.66;
+		player->rot_angle = 0;
 		if (dir == 'W')
 		{
+			player->rot_angle = M_PI;
 			player->dir_x = -1;
-			player->plane_y = -0.66;
 		}
 	}
+}
+
+void	set_player_plane(t_player *player)
+{
+	player->plane_x = -(player->pos_y) * FOV;
+	player->plane_y = player->pos_x * FOV;
 }
 
 t_player	*init_player(int i, int *j, char dir)
@@ -56,10 +60,11 @@ t_player	*init_player(int i, int *j, char dir)
 		return (NULL);
 	}
 	player = malloc(sizeof(t_player));
-	player->pos_x = *j + 0.5;
-	player->pos_y = i + 0.5;
-	player->plane_x = 0;
-	player->plane_y = 0;
+	player->pos_x = *j;
+	player->pos_y = i;
+	player->move_speed = PLAYER_SPEED;
+	player->rot_speed = ROT_SPEED;
 	set_player_dir(player, dir);
+	set_player_plane(player);
 	return (player);
 }

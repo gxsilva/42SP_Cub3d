@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   principal.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:14:07 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/04 14:32:01 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:26:46 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	draw_3dmap(t_dda *dda, int x, mlx_image_t *map);
 void	define_ray_dir(t_ray *ray, t_player *player, int x);
-void	raycast(t_cube *cube);
+void	raycast(void *param);
 
 // camera_x = define se a coluna que estamos verificando está mais a esquerda ou
 // esquerda da tela.
@@ -52,11 +52,11 @@ void	draw_3dmap(t_dda *dda, int x, mlx_image_t *map)
 }
 
 // calcular a direção do raio para cada coluna da janela
-void	raycast(t_cube *cube)
+void	raycast(void *param)
 {
+	t_cube	*cube = (t_cube *)param;
 	t_ray *ray;
 	int x;
-	
 	t_dda *ddad;
 
 	ray = malloc(sizeof(t_ray));

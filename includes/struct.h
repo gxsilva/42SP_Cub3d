@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/03 20:01:30 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:25:50 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░ 
  ░▒▓██████▓▒░        ░▒▓██████▓▒░       ░▒▓███████▓▒░       ░▒▓████████▓▒░      ░▒▓███████▓▒░  
 */
+
 
 typedef struct s_map
 {
@@ -45,14 +46,23 @@ typedef struct s_file
 	char	*ea_path;
 }	t_file;
 
+typedef struct s_vec
+{
+	double	x;
+	double	y;
+}	t_vec;
+
 typedef struct s_player
 {
-	int		dir_x;
-	int		dir_y;
+	double	dir_x;
+	double	dir_y;
 	double	pos_x;
 	double	pos_y;
 	double	plane_x;
 	double	plane_y;
+	double	rot_angle;
+	double	rot_speed;
+	double	move_speed;
 }	t_player;
 
 typedef struct s_dda

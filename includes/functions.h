@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/03 20:00:25 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:28:06 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,17 @@ void		init_map(t_cube *cube, char **argv);
 void		define_ray_dir(t_ray *ray, t_player *player, int x);
 t_dda		*init_dda(t_ray *ray, double pos_x, double pos_y);
 t_dda		*dda(t_ray *ray, t_player *player, int **matrix);
-void		raycast(t_cube *cube);
+void		raycast(void *param);
 void		calc_wall_dist(t_dda *dda, t_ray *ray);
 void		calc_wall_height(t_dda *dda);
 void		draw_3dmap(t_dda *dda, int x, mlx_image_t *map);
 
 //Player functions
 t_player	*init_player(int i, int *j, char dir);
+void		draw_player(mlx_image_t *img, double player_x, double player_y);
+int			wall_collision_player(t_cube *cube, int direction);
+double		calc_pst(double rot_angle, int opt);
+void		draw_line_dda(t_vec init, t_vec end, uint32_t color);
 
 //Map functions
 void		clean_static(int fd);
@@ -40,7 +44,7 @@ void		parse_map(t_map *map);
 
 //Minimap functions
 void		draw_minimap(t_cube *cube);
-void		draw_rays_on_minimap(t_cube *cube);
+// void		draw_rays_on_minimap(t_cube *cube);
 
 //Map infos
 int			width_len(char *line, int fd);
@@ -114,5 +118,7 @@ void		free_split(void **matrix);
 
 //MLX functions
 void		set_hooks(mlx_key_data_t keydata, void *param);
+void		set_left_right(mlx_key_data_t keydata, void *param);
+void		set_up_down(mlx_key_data_t keydata, void *param);
 
 #endif // FUNCTIONS_H
