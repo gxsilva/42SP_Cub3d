@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 15:50:37 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 20:23:29 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/05 16:17:15 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,42 @@ double	calc_pst(double rot_angle, int opt)
 		return ((sin(rot_angle) * PLAYER_SPEED));
 }
 
+static void wall_colission_node(t_vec pos, t_vec offset, char direction)
+{
+	(void)pos;
+	if (direction == 'D')
+	{
+		pos.x = (int)(get_cube()->player->pos.x - offset.y);
+		pos.y = (int)(get_cube()->player->pos.y + offset.x);
+	}
+	else if (direction == 'A')
+	{
+		pos.x = (int)(get_cube()->player->pos.x + offset.y);
+		pos.y = (int)(get_cube()->player->pos.y - offset.x);
+	}
+}
 
-// !WIP
-int	wall_colision_player(t_cube *cube, int dirX, int dirY)
+int	wall_collision_player(t_cube *cube, int direction)
 {
 	int		**matrix;
-	int		pos_x;
-	int		pos_y;
-	(void)dirX;
+	t_vec	pos;
+	t_vec	offset;
+	
 	matrix = cube->map->matrix;
-	pos_x = (int)cube->player->pos.x + calc_pst(0, 0) * PLAYER_SPEED;
-	pos_y = (int)cube->player->pos.y + (dirY * PLAYER_SPEED);
-	if (matrix[pos_y][pos_x] == 1)
+	offset.x = calc_pst(cube->player->rot_angle, 0);
+	offset.y = calc_pst(cube->player->rot_angle, 1);
+	if (direction == 'W')
+	{
+		pos.x = (int)(cube->player->pos.x + offset.x);
+		pos.y = (int)(cube->player->pos.y + offset.y);
+	}
+	else if (direction == 'S')
+	{
+		pos.x = (int)(cube->player->pos.x - offset.x);
+		pos.y = (int)(cube->player->pos.y - offset.y);
+	}
+	wall_colission_node(pos, offset, direction);
+	if (matrix[(int)pos.y][(int)pos.x] == 1)
 		return (1);
 	return (0);
 }

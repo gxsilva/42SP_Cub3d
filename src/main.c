@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 20:14:31 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/05 15:46:48 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ int	wall_colision_minimap(t_cube *cube)
 {
 	int	center_x;
 	int	center_y;
-	int	size;
+	// int	size;
 	int	map_x;
 	int	map_y;
 
-	size = TILE / 4;
+	// size = TILE / 4;
 	center_x = (int)round(cube->player->pos.x * TILE);
 	center_y = (int)round(cube->player->pos.y * TILE);
 	map_x = center_x / TILE;

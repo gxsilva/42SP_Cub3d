@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 15:41:22 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 20:18:31 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/05 16:11:02 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	set_left_right(mlx_key_data_t keydata, void *param)
 	{
 		if (DEBUG_FLAG)
 			print_color("D key pressed", BRIGHT_YELLOW);
-		if (wall_colision_player(cube, 1, 0))
+		if (wall_collision_player(cube, 'D'))
 			return ;
 		cube->player->pos.x -= calc_pst(cube->player->rot_angle, 1);
 		cube->player->pos.y += calc_pst(cube->player->rot_angle, 0);
@@ -34,9 +34,9 @@ void	set_left_right(mlx_key_data_t keydata, void *param)
 	{
 		if (DEBUG_FLAG)
 			print_color("A key pressed", BRIGHT_YELLOW);
-		if (wall_colision_player(cube, -1, 0))
+		if (wall_collision_player(cube, 'A'))
 			return ;
-		cube->player->pos.x += calc_pst(cube->player->rot_angle, 1);
+		cube->player->pos.x += calc_pst(cube->player->rot_angle, -1);
 		cube->player->pos.y -= calc_pst(cube->player->rot_angle, 0);
 	}
 }
