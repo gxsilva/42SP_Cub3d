@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/03 17:43:44 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/04 18:57:39 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,17 +71,18 @@ void	init_mlx(t_cube *cube)
 		error_msg (UNABLE_INIT_MLX, BRIGHT_RED, DEBUG_FLAG, 1);
 	if (DEBUG_FLAG)
 		print_color ("MLX initialize", BRIGHT_YELLOW);
+		
+	cube->principal_map = mlx_new_image(cube->mlx, WIN_WIDTH, WIN_HEIGHT);
+	if (!cube->principal_map)
+	error_msg (UNABLE_CREAT_MAP, BRIGHT_RED, DEBUG_FLAG, 1);
+	raycast(cube);
+	mlx_image_to_window(cube->mlx, cube->principal_map, 0, 0);
+		
 	cube->minimap = mlx_new_image(cube->mlx, cube->map->width * TILE, cube->map->height * TILE);
 	if (!cube->minimap)
 		error_msg (UNABLE_CREAT_MINIMAP, BRIGHT_RED, DEBUG_FLAG, 1);
-
-	cube->principal_map = mlx_new_image(cube->mlx, WIN_WIDTH, WIN_HEIGHT);
-	if (!cube->principal_map)
-		error_msg (UNABLE_CREAT_MAP, BRIGHT_RED, DEBUG_FLAG, 1);
-	raycast(cube);
-	mlx_image_to_window(cube->mlx, cube->principal_map, 0, 0);
-	
 	mlx_image_to_window(cube->mlx, cube->minimap, 0, 0);
+	
 	mlx_loop_hook(cube->mlx, render_minimap, cube);
 	mlx_key_hook(cube->mlx, set_hooks, cube);
 	mlx_loop(cube->mlx);

@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/03 20:00:25 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:21:45 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 t_cube		*get_cube(void);
 
 void		init_map(t_cube *cube, char **argv);
+
+void	init_textures(void);
 
 // raycast
 void		define_ray_dir(t_ray *ray, t_player *player, int x);

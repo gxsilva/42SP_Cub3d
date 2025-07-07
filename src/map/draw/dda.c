@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 20:03:27 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/04 14:17:45 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/04 19:55:43 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,13 +91,23 @@ void	calc_wall_height(t_dda *dda)
 void	calc_wall_dist(t_dda *dda, t_ray *ray)
 {
 	double	perp_wall_dist;
+
+	t_cube *cube = (get_cube());
 	
 	if (ray->side == 0)
+	{
 		perp_wall_dist = (dda->side_dist_x - ray->deltadist_x);
+		ray->wall_x = cube->player->pos_y + perp_wall_dist * ray->dir_y;
+	}
 	else
+	{
 		perp_wall_dist = (dda->side_dist_y - ray->deltadist_y);
-	if (perp_wall_dist < 0)
-			perp_wall_dist = 0.1;
+		ray->wall_x = cube->player->pos_x + perp_wall_dist * ray->dir_x;
+	}
+	ray->wall_x -= floor(ray->wall_x);
+		
+	// if (perp_wall_dist < 0)
+	// 		perp_wall_dist = 0.1;
 	// printf("\nMAP_X: %i\n", ray->map_x);
 	// printf("MAP_Y: %i\n", ray->map_y);
 	// printf("PERP_WALL_DIST: %f\n", perp_wall_dist);
