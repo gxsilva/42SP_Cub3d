@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:14:07 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/07 13:33:04 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:04:24 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	draw_3dmap(t_dda *dda, int x, mlx_image_t *map);
 void	define_ray_dir(t_ray *ray, t_player *player, int x);
-void	raycast(t_cube *cube);
+void	raycast(void *param);
 
 void	draw_texture(t_cube *cube, int x, int y, int tex_x, t_dda *dda, mlx_texture_t *tex);
 
@@ -62,31 +62,31 @@ void	draw_texture(t_cube *cube, int x, int y, int tex_x, t_dda *dda, mlx_texture
 
 void	draw_3dmap(t_dda *dda, int x, mlx_image_t *map)
 {
-	mlx_texture_t	*tex;
-	t_cube *cube = get_cube(); 
+	// mlx_texture_t	*tex;
+	// t_cube *cube = get_cube(); 
 
-	init_textures();
+	// init_textures();
 	
-	if (cube->ray->side == 0)
-	{
-		if (cube->ray->dir_x > 0)
-			tex = cube->textures->west;
-		else
-			tex = cube->textures->east;
-	}
-	else
-	{
-		if (cube->ray->dir_y > 0)
-			tex = cube->textures->south;
-		else
-			tex = cube->textures->north;
-	}
+	// if (cube->ray->side == 0)
+	// {
+	// 	if (cube->ray->dir_x > 0)
+	// 		tex = cube->textures->west;
+	// 	else
+	// 		tex = cube->textures->east;
+	// }
+	// else
+	// {
+	// 	if (cube->ray->dir_y > 0)
+	// 		tex = cube->textures->south;
+	// 	else
+	// 		tex = cube->textures->north;
+	// }
 
-	// calcular a coordenada x da textura
-	int tex_x;
-	tex_x = (int)(cube->ray->wall_x * tex->width);
-	if ((cube->ray->side == 0 && cube->ray->dir_x > 0) || (cube->ray->side == 1 && cube->ray->dir_y < 0))
-		tex_x = tex->width - tex_x - 1;
+	// // calcular a coordenada x da textura
+	// int tex_x;
+	// tex_x = (int)(cube->ray->wall_x * tex->width);
+	// if ((cube->ray->side == 0 && cube->ray->dir_x > 0) || (cube->ray->side == 1 && cube->ray->dir_y < 0))
+	// 	tex_x = tex->width - tex_x - 1;
 
 	int y;
 
@@ -96,19 +96,19 @@ void	draw_3dmap(t_dda *dda, int x, mlx_image_t *map)
 		if (y < dda->draw_start)
 			mlx_put_pixel(map, x, y, BLUE_PX);
 		else if (y >= dda->draw_start && y < dda->draw_end)
-			// mlx_put_pixel(map, x, y, RED_PX);
-			draw_texture(get_cube(), x, y, tex_x, dda, tex);
+			mlx_put_pixel(map, x, y, RED_PX);
+			// draw_texture(get_cube(), x, y, tex_x, dda, tex);
 		else
 			mlx_put_pixel(map, x, y, GREEN_PX);
 	}
 }
 
 // calcular a direção do raio para cada coluna da janela
-void	raycast(t_cube *cube)
+void	raycast(void *param)
 {
+	t_cube	*cube = (t_cube *)param;
 	t_ray *ray;
 	int x;
-	
 	t_dda *ddad;
 
 	ray = malloc(sizeof(t_ray));

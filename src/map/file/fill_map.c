@@ -6,11 +6,11 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:46:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/30 16:15:00 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:07:31 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/header.h"
+#include "../../../includes/header.h"
 
 void	init_map(t_cube *cube, char **argv);
 

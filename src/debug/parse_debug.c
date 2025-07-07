@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_debug.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:11:37 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/03 14:38:47 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:23:19 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,14 @@ void	print_player_struct(void)
 
 	player = get_cube()->player;
 	printf(YELLOW"=========== PLAYER ============\n"RESET);
-	printf("POS_X: %f\n", player->pos_x);
-	printf("POS_Y: %f\n", player->pos_y);
-	printf("DIR_X: %d\n", player->dir_x);
-	printf("DIR_Y: %d\n", player->dir_y);
-	printf("PLANE_X: %f\n", player->plane_x);
-	printf("PLANE_Y: %f\n", player->plane_y);
+	printf(YELLOW"POS_X:"RESET" \t\t%.4f\n", player->pos_x);
+	printf(YELLOW"POS_Y:"RESET" \t\t%.4f\n", player->pos_y);
+	printf(YELLOW"DIR_X:"RESET" \t\t%.4f\n", player->dir_x);
+	printf(YELLOW"DIR_Y:"RESET" \t\t%.4f\n", player->dir_y);
+	printf(YELLOW"PLANE_X:"RESET" \t%.4f\n", player->plane_x);
+	printf(YELLOW"PLANE_Y:"RESET" \t%.4f\n", player->plane_y);
+	printf(YELLOW"ROT_ANGLE:"RESET" \t%.4f\n", player->rot_angle);
+	printf(YELLOW"ROT_SPEED:"RESET" \t%.4f\n", player->rot_speed);
+	printf(YELLOW"MOVE_SPEED:"RESET" \t%.4f\n", player->move_speed);
 	printf(YELLOW"===============================\n"RESET);
 }

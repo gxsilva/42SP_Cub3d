@@ -6,11 +6,11 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:54:31 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/06/26 17:33:31 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:07:36 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/header.h"
+#include "../../../includes/header.h"
 
 int		count_elements(char **array);
 int		rgb_to_int(char *str);

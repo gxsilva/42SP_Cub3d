@@ -6,11 +6,11 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 20:39:09 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/01 00:28:48 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:07:33 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/header.h"
+#include "../../../includes/header.h"
 
 void		check_file(t_cube *cube);
 void		init_file_struct(t_cube *cube);

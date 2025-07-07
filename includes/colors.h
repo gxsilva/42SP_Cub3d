@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:17:47 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 14:17:26 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:18:05 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,25 @@
 # define BG_BRIGHT_CYAN		"\e[106m"
 # define BG_BRIGHT_WHITE	"\e[107m"
 
-# define BLACK_PX 0x000000FF
-# define WHITE_PX 0xFFFFFFFF
-# define GREEN_PX 0x228B22FF
-# define GRAY_PX 0x808080FF
-# define RED_PX 0xFF0000FF
-# define BLUE_PX 0x0000FFFF
+# define BLACK_PX		0x000000FF
+# define WHITE_PX		0xFFFFFFFF
+# define GREEN_PX		0x228B22FF
+# define GRAY_PX		0x808080FF
+# define RED_PX			0xFF0000FF
+# define BLUE_PX		0x0000FFFF
+# define YELLOW_PX		0xFFFF00FF
+# define CYAN_PX		0x00FFFFFF
+# define PURPLE_PX		0x800080FF
+# define ORANGE_PX		0xFFA500FF
+# define PINK_PX		0xFFC0CBFF
+# define BROWN_PX		0x8B4513FF
+# define LIGHT_GRAY_PX	0xD3D3D3FF
+# define DARK_GRAY_PX	0x2F4F4FFF
+# define LIME_PX		0x32CD32FF
+# define GOLD_PX		0xFFD700FF
+# define SILVER_PX		0xC0C0C0FF
+# define NAVY_PX		0x000080FF
+# define TEAL_PX		0x008080FF
+# define OLIVE_PX		0x808000FF
 
 #endif // COLORS_H

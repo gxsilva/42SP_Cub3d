@@ -6,7 +6,7 @@
 #    By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/04 20:21:22 by ailbezer         ###   ########.fr        #
+#    Updated: 2025/07/07 13:38:49 by ailbezer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,17 +47,19 @@ LIBS = -L$(MLX_DIR)/build -L$(LIBFT_DIR)/bin -L$(GNL_DIR)/bin
 SRCS		:= $(addprefix $(SRCS_DIR), \
 	main.c \
 	error/process_error.c \
-	map/fill_map.c \
-	map/fill_file_struct.c \
-	map/fill_file.c \
-	map/fill_file_rgb.c \
-	map/xpm_verify.c \
+	map/file/fill_map.c \
+	map/file/fill_file_struct.c \
+	map/file/fill_file.c \
+	map/file/fill_file_rgb.c \
+	map/file/xpm_verify.c \
 	map/map_struct/map_infos.c \
 	map/map_struct/map_matrix.c \
 	map/map_struct/parse_map.c \
 	map/map_struct/validate_walls.c \
 	map/map_struct/validate_walls_diag.c \
-	map/draw/minimap.c \
+	map/minimap/minimap_utils.c \
+	map/minimap/minimap.c \
+	map/minimap/player_minimap.c \
 	map/draw/principal.c \
 	map/draw/dda.c \
 	map/draw/textures.c \
@@ -74,6 +76,9 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	debug/raytrace_debug.c \
 	player/init_player.c \
 	mlx/mlx_hooks.c \
+	mlx/left_right.c \
+	mlx/up_down.c \
+	mlx/utils_key_hooks.c \
 )
 
 OBJS		:= $(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)/%.o,$(SRCS))
