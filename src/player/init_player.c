@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:31:36 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/07 14:57:34 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:00:08 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ t_player	*init_player(int i, int *j, char dir)
 		return (NULL);
 	}
 	player = malloc(sizeof(t_player));
-	player->pos_x = *j;
-	player->pos_y = i;
+	player->pos_x = *j + 0.5;
+	player->pos_y = i + 0.5;
 	player->move_speed = PLAYER_SPEED;
 	player->rot_speed = ROT_SPEED;
 	set_player_dir(player, dir);
