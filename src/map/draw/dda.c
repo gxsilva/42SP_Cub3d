@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 20:03:27 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/04 14:17:45 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:53:37 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,17 @@ t_dda	*dda(t_ray *ray, t_player *player, int **matrix)
 		{
 			dda->side_dist_x += ray->deltadist_x;
 			ray->map_x += dda->step_x;
-			ray->side = 0 ; //hit vertical
+			ray->side = 0 ;
 		}
 		else
 		{
 			dda->side_dist_y += ray->deltadist_y;
 			ray->map_y += dda->step_y;
-			ray->side = 1; //hit horizontal
+			ray->side = 1;
 		}
 		if (matrix[ray->map_y][ray->map_x] > 0)
 			hit = 1;
 	}
-	// free(dda);
 	return (dda);
 }
 
@@ -81,7 +80,6 @@ void	calc_wall_height(t_dda *dda)
 	dda->draw_start = (WIN_HEIGHT - dda->line_height) / 2;
 	dda->draw_end = (WIN_HEIGHT + dda->line_height) / 2;
 
-	// corrigir caso o começo ou fim da linha ultrapasse o limite da tela
 	if (dda->draw_start < 0)
 		dda->draw_start = 0;
 	if (dda->draw_end >= WIN_HEIGHT)
@@ -98,9 +96,5 @@ void	calc_wall_dist(t_dda *dda, t_ray *ray)
 		perp_wall_dist = (dda->side_dist_y - ray->deltadist_y);
 	if (perp_wall_dist < 0)
 			perp_wall_dist = 0.1;
-	// printf("\nMAP_X: %i\n", ray->map_x);
-	// printf("MAP_Y: %i\n", ray->map_y);
-	// printf("PERP_WALL_DIST: %f\n", perp_wall_dist);
-	// printf("===========================================\n");
 	dda->line_height = (int)(WIN_HEIGHT / perp_wall_dist);
 }

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/05 18:27:09 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:53:04 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,9 @@ int	wall_colision_minimap(t_cube *cube)
 {
 	int	center_x;
 	int	center_y;
-	// int	size;
 	int	map_x;
 	int	map_y;
 
-	// size = TILE / 4;
 	center_x = (int)round(cube->player->pos_x * TILE);
 	center_y = (int)round(cube->player->pos_y * TILE);
 	map_x = center_x / TILE;
@@ -82,7 +80,6 @@ void	render_minimap(void *param)
 		0,
 		cube->minimap->height * cube->minimap->width * sizeof(uint32_t));
 	draw_minimap(cube);
-	// if (wall_colision_minimap(cube))
 	draw_player(cube->minimap, cube->player->pos_x, cube->player->pos_y);
 }
 
@@ -101,7 +98,6 @@ void	init_mlx(t_cube *cube)
 	if (!cube->principal_map)
 		error_msg (UNABLE_CREAT_MAP, BRIGHT_RED, DEBUG_FLAG, 1);
 
-	// raycast(cube);
 	mlx_image_to_window(cube->mlx, cube->principal_map, 0, 0);
 	mlx_image_to_window(cube->mlx, cube->minimap, 0, 0);
 
