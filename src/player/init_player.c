@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:31:36 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/05 19:30:59 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:57:34 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ t_player	*init_player(int i, int *j, char dir);
 
 static void	set_player_dir(t_player *player, char dir)
 {
-	// campo de visão de 66°
-
 	if (dir == 'N' || dir == 'S')
 	{
 		player->dir_x = 0;

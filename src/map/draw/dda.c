@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 20:03:27 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/07 14:53:37 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:56:53 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ t_dda	*dda(t_ray *ray, t_player *player, int **matrix);
 void	calc_wall_dist(t_dda *dda, t_ray *ray);
 void	calc_wall_height(t_dda *dda);
 
-// side_dist = distancia inicial ate a primeira linha no eixo x/y 
-// step = direção para onde o raio vai ter que andar
 t_dda	*init_dda(t_ray *ray, double pos_x, double pos_y)
 {
 	t_dda	*dda;
@@ -79,7 +77,6 @@ void	calc_wall_height(t_dda *dda)
 {
 	dda->draw_start = (WIN_HEIGHT - dda->line_height) / 2;
 	dda->draw_end = (WIN_HEIGHT + dda->line_height) / 2;
-
 	if (dda->draw_start < 0)
 		dda->draw_start = 0;
 	if (dda->draw_end >= WIN_HEIGHT)
@@ -89,7 +86,7 @@ void	calc_wall_height(t_dda *dda)
 void	calc_wall_dist(t_dda *dda, t_ray *ray)
 {
 	double	perp_wall_dist;
-	
+
 	if (ray->side == 0)
 		perp_wall_dist = (dda->side_dist_x - ray->deltadist_x);
 	else

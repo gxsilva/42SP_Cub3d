@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:14:07 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/07 14:53:46 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:57:23 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	define_ray_dir(t_ray *ray, t_player *player, int x)
 
 void	draw_3dmap(t_dda *dda, int x, mlx_image_t *map)
 {
-	int y;
+	int		y;
 
 	y = -1;
 	while (++y < WIN_HEIGHT)
@@ -45,11 +45,12 @@ void	draw_3dmap(t_dda *dda, int x, mlx_image_t *map)
 
 void	raycast(void *param)
 {
-	t_cube	*cube = (t_cube *)param;
-	t_ray *ray;
-	int x;
-	t_dda *ddad;
+	t_cube	*cube;
+	t_ray	*ray;
+	int		x;
+	t_dda	*ddad;
 
+	cube = (t_cube *)param;
 	ray = malloc(sizeof(t_ray));
 	// !erro no malloc
 	x = -1;
