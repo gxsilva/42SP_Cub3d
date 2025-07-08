@@ -6,7 +6,7 @@
 #    By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/07 13:38:49 by ailbezer         ###   ########.fr        #
+#    Updated: 2025/07/07 19:02:44 by ailbezer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME		:= cub3D
 CC			:= cc
 CFLAGS		:= -Wextra -Wall -Werror -Wunreachable-code -Ofast -g3 -O0
-MLXFLAGS	:= -ldl -lmlx42 -lglfw -lpthread -lm -lft -lgnl
+MLXFLAGS	:= -ldl -lmlx42 -lglfw -lpthread -lm -lft -lgnl -fPIC
 
 # DIRECTORIES
 SRCS_DIR	:= src/

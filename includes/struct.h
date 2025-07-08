@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/07 13:40:01 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/07 16:15:37 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,10 @@ typedef struct s_textures
 	mlx_texture_t	*south;
 	mlx_texture_t	*east;
 	mlx_texture_t	*west;
+	xpm_t				*north_xpm;
+	xpm_t				*south_xpm;
+	xpm_t				*east_xpm;
+	xpm_t				*west_xpm;
 }	t_textures;
 
 typedef struct s_cube

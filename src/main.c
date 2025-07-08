@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/07 15:19:26 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/07 19:12:07 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	init_cube(t_cube *cube, char **argv)
 {
 	check_map(argv);
 	init_map(cube, argv);
-	check_file(cube);
+	// check_file(cube);
 	if (DEBUG_FLAG)
 		debug_file_struct(cube->file);
 	parse_map(cube->map);
@@ -105,7 +105,6 @@ void	init_mlx(t_cube *cube)
 	mlx_image_to_window(cube->mlx, cube->principal_map, 0, 0);
 	mlx_image_to_window(cube->mlx, cube->minimap, 0, 0);
 
-	// mlx_loop_hook(cube->mlx, render_minimap, cube);
 	mlx_loop_hook(cube->mlx, raycast, cube);
 	mlx_loop_hook(cube->mlx, render_minimap, cube);
 	
