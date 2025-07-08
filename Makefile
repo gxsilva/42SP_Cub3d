@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/05 18:29:03 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/07/08 02:05:34 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,8 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	map/file/fill_file.c \
 	map/file/fill_file_rgb.c \
 	map/file/xpm_verify.c \
+	map/file/xpm_to_image.c \
+	map/file/xpm_utils.c \
 	map/map_struct/map_infos.c \
 	map/map_struct/map_matrix.c \
 	map/map_struct/parse_map.c \

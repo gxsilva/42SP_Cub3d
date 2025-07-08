@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/07 15:13:13 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/08 02:32:03 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,9 @@ void	init_mlx(t_cube *cube)
 	cube->mlx = mlx_init(WIN_WIDTH, WIN_HEIGHT, "cub3d", false);
 	if (!cube->mlx)
 		error_msg (UNABLE_INIT_MLX, BRIGHT_RED, DEBUG_FLAG, 1);
+	init_wall_textures(cube);
+	// if (DEBUG_FLAG)
+		// debug_walls(cube->walls);
 	if (DEBUG_FLAG)
 		print_color ("MLX initialize", BRIGHT_YELLOW);
 	cube->minimap = mlx_new_image(cube->mlx, cube->map->width * TILE, cube->map->height * TILE);

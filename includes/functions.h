@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/05 19:32:18 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/08 02:08:23 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void		error_msg(char *err_str, char *color, int debug_opt, int std_opt);
 int			error_stay(char *err_str, char *color);
 
 //Debug functions
+void		debug_walls(t_walls *walls);
 void		debug_file_struct(t_file *file);
 void		print_map_struct(t_map *map);
 void		print_matrix(t_map *map);
@@ -110,6 +111,14 @@ int			rgb_to_int(char *str);
 int			verify_xpm_extension(t_file *file);
 int			verify_coordinates(t_file *file);
 int			verify_xpm_path(t_file *file);
+
+void	init_wall_textures(t_cube *cube);
+char	*format_xpm_line(char *line);
+char	*info_xpm_line (char *xpm_path);
+void	init_texture (t_texture *texture, char *xpm_path);
+void	init_img_xpm(t_texture *texture, char *xpm_path);
+void	get_dimensions (t_texture *texture, char *xpm_path);
+
 
 //Free functions
 void		free_cube(t_cube *cube);

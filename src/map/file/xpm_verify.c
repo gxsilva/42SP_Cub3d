@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 21:08:18 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 20:07:29 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/08 02:26:09 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,16 @@ int	verify_xpm_extension(t_file *file)
 
 	cod = 1;
 	tmp = ft_strrchr(file->no_path, '.');
-	if (!tmp || ft_strncmp(tmp, ".xpm", 4))
+	if (!tmp || ft_strncmp(tmp, ".xpm42", 6))
 		cod = error_stay(INVALID_NO_XPM, BRIGHT_RED);
 	tmp = ft_strrchr(file->ea_path, '.');
-	if (!tmp || ft_strncmp(tmp, ".xpm", 4))
+	if (!tmp || ft_strncmp(tmp, ".xpm42", 6))
 		cod = error_stay(INVALID_EA_XPM, BRIGHT_RED);
 	tmp = ft_strrchr(file->so_path, '.');
-	if (!tmp || ft_strncmp(tmp, ".xpm", 4))
+	if (!tmp || ft_strncmp(tmp, ".xpm42", 6))
 		cod = error_stay(INVALID_SO_XPM, BRIGHT_RED);
 	tmp = ft_strrchr(file->we_path, '.');
-	if (!tmp || ft_strncmp(tmp, ".xpm", 4))
+	if (!tmp || ft_strncmp(tmp, ".xpm42", 6))
 		cod = error_stay(INVALID_WE_XPM, BRIGHT_RED);
 	return (cod);
 }

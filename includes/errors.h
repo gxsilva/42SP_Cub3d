@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:13:57 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/01 19:19:59 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/08 01:55:54 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,9 @@
 # define UNABLE_INIT_MLX "Unable to initialize MLX"
 # define UNABLE_CREAT_MINIMAP "Unable to creat minimap image"
 # define UNABLE_CREAT_MAP "Unable to creat MAP image"
+# define UNABLE_XPM_STRUCT "Unable to initialize XPM struct"
+# define UNABLE_XPM_TO_IMG "Unable to convert XPM to image"
 
+//XPM
+# define INVALID_XPM_FORMAT "Invalid XPM file format"
 #endif // ERRORS_H
