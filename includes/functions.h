@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/07 15:45:32 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/08 19:51:28 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_dda		*dda(t_ray *ray, t_player *player, int **matrix);
 void		raycast(void *param);
 void		calc_wall_dist(t_dda *dda, t_ray *ray);
 void		calc_wall_height(t_dda *dda);
-void		draw_3dmap(t_dda *dda, int x, mlx_image_t *map, t_ray *ray);
+void		draw_3dmap(t_dda *dda, int x, t_ray *ray);
 
 //Player functions
 t_player	*init_player(int i, int *j, char dir);

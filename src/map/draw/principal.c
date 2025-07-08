@@ -6,17 +6,20 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:14:07 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/07 17:26:42 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/08 20:03:52 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/header.h"
 
-void	draw_3dmap(t_dda *dda, int x, mlx_image_t *map, t_ray *ray);
+void	draw_3dmap(t_dda *dda, int x, t_ray *ray);
 void	define_ray_dir(t_ray *ray, t_player *player, int x);
 void	raycast(void *param);
 
-void	draw_texture(t_cube *cube, int x, int y, int tex_x, t_dda *dda, mlx_texture_t *tex);
+void	draw_texture(mlx_image_t *map, int x, int y, int tex_x, t_dda *dda, mlx_texture_t *tex);
+
+// ! TODO: colocar ray e dda na estrutura principal para economizar parametros que precisam ser
+// ! passados nas funçoes
 
 // camera_x = define se a coluna que estamos verificando está mais a esquerda ou
 // esquerda da tela.
@@ -37,35 +40,61 @@ void	define_ray_dir(t_ray *ray, t_player *player, int x)
 	ray->map_y = (int)player->pos_y;
 }
 
-void	draw_texture(t_cube *cube, int x, int y, int tex_x, t_dda *dda, mlx_texture_t *tex)
+uint32_t	get_tex_color(int index, mlx_texture_t *tex)
 {
-	int d;
-	int tex_y;
 	uint8_t	r;
 	uint8_t	g;
 	uint8_t	b;
 	uint8_t	a;
-
-	d = y * 256 - WIN_HEIGHT * 128 + dda->line_height * 128;
-	tex_y = (d * tex->height) / dda->line_height / 256;
-
-	int i = (tex_y + tex->width * tex_x);
 	
-	r = tex->pixels[i + 0];
-	g = tex->pixels[i + 1];
-	b = tex->pixels[i + 2];
-	a = tex->pixels[i + 3];
-	
-	uint32_t color = ((a << 24) | (r << 16) | (g << 8) | b);
-	mlx_put_pixel(cube->principal_map, x, y, color);
+	r = tex->pixels[index + 0];
+	g = tex->pixels[index + 1];
+	b = tex->pixels[index + 2];
+	a = tex->pixels[index + 3];
+	// if (a == 0)
+		// return ;
+	return ((a << 24) | (r << 16) | (g << 8) | b);
 }
 
-void	draw_3dmap(t_dda *dda, int x, mlx_image_t *map, t_ray *ray)
+void	draw_texture(mlx_image_t *map, int x, int y, int tex_x, t_dda *dda, mlx_texture_t *tex)
+{
+	uint32_t	color;
+	int			tex_y;
+	int			index; 
+	
+	tex_y = ((y - dda->draw_start) * tex->height) / (dda->draw_end - dda->draw_start);
+	index = (tex_y * tex->width + tex_x) * 4;
+	
+	color = get_tex_color(index, tex);
+	mlx_put_pixel(map, x, y, color);
+}
+
+void	tex_pixel_to_image(t_cube *cube, mlx_texture_t *tex, t_dda *dda, t_ray *ray, int x)
+{
+	// calcular a coordenada x da textura
+	int tex_x;
+	int y;
+	
+	tex_x = (int)(ray->wall_x * tex->width);
+	if ((ray->side == 0 && ray->dir_x > 0) 
+		|| (ray->side == 1 && ray->dir_y < 0))
+		tex_x = tex->width - tex_x - 1;
+	y = -1;
+	while (++y < WIN_HEIGHT)
+	{
+		if (y < dda->draw_start)
+			mlx_put_pixel(cube->principal_map, x, y, BLUE_PX);
+		else if (y >= dda->draw_start && y < dda->draw_end)
+			draw_texture(cube->principal_map, x, y, tex_x, dda, tex);
+		else
+			mlx_put_pixel(cube->principal_map, x, y, GREEN_PX);
+	}
+}
+
+void	draw_3dmap(t_dda *dda, int x, t_ray *ray)
 {
 	mlx_texture_t	*tex;
 	t_cube *cube = get_cube(); 
-
-	init_textures();
 
 	// printf("RAY->SIDE: %d\n", cube->ray->side);
 	if (ray->side == 0)
@@ -82,26 +111,8 @@ void	draw_3dmap(t_dda *dda, int x, mlx_image_t *map, t_ray *ray)
 		else
 			tex = cube->textures->north;
 	}
-
-	// calcular a coordenada x da textura
-	int tex_x;
-	tex_x = (int)(ray->wall_x * tex->width);
-	if ((ray->side == 0 && ray->dir_x > 0) || (ray->side == 1 && ray->dir_y < 0))
-		tex_x = tex->width - tex_x - 1;
-
-	int y;
-
-	y = -1;
-	while (++y < WIN_HEIGHT)
-	{
-		if (y < dda->draw_start)
-			mlx_put_pixel(map, x, y, BLUE_PX);
-		else if (y >= dda->draw_start && y < dda->draw_end)
-			// mlx_put_pixel(map, x, y, RED_PX);
-			draw_texture(get_cube(), x, y, tex_x, dda, tex);
-		else
-			mlx_put_pixel(map, x, y, GREEN_PX);
-	}
+	tex_pixel_to_image(cube, tex, dda, ray, x);
+	
 }
 
 // calcular a direção do raio para cada coluna da janela
@@ -126,7 +137,7 @@ void	raycast(void *param)
 		// 5. Calcular altura da parede
 		calc_wall_height(ddad);
 		// 6. Desenhar linha vertical em x com a textura ou cor
-		draw_3dmap(ddad, x, cube->principal_map, ray);
+		draw_3dmap(ddad, x, ray);
 		// if (DEBUG_FLAG)
 		// {
 		// 	print_ray_struct(ray);

@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/07 19:12:07 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/08 16:11:06 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void	init_mlx(t_cube *cube)
 		error_msg (UNABLE_INIT_MLX, BRIGHT_RED, DEBUG_FLAG, 1);
 	if (DEBUG_FLAG)
 		print_color ("MLX initialize", BRIGHT_YELLOW);
+	init_textures();
 		
 	cube->principal_map = mlx_new_image(cube->mlx, WIN_WIDTH, WIN_HEIGHT);
 	if (!cube->principal_map)
