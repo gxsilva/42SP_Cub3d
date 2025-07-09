@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/07 16:15:37 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/09 17:00:03 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░ 
  ░▒▓██████▓▒░        ░▒▓██████▓▒░       ░▒▓███████▓▒░       ░▒▓████████▓▒░      ░▒▓███████▓▒░  
 */
-
 
 typedef struct s_map
 {
@@ -95,10 +94,8 @@ typedef struct s_textures
 	mlx_texture_t	*south;
 	mlx_texture_t	*east;
 	mlx_texture_t	*west;
-	xpm_t				*north_xpm;
-	xpm_t				*south_xpm;
-	xpm_t				*east_xpm;
-	xpm_t				*west_xpm;
+	mlx_texture_t	*tex;
+	int				tex_x;
 }	t_textures;
 
 typedef struct s_cube
@@ -107,6 +104,7 @@ typedef struct s_cube
 	t_player	*player;
 	t_file		*file;
 	t_ray		*ray;
+	t_dda		*dda;
 	mlx_t		*mlx;
 	mlx_image_t	*minimap;
 	mlx_image_t	*principal_map;
