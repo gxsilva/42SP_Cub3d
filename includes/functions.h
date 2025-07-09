@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/05 19:32:18 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/09 17:38:57 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void		print_dda_struct(t_dda *dda);
 //Utils
 int			strlen_space(char *line);
 char		*sanitize_string(char *line);
-void		format_path(char **xpm_path);
+void		format_path(char **png_path);
 void		free_two(void *ptr, void *ptr2);
 void		print_color(char *str, char *color);
 
@@ -104,12 +104,12 @@ void		fill_floor_ceiling(char *line, t_file *file);
 
 //RGB functions
 int			count_elements(char **array);
-int			rgb_to_int(char *str);
+uint32_t	rgba_to_int(char *str);
 
-//Xpm verify
-int			verify_xpm_extension(t_file *file);
+//png verify
+int			verify_png_extension(t_file *file);
 int			verify_coordinates(t_file *file);
-int			verify_xpm_path(t_file *file);
+int			verify_png_path(t_file *file);
 
 //Free functions
 void		free_cube(t_cube *cube);

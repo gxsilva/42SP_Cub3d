@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 20:39:09 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 20:07:33 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/09 16:57:16 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ int	verify_file_struct(t_file *file)
 	if (!verify_coordinates(file))
 		return (0);
 	verify_format_path(file);
-	if (!verify_xpm_extension(file))
+	if (!verify_png_extension(file))
 		return (0);
-	if (!verify_xpm_path(file))
+	if (!verify_png_path(file))
 		return (0);
 	return (1);
 }

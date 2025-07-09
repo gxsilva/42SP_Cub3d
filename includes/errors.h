@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:13:57 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/01 19:19:59 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/09 16:45:14 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,22 @@
 # define INVALID_FILE_FORMAT "Invalid file format"
 # define INVALID_FILE_CHAR "Invalid type of char in file"
 
-# define INVALID_NO_XPM "Invalid NO xpm file"
-# define INVALID_SO_XPM "Invalid SO xpm file"
-# define INVALID_WE_XPM "Invalid WE xpm file"
-# define INVALID_EA_XPM "Invalid EA xpm file"
+# define INVALID_NO_PNG "Invalid NO png file"
+# define INVALID_SO_PNG "Invalid SO png file"
+# define INVALID_WE_PNG "Invalid WE png file"
+# define INVALID_EA_PNG "Invalid EA png file"
 
-# define INVALID_NO_DUPLICATE "Duplicate NO xpm file entry"
-# define INVALID_SO_DUPLICATE "Duplicate SO xpm file entry"
-# define INVALID_WE_DUPLICATE "Duplicate WE xpm file entry"
-# define INVALID_EA_DUPLICATE "Duplicate EA xpm file entry"
+# define INVALID_NO_DUPLICATE "Duplicate NO png file entry"
+# define INVALID_SO_DUPLICATE "Duplicate SO png file entry"
+# define INVALID_WE_DUPLICATE "Duplicate WE png file entry"
+# define INVALID_EA_DUPLICATE "Duplicate EA png file entry"
 
-# define INVALID_NO_XPM_PATH "Invalid NO xpm path file"
-# define INVALID_SO_XPM_PATH "Invalid SO xpm path file"
-# define INVALID_WE_XPM_PATH "Invalid WE xpm path file"
-# define INVALID_EA_XPM_PATH "Invalid EA xpm path file"
+# define INVALID_NO_PNG_PATH "Invalid NO png path file"
+# define INVALID_SO_PNG_PATH "Invalid SO png path file"
+# define INVALID_WE_PNG_PATH "Invalid WE png path file"
+# define INVALID_EA_PNG_PATH "Invalid EA png path file"
 
-# define INVALID_DUPLICATE_XPM "Duplicate xpm file entry"
+# define INVALID_DUPLICATE_PNG "Duplicate png file entry"
 
 # define INVALID_FLOOR_COLOR "Invalid floor color"
 # define INVALID_CEILING_COLOR "Invalid ceiling color"
