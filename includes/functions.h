@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 17:38:57 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:05:57 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,16 @@ void		init_map(t_cube *cube, char **argv);
 
 // raycast
 void		define_ray_dir(t_ray *ray, t_player *player, int x);
-t_dda		*init_dda(t_ray *ray, double pos_x, double pos_y);
-t_dda		*dda(t_ray *ray, t_player *player, int **matrix);
+void		init_dda(t_cube *cube, t_ray *ray, double pos_x, double pos_y);
+void		perform_dda(t_cube *cube, t_ray *ray, t_player *player,
+				int **matrix);
 void		raycast(void *param);
-void		calc_wall_dist(t_dda *dda, t_ray *ray);
+void		calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player);
 void		calc_wall_height(t_dda *dda);
-void		draw_3dmap(t_dda *dda, int x, mlx_image_t *map);
+
+// Textures
+void		init_textures(t_cube *cube);
+void		draw_3dmap(t_cube *cube, int x);
 
 //Player functions
 t_player	*init_player(int i, int *j, char dir);
@@ -41,12 +45,9 @@ void		clean_static(int fd);
 void		end_of_map(int fd, char *line);
 int			is_empty_line(char *line, int pos);
 void		parse_map(t_map *map);
-// void		leftovers(int fd);
 
 //Minimap functions
 void		draw_minimap(t_cube *cube);
-
-// void		draw_rays_on_minimap(t_cube *cube);
 
 //Map infos
 int			width_len(char *line, int fd);

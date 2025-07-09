@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:13:57 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 16:45:14 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:05:49 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@
 //file format
 # define INVALID_FILE_FORMAT "Invalid file format"
 # define INVALID_FILE_CHAR "Invalid type of char in file"
+
+// Error on mlx_load_png
+# define FAILED_LOAD_PNG "Error in init texture: load png"
 
 # define INVALID_NO_PNG "Invalid NO png file"
 # define INVALID_SO_PNG "Invalid SO png file"
