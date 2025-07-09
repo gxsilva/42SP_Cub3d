@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 16:54:23 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:09:06 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	init_cube(t_cube *cube, char **argv)
 {
 	check_map(argv);
 	init_map(cube, argv);
-	// check_file(cube);
+	check_file(cube);
 	if (DEBUG_FLAG)
 		debug_file_struct(cube->file);
 	parse_map(cube->map);
@@ -56,11 +56,9 @@ int	wall_colision_minimap(t_cube *cube)
 {
 	int	center_x;
 	int	center_y;
-	// int	size;
 	int	map_x;
 	int	map_y;
 
-	// size = TILE / 4;
 	center_x = (int)round(cube->player->pos_x * TILE);
 	center_y = (int)round(cube->player->pos_y * TILE);
 	map_x = center_x / TILE;
@@ -82,7 +80,6 @@ void	render_minimap(void *param)
 		0,
 		cube->minimap->height * cube->minimap->width * sizeof(uint32_t));
 	draw_minimap(cube);
-	// if (wall_colision_minimap(cube))
 	draw_player(cube->minimap, cube->player->pos_x, cube->player->pos_y);
 }
 

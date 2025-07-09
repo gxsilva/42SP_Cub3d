@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:53:09 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 20:17:23 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/09 17:25:25 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,33 +64,23 @@ void	fill_directions(char *line, t_file *file)
 
 void	fill_floor_ceiling(char *line, t_file *file)
 {
-	char	*line_buffer;
-	char	*color_buffer;
-	int		color;
+	char		*line_buffer;
+	char		*color_buffer;
+	uint32_t	color;
 
 	color_buffer = NULL;
 	if (ft_strnstr(line, "F", 1))
 	{
 		line_buffer = sanitize_string(line + 1);
 		color_buffer = ft_substr(line_buffer, 0, ft_strlen(line_buffer));
-		color = rgb_to_int(color_buffer);
-		if (color == -1)
-		{
-			free_two(color_buffer, line);
-			error_msg(INVALID_COLOR_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
-		}
+		color = rgba_to_int(color_buffer);
 		file->floor = color;
 	}
 	if (ft_strnstr(line, "C", 1))
 	{
 		line_buffer = sanitize_string(line + 1);
 		color_buffer = ft_substr(line_buffer, 0, ft_strlen(line_buffer));
-		color = rgb_to_int(color_buffer);
-		if (color == -1)
-		{
-			free_two(color_buffer, line);
-			error_msg(INVALID_COLOR_FORMAT, BRIGHT_RED, DEBUG_FLAG, 1);
-		}
+		color = rgba_to_int(color_buffer);
 		file->ceiling = color;
 	}
 	if (color_buffer)

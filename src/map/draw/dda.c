@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 20:03:27 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/09 17:52:47 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:07:21 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	calc_wall_height(t_dda *dda)
 void	calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player)
 {
 	double	perp_wall_dist;
+
 
 	if (ray->side == 0)
 	{

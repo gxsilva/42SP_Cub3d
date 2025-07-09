@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:14:07 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/09 17:28:08 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:07:41 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	define_ray_dir(t_ray *ray, t_player *player, int x)
 	ray->map_y = (int)player->pos_y;
 }
 
-// calcular a direção do raio para cada coluna da janela
 void	raycast(void *param)
 {
 	t_cube	*cube;

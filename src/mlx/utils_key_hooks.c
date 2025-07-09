@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 15:50:37 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/05 19:21:26 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:09:40 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ double	calc_pst(double rot_angle, int opt)
 
 static void	wall_colission_node(t_vec *pos, t_vec offset, char direction)
 {
-	(void)pos;
 	if (direction == 'D')
 	{
 		pos->x = (int)(get_cube()->player->pos_x - offset.y);
