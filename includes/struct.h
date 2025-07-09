@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 17:14:29 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/09 17:55:33 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,21 @@ typedef struct s_ray
 	int		side;
 }	t_ray;
 
+typedef struct s_keys {
+	bool w;
+	bool s;
+	bool a;
+	bool d;
+	bool left;
+	bool right;
+}	t_keys;
+
 typedef struct s_cube
 {
 	t_map		*map;
 	t_player	*player;
 	t_file		*file;
+	t_keys		keys;
 	t_ray		*ray;
 	mlx_t		*mlx;
 	mlx_image_t	*minimap;
