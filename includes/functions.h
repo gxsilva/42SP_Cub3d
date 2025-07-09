@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 17:25:20 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/09 17:38:57 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ void		fill_floor_ceiling(char *line, t_file *file);
 //RGB functions
 int			count_elements(char **array);
 uint32_t	rgba_to_int(char *str);
-
 
 //png verify
 int			verify_png_extension(t_file *file);

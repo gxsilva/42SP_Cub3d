@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:54:31 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 17:36:09 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/09 17:38:40 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ uint32_t	rgba_to_int(char *str)
 		free_split((void **)rgb);
 		return (-1);
 	}
-	color = (ft_atoi(rgb[0]) << 24) | (ft_atoi(rgb[1]) << 16) | (ft_atoi(rgb[2]) << 8) | 0xFF;
+	color = (ft_atoi(rgb[0]) << 24)
+		| (ft_atoi(rgb[1]) << 16) | (ft_atoi(rgb[2]) << 8) | 0xFF;
 	free_split((void **)rgb);
 	return (color);
 }
