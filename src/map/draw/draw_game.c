@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 19:09:58 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/09 17:49:27 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:19:09 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ void	init_textures(t_cube *cube)
 	cube->textures = malloc(sizeof(t_textures));
 	if (!cube->textures)
 		error_msg(INVALID_MALLOC, BRIGHT_RED, DEBUG_FLAG, 1);
-	cube->textures->north = mlx_load_png("./textures/simonkraft/eagle.png");
+	cube->textures->north = mlx_load_png(cube->file->no_path);
 	if (!cube->textures->north)
 		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
-	cube->textures->south = mlx_load_png("./textures/simonkraft/eagle.png");
+	cube->textures->south = mlx_load_png(cube->file->so_path);
 	if (!cube->textures->south)
 		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
-	cube->textures->east = mlx_load_png("./textures/simonkraft/eagle.png");
+	cube->textures->east = mlx_load_png(cube->file->ea_path);
 	if (!cube->textures->east)
 		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
-	cube->textures->west = mlx_load_png("./textures/simonkraft/eagle.png");
+	cube->textures->west = mlx_load_png(cube->file->we_path);
 	if (!cube->textures->west)
 		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
 }
@@ -79,11 +79,11 @@ static void	tex_pixel_to_image(t_cube *cube, int x)
 	while (++y < WIN_HEIGHT)
 	{
 		if (y < cube->dda->draw_start)
-			mlx_put_pixel(cube->principal_map, x, y, BLUE_PX);
+			mlx_put_pixel(cube->principal_map, x, y, cube->file->ceiling);
 		else if (y >= cube->dda->draw_start && y < cube->dda->draw_end)
 			draw_texture(cube, x, y, tex_x);
 		else
-			mlx_put_pixel(cube->principal_map, x, y, GREEN_PX);
+			mlx_put_pixel(cube->principal_map, x, y, cube->file->floor);
 	}
 }
 
