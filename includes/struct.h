@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 18:53:08 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:59:52 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,16 @@ typedef struct s_keys {
 	bool left;
 	bool right;
 }	t_keys;
+
+typedef struct s_textures
+{
+	mlx_texture_t	*north;
+	mlx_texture_t	*south;
+	mlx_texture_t	*east;
+	mlx_texture_t	*west;
+	mlx_texture_t	*tex;
+	int				tex_x;
+}	t_textures;
 
 typedef struct s_cube
 {
