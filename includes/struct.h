@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 17:55:33 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:53:08 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ typedef struct s_ray
 	int		map_x;
 	int		map_y;
 	int		side;
+	double	wall_x;
 }	t_ray;
 
 typedef struct s_keys {
@@ -103,9 +104,11 @@ typedef struct s_cube
 	t_file		*file;
 	t_keys		keys;
 	t_ray		*ray;
+	t_dda		*dda;
 	mlx_t		*mlx;
 	mlx_image_t	*minimap;
 	mlx_image_t	*principal_map;
+	t_textures	*textures;
 }	t_cube;
 
 #endif //STRUCT_H

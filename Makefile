@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/09 18:41:28 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/07/09 18:52:43 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME		:= cub3D
 CC			:= cc
 CFLAGS		:= -Wextra -Wall -Werror -Wunreachable-code -Ofast -g3 -O0
-MLXFLAGS	:= -ldl -lmlx42 -lglfw -lpthread -lm -lft -lgnl
+MLXFLAGS	:= -ldl -lmlx42 -lglfw -lpthread -lm -lft -lgnl -fPIC
 
 # DIRECTORIES
 SRCS_DIR	:= src/
@@ -60,8 +60,9 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	map/minimap/minimap_utils.c \
 	map/minimap/minimap.c \
 	map/minimap/player_minimap.c \
-	map/draw/principal.c \
 	map/draw/dda.c \
+	map/draw/draw_game.c \
+	map/draw/raycast.c \
 	free/free_split.c \
 	free/free_cube.c \
 	utils/strlen_space.c \
