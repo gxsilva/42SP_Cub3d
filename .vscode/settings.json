@@ -8,6 +8,7 @@
         "macros.h": "c",
         "struct.h": "c",
         "random": "c",
-        "string_view": "c"
+        "string_view": "c",
+        "ranges": "c"
     }
 }

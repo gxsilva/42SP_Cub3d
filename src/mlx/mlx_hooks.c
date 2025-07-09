@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 02:42:22 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 16:10:23 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:53:13 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 void		set_hooks(mlx_key_data_t keydata, void *param);
 static void	set_escape_hooks(mlx_key_data_t keydata, void *param);
-static void	set_keys_hooks(mlx_key_data_t keydata, void *param);
-static void	set_arrows_hooks(mlx_key_data_t keydata, void *param);
+static void	set_keys_hooks(void *param);
+static void	set_arrows_hooks(void *param);
 static void	rotate_direction(int turn_direction, t_cube *cube);
 
 void	set_hooks(mlx_key_data_t keydata, void *param)
 {
+	update_key_state(keydata, param);
 	set_escape_hooks(keydata, param);
-	set_keys_hooks(keydata, param);
-	set_arrows_hooks(keydata, param);
+	set_keys_hooks(param);
+	set_arrows_hooks(param);
 	set_player_plane(get_cube()->player);
 }
 
@@ -36,23 +37,24 @@ static void	set_escape_hooks(mlx_key_data_t keydata, void *param)
 	}
 }
 
-static void	set_keys_hooks(mlx_key_data_t keydata, void *param)
+static void	set_keys_hooks(void *param)
 {
-	set_up_down(keydata, param);
-	set_left_right(keydata, param);
+	set_up_down(param);
+	set_left_right(param);
 }
 
-static void	set_arrows_hooks(mlx_key_data_t keydata, void *param)
+static void	set_arrows_hooks(void *param)
 {
-	if (keydata.key == MLX_KEY_LEFT && (keydata.action == MLX_REPEAT
-			|| keydata.action == MLX_PRESS))
+	t_cube	*cube;
+
+	cube = (t_cube *)param;
+	if (cube->keys.left)
 	{
 		if (DEBUG_FLAG)
 			print_color("Left arrow key pressed", BRIGHT_YELLOW);
 		rotate_direction(-1, (t_cube *)param);
 	}
-	else if (keydata.key == MLX_KEY_RIGHT && (keydata.action == MLX_REPEAT
-			|| keydata.action == MLX_PRESS))
+	else if (cube->keys.right)
 	{
 		if (DEBUG_FLAG)
 			print_color("Right arrow key pressed", BRIGHT_YELLOW);

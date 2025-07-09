@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 18:05:57 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:52:55 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,10 @@ void		free_split(void **matrix);
 
 //MLX functions
 void		set_hooks(mlx_key_data_t keydata, void *param);
-void		set_left_right(mlx_key_data_t keydata, void *param);
-void		set_up_down(mlx_key_data_t keydata, void *param);
+void		set_left_right(void *param);
+void		set_up_down(void *param);
+
+//MLX key hook functions
+void	update_key_state(mlx_key_data_t keydata, void *param);
 
 #endif // FUNCTIONS_H
