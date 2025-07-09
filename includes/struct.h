@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/07 14:57:55 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/09 17:14:29 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ typedef struct s_map
 
 typedef struct s_file
 {
-	int		floor;
-	int		ceiling;
-	char	*no_path;
-	char	*so_path;
-	char	*we_path;
-	char	*ea_path;
+	uint32_t	floor;
+	uint32_t	ceiling;
+	char		*no_path;
+	char		*so_path;
+	char		*we_path;
+	char		*ea_path;
 }	t_file;
 
 typedef struct s_vec

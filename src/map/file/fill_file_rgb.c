@@ -6,14 +6,14 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 18:54:31 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/04 20:07:36 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/09 17:36:09 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/header.h"
 
-int		count_elements(char **array);
-int		rgb_to_int(char *str);
+int			count_elements(char **array);
+uint32_t	rgba_to_int(char *str);
 
 int	count_elements(char **array)
 {
@@ -43,10 +43,10 @@ int	count_elements(char **array)
 	return (idx);
 }
 
-int	rgb_to_int(char *str)
+uint32_t	rgba_to_int(char *str)
 {
-	int		color;
-	char	**rgb;
+	uint32_t	color;
+	char		**rgb;
 
 	str[ft_strlen(str) - 1] = '\0';
 	rgb = ft_split(str, ',');
@@ -55,7 +55,7 @@ int	rgb_to_int(char *str)
 		free_split((void **)rgb);
 		return (-1);
 	}
-	color = (ft_atoi(rgb[0]) << 16) | (ft_atoi(rgb[1]) << 8) | ft_atoi(rgb[2]);
+	color = (ft_atoi(rgb[0]) << 24) | (ft_atoi(rgb[1]) << 16) | (ft_atoi(rgb[2]) << 8) | 0xFF;
 	free_split((void **)rgb);
 	return (color);
 }
