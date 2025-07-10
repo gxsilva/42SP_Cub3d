@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_debug.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:11:37 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/05 18:23:19 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 19:12:32 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,13 @@ void	print_matrix(t_map *map)
 		j = -1;
 		while (++j < map->width)
 		{
-			if (map->matrix[i][j] == 2)
+			if (map->matrix[i][j] == 3)
+				printf(CYAN"%d"RESET, map->matrix[i][j]);
+			else if (map->matrix[i][j] == 2)
 				printf(RED"%d"RESET, map->matrix[i][j]);
 			else if (map->matrix[i][j] == 1)
 				printf(GREEN"%d"RESET, map->matrix[i][j]);
-			if (map->matrix[i][j] == 0)
+			else if (map->matrix[i][j] == 0)
 				printf(BLUE"%d"RESET, map->matrix[i][j]);
 		}
 		printf("\n");

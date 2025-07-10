@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:14:07 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/09 18:07:41 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 20:47:23 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,6 @@ void	raycast(void *param)
 		calc_wall_dist(cube->dda, cube->ray, cube->player);
 		calc_wall_height(cube->dda);
 		draw_3dmap(cube, x);
-		if (DEBUG_FLAG)
-		{
-			print_ray_struct(cube->ray);
-			print_dda_struct(cube->dda);
-		}
 		free(cube->dda);
 		cube->dda = NULL;
 	}

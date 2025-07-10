@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 20:03:27 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/09 18:07:21 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 20:46:54 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,18 @@ void	init_dda(t_cube *cube, t_ray *ray, double pos_x, double pos_y)
 	}
 }
 
+static void	check_hit(t_cube *cube, t_ray *ray, int **matrix, int *hit)
+{
+	if (matrix[ray->map_y][ray->map_x] > 0
+		&& matrix[ray->map_y][ray->map_x] < 4)
+	{
+		*hit = 1;
+		cube->door = false;
+		if (matrix[ray->map_y][ray->map_x] == 3)
+			cube->door = true;
+	}
+}
+
 void	perform_dda(t_cube *cube, t_ray *ray, t_player *player, int **matrix)
 {
 	int		hit;
@@ -66,8 +78,7 @@ void	perform_dda(t_cube *cube, t_ray *ray, t_player *player, int **matrix)
 			ray->map_y += cube->dda->step_y;
 			ray->side = 1;
 		}
-		if (matrix[ray->map_y][ray->map_x] > 0)
-			hit = 1;
+		check_hit(cube, ray, matrix, &hit);
 	}
 }
 
@@ -84,7 +95,6 @@ void	calc_wall_height(t_dda *dda)
 void	calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player)
 {
 	double	perp_wall_dist;
-
 
 	if (ray->side == 0)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 02:42:22 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 18:53:13 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 20:26:35 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	set_hooks(mlx_key_data_t keydata, void *param)
 	set_keys_hooks(param);
 	set_arrows_hooks(param);
 	set_player_plane(get_cube()->player);
+	interact_with_door(keydata, get_cube());
 }
 
 static void	set_escape_hooks(mlx_key_data_t keydata, void *param)

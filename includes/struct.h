@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 18:59:52 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 20:02:56 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ typedef struct s_textures
 	mlx_texture_t	*south;
 	mlx_texture_t	*east;
 	mlx_texture_t	*west;
+	mlx_texture_t	*door;
 	mlx_texture_t	*tex;
 	int				tex_x;
 }	t_textures;
@@ -115,6 +116,7 @@ typedef struct s_cube
 	t_keys		keys;
 	t_ray		*ray;
 	t_dda		*dda;
+	bool		door;
 	mlx_t		*mlx;
 	mlx_image_t	*minimap;
 	mlx_image_t	*principal_map;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 18:52:55 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 20:48:34 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ void		set_left_right(void *param);
 void		set_up_down(void *param);
 
 //MLX key hook functions
-void	update_key_state(mlx_key_data_t keydata, void *param);
+void		update_key_state(mlx_key_data_t keydata, void *param);
+void		interact_with_door(mlx_key_data_t keydata, t_cube *cube);
 
 #endif // FUNCTIONS_H

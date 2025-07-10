@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_key_hooks.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 15:50:37 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/07 15:09:40 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 20:35:33 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ int	wall_collision_player(t_cube *cube, int direction)
 		pos.y = (int)(cube->player->pos_y - offset.y);
 	}
 	wall_colission_node(&pos, offset, direction);
-	if (matrix[(int)pos.y][(int)pos.x] == 1)
+	if (matrix[(int)pos.y][(int)pos.x] == 1
+		|| matrix[(int)pos.y][(int)pos.x] == 3)
 		return (1);
 	return (0);
 }

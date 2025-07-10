@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 19:09:58 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/09 18:19:09 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 20:05:55 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ void	init_textures(t_cube *cube)
 		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
 	cube->textures->west = mlx_load_png(cube->file->we_path);
 	if (!cube->textures->west)
+		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
+	cube->textures->door = mlx_load_png("./textures/ghost.png");
+	if (!cube->textures->door)
 		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
 }
 
@@ -95,6 +98,8 @@ void	draw_3dmap(t_cube *cube, int x)
 			cube->textures->tex = cube->textures->west;
 		else
 			cube->textures->tex = cube->textures->east;
+		if (cube->door)
+			cube->textures->tex = cube->textures->door;
 	}
 	else
 	{
@@ -102,6 +107,8 @@ void	draw_3dmap(t_cube *cube, int x)
 			cube->textures->tex = cube->textures->south;
 		else
 			cube->textures->tex = cube->textures->north;
+		if (cube->door)
+			cube->textures->tex = cube->textures->door;
 	}
 	tex_pixel_to_image(cube, x);
 }
