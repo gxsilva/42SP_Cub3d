@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 18:59:52 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 17:40:50 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,8 @@ typedef struct s_cube
 	mlx_image_t	*minimap;
 	mlx_image_t	*principal_map;
 	t_textures	*textures;
+	double		last_t;
+	double		elapsed_t;
 }	t_cube;
 
 #endif //STRUCT_H

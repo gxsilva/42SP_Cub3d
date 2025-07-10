@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 17:38:20 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:09:56 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@
 
 t_cube		*get_cube(void);
 
+//Initial functions
 void		init_map(t_cube *cube, char **argv);
+void		init_cube(t_cube *cube, char **argv);
+void		init_mlx(t_cube *cube);
+void		check_map(char **argv);
+void		cube_loop(t_cube *cube);
 
 // raycast
 void		define_ray_dir(t_ray *ray, t_player *player, int x);
@@ -43,6 +48,9 @@ void		player_pst(void *param);
 void		set_arrows_hooks(void *param);
 void		rotate_direction(int turn_direction, t_cube *cube);
 
+//Player elapsed movement
+void	track_elapsed_time (void *param);
+
 //Player state functions
 void	update_key_state(mlx_key_data_t keydata, void *param);
 void	key_press(mlx_key_data_t keydata, t_cube *cube);
@@ -55,6 +63,7 @@ int			is_empty_line(char *line, int pos);
 void		parse_map(t_map *map);
 
 //Minimap functions
+void		render_minimap(void *param);
 void		draw_minimap(t_cube *cube);
 
 //Map infos

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 15:50:37 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/07 15:09:40 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 17:47:42 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 double	calc_pst(double rot_angle, int opt)
 {
 	if (opt == 0)
-		return ((cos(rot_angle) * PLAYER_SPEED));
+		return ((cos(rot_angle) * (PLAYER_SPEED * get_cube()->elapsed_t)));
 	else
-		return ((sin(rot_angle) * PLAYER_SPEED));
+		return ((sin(rot_angle) * (PLAYER_SPEED * get_cube()->elapsed_t)));
 }
 
 static void	wall_colission_node(t_vec *pos, t_vec offset, char direction)
