@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 18:06:10 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 18:15:23 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:39:03 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ void	set_mlx_hooks(t_cube *cube)
 	mlx_key_hook(cube->mlx, set_hooks, cube);
 }
 
+// mlx_image_to_window(cube->mlx, cube->minimap, 0, 0);
 void	cube_loop(t_cube *cube)
 {
 	set_mlx_hooks(cube);
 	mlx_image_to_window(cube->mlx, cube->principal_map, 0, 0);
-	mlx_image_to_window(cube->mlx, cube->minimap, 0, 0);
 	mlx_loop(cube->mlx);
 	mlx_terminate(cube->mlx);
 }
