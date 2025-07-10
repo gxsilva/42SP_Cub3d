@@ -1,18 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_hooks_utils.c                                  :+:      :+:    :+:   */
+/*   state_player.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 17:56:07 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 18:48:39 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/07/10 17:24:22 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/07/10 18:13:51 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/header.h"
 
-static void	key_press(mlx_key_data_t keydata, t_cube *cube)
+//Player update state
+void	key_press(mlx_key_data_t keydata, t_cube *cube);
+void	key_release(mlx_key_data_t keydata, t_cube *cube);
+void	update_key_state(mlx_key_data_t keydata, void *param);
+void	set_escape_hooks(mlx_key_data_t keydata, void *param);
+void	set_hooks(mlx_key_data_t keydata, void *param);
+
+void	set_hooks(mlx_key_data_t keydata, void *param)
+{
+	update_key_state(keydata, param);
+	set_escape_hooks(keydata, param);
+}
+
+void	update_key_state(mlx_key_data_t keydata, void *param)
+{
+	t_cube	*cube;
+
+	cube = (t_cube *)param;
+	key_press(keydata, cube);
+	key_release(keydata, cube);
+}
+
+void	set_escape_hooks(mlx_key_data_t keydata, void *param)
+{
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+	{
+		if (DEBUG_FLAG)
+			print_color ("Escape key pressed, exiting", BRIGHT_YELLOW);
+		mlx_close_window(((t_cube *)param)->mlx);
+	}
+}
+
+void	key_press(mlx_key_data_t keydata, t_cube *cube)
 {
 	if (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT)
 	{
@@ -31,7 +63,7 @@ static void	key_press(mlx_key_data_t keydata, t_cube *cube)
 	}
 }
 
-static void	key_release(mlx_key_data_t keydata, t_cube *cube)
+void	key_release(mlx_key_data_t keydata, t_cube *cube)
 {
 	if (keydata.action == MLX_RELEASE)
 	{
@@ -48,13 +80,4 @@ static void	key_release(mlx_key_data_t keydata, t_cube *cube)
 		if (keydata.key == MLX_KEY_RIGHT)
 			cube->keys.right = false;
 	}
-}
-
-void	update_key_state(mlx_key_data_t keydata, void *param)
-{
-	t_cube	*cube;
-
-	cube = (t_cube *)param;
-	key_press(keydata, cube);
-	key_release(keydata, cube);
 }

@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/09 18:52:43 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/07/10 18:16:44 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,20 +65,22 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	map/draw/raycast.c \
 	free/free_split.c \
 	free/free_cube.c \
+	free/free_cube_utils.c \
 	utils/strlen_space.c \
 	utils/format_path.c \
 	utils/free_two.c \
+	utils/get_cube.c \
 	utils/print_color.c \
 	utils/clean_static.c \
 	utils/sanitaze_string.c \
 	debug/file_debug.c \
 	debug/parse_debug.c \
 	debug/raytrace_debug.c \
+	player/elapsed_player.c \
 	player/init_player.c \
+	player/state_player.c \
 	mlx/mlx_hooks.c \
-	mlx/left_right.c \
-	mlx/mlx_hooks_utils.c \
-	mlx/up_down.c \
+	mlx/mlx_initialize.c \
 	mlx/utils_key_hooks.c \
 )
 

@@ -1,44 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   get_cube.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 15:35:15 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 17:49:45 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/07/10 18:07:43 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/07/10 18:15:29 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+#include "../../includes/header.h"
 
-# ifndef DEBUG_FLAG
-#  define DEBUG_FLAG 0
-# endif
+t_cube	*get_cube(void)
+{
+	static t_cube	cube;
 
-# ifndef WIN_WIDTH
-#  define WIN_WIDTH 1280
-# endif
-
-# ifndef WIN_HEIGHT
-#  define WIN_HEIGHT 720
-# endif
-
-# ifndef TILE
-#  define TILE 16
-# endif
-
-# ifndef FOV
-#  define FOV 0.66
-# endif
-
-# ifndef PLAYER_SPEED
-#  define PLAYER_SPEED 2
-# endif
-
-# ifndef ROT_SPEED
-#  define ROT_SPEED 0.035
-# endif
-
-#endif // MACROS_H
+	return (&cube);
+}

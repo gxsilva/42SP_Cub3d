@@ -1,44 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   free_cube_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 15:35:15 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 17:49:45 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/07/10 18:15:46 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/07/10 18:16:07 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+#include "../../includes/header.h"
 
-# ifndef DEBUG_FLAG
-#  define DEBUG_FLAG 0
-# endif
+void	free_map(t_map *map);
+void	free_player(t_player *player);
 
-# ifndef WIN_WIDTH
-#  define WIN_WIDTH 1280
-# endif
+void	free_map(t_map *map)
+{
+	if (!map)
+		return ;
+	if (map->matrix)
+		clear_matrix(map);
+	if (map->fd > 0)
+	{
+		clean_static(map->fd);
+		close(map->fd);
+	}
+	free(map);
+}
 
-# ifndef WIN_HEIGHT
-#  define WIN_HEIGHT 720
-# endif
-
-# ifndef TILE
-#  define TILE 16
-# endif
-
-# ifndef FOV
-#  define FOV 0.66
-# endif
-
-# ifndef PLAYER_SPEED
-#  define PLAYER_SPEED 2
-# endif
-
-# ifndef ROT_SPEED
-#  define ROT_SPEED 0.035
-# endif
-
-#endif // MACROS_H
+void	free_player(t_player *player)
+{
+	if (!player)
+		return ;
+	free(player);
+	player = NULL;
+}

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:57:51 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/05 18:28:52 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:13:29 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,20 @@
 static uint32_t	get_pixel_color(t_map *map, int y, int x);
 static void		pixel_to_img(mlx_image_t *img, uint32_t color, int y, int x);
 void			draw_minimap(t_cube *cube);
+int				wall_colision_minimap(t_cube *cube);
+void			render_minimap(void *param);
+
+void	render_minimap(void *param)
+{
+	t_cube	*cube;
+
+	cube = (t_cube *)param;
+	memset(cube->minimap->pixels,
+		0,
+		cube->minimap->height * cube->minimap->width * sizeof(uint32_t));
+	draw_minimap(cube);
+	draw_player(cube->minimap, cube->player->pos_x, cube->player->pos_y);
+}
 
 static uint32_t	get_pixel_color(t_map *map, int y, int x)
 {
@@ -63,4 +77,23 @@ void	draw_minimap(t_cube *cube)
 			pixel_to_img(cube->minimap, color, y, x);
 		}
 	}
+}
+
+int	wall_colision_minimap(t_cube *cube)
+{
+	int	center_x;
+	int	center_y;
+	int	map_x;
+	int	map_y;
+
+	center_x = (int)round(cube->player->pos_x * TILE);
+	center_y = (int)round(cube->player->pos_y * TILE);
+	map_x = center_x / TILE;
+	map_y = center_y / TILE;
+	if (map_x < 0 || map_x >= cube->map->width
+		|| map_y < 0 || map_y >= cube->map->height)
+		return (0);
+	if (cube->map->matrix[map_y][map_x] > 0)
+		return (0);
+	return (1);
 }
