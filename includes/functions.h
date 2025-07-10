@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 18:52:55 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 17:38:20 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ int			wall_collision_player(t_cube *cube, int direction);
 double		calc_pst(double rot_angle, int opt);
 void		draw_line_dda(t_vec init, t_vec end, uint32_t color);
 void		set_player_plane(t_player *player);
+void		player_pst(void *param);
+void		set_arrows_hooks(void *param);
+void		rotate_direction(int turn_direction, t_cube *cube);
+
+//Player state functions
+void	update_key_state(mlx_key_data_t keydata, void *param);
+void	key_press(mlx_key_data_t keydata, t_cube *cube);
+void	key_release(mlx_key_data_t keydata, t_cube *cube);
 
 //Map functions
 void		clean_static(int fd);
@@ -124,7 +132,5 @@ void		set_hooks(mlx_key_data_t keydata, void *param);
 void		set_left_right(void *param);
 void		set_up_down(void *param);
 
-//MLX key hook functions
-void	update_key_state(mlx_key_data_t keydata, void *param);
 
 #endif // FUNCTIONS_H

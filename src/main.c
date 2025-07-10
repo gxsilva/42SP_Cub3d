@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 18:09:06 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 17:13:13 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,15 +98,17 @@ void	init_mlx(t_cube *cube)
 
 	cube->minimap = mlx_new_image(cube->mlx, cube->map->width * TILE, cube->map->height * TILE);
 	if (!cube->minimap)
-		error_msg (UNABLE_CREAT_MINIMAP, BRIGHT_RED, DEBUG_FLAG, 1);	
-	// raycast(cube);
+		error_msg (UNABLE_CREAT_MINIMAP, BRIGHT_RED, DEBUG_FLAG, 1);
+
 	mlx_image_to_window(cube->mlx, cube->principal_map, 0, 0);
 	mlx_image_to_window(cube->mlx, cube->minimap, 0, 0);
 
 	mlx_loop_hook(cube->mlx, raycast, cube);
 	mlx_loop_hook(cube->mlx, render_minimap, cube);
+	mlx_loop_hook(cube->mlx, player_pst, cube);
 	
 	mlx_key_hook(cube->mlx, set_hooks, cube);
+	
 	mlx_loop(cube->mlx);
 	mlx_terminate(cube->mlx);
 }
