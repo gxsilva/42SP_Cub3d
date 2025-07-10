@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 18:09:56 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:25:28 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ void		set_arrows_hooks(void *param);
 void		rotate_direction(int turn_direction, t_cube *cube);
 
 //Player elapsed movement
-void	track_elapsed_time (void *param);
+void		track_elapsed_time(void *param);
 
 //Player state functions
-void	update_key_state(mlx_key_data_t keydata, void *param);
-void	key_press(mlx_key_data_t keydata, t_cube *cube);
-void	key_release(mlx_key_data_t keydata, t_cube *cube);
+void		update_key_state(mlx_key_data_t keydata, void *param);
+void		key_press(mlx_key_data_t keydata, t_cube *cube);
+void		key_release(mlx_key_data_t keydata, t_cube *cube);
 
 //Map functions
 void		clean_static(int fd);
@@ -133,6 +133,7 @@ int			verify_png_path(t_file *file);
 void		free_cube(t_cube *cube);
 void		free_file(t_file *file);
 void		free_map(t_map *map);
+void		free_textures(t_textures *textures);
 void		free_player(t_player *player);
 void		free_split(void **matrix);
 
@@ -140,6 +141,5 @@ void		free_split(void **matrix);
 void		set_hooks(mlx_key_data_t keydata, void *param);
 void		set_left_right(void *param);
 void		set_up_down(void *param);
-
 
 #endif // FUNCTIONS_H

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:57:51 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/10 18:07:19 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:13:29 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	render_minimap(void *param)
 	draw_minimap(cube);
 	draw_player(cube->minimap, cube->player->pos_x, cube->player->pos_y);
 }
-
 
 static uint32_t	get_pixel_color(t_map *map, int y, int x)
 {

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 18:09:00 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:12:49 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	init_cube(t_cube *cube, char **argv);
 void	check_map(char **argv);
 int		main(int argc, char **argv);
-
 
 int	main(int argc, char **argv)
 {
@@ -67,4 +66,3 @@ void	init_cube(t_cube *cube, char **argv)
 		debug_file_struct(cube->file);
 	parse_map(cube->map);
 }
-

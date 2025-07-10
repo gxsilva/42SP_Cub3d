@@ -6,15 +6,15 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 17:42:08 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 17:48:09 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:13:47 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/header.h"
 
-void	track_elapsed_time (void *param);
+void	track_elapsed_time(void *param);
 
-void	track_elapsed_time (void *param)
+void	track_elapsed_time(void *param)
 {
 	t_cube	*cube;
 	double	current_t;

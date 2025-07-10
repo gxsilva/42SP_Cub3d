@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 18:06:10 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 18:06:29 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:15:23 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 void	init_mlx(t_cube *cube)
 {
+	int		map_width;
+	int		map_height;
+
+	map_width = cube->map->width * TILE;
+	map_height = cube->map->height * TILE;
 	cube->mlx = mlx_init(WIN_WIDTH, WIN_HEIGHT, "cub3d", false);
 	if (!cube->mlx)
 		error_msg (UNABLE_INIT_MLX, BRIGHT_RED, DEBUG_FLAG, 1);
 	if (DEBUG_FLAG)
 		print_color ("MLX initialize", BRIGHT_YELLOW);
 	init_textures(cube);
-		
 	cube->principal_map = mlx_new_image(cube->mlx, WIN_WIDTH, WIN_HEIGHT);
 	if (!cube->principal_map)
 		error_msg (UNABLE_CREAT_MAP, BRIGHT_RED, DEBUG_FLAG, 1);
-
-	cube->minimap = mlx_new_image(cube->mlx, cube->map->width * TILE, cube->map->height * TILE);
+	cube->minimap = mlx_new_image(cube->mlx, map_width, map_height);
 	if (!cube->minimap)
 		error_msg (UNABLE_CREAT_MINIMAP, BRIGHT_RED, DEBUG_FLAG, 1);
 }
