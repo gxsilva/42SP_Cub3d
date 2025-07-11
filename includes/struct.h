@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 18:25:39 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/11 18:32:03 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ typedef struct s_vec
 	double	x;
 	double	y;
 }	t_vec;
+
+typedef struct s_vec_i
+{
+	double	x;
+	double	y;
+}	t_vec_i;
 
 typedef struct s_player
 {

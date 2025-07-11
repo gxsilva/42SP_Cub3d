@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:35:15 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 18:36:38 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/11 18:15:10 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@
 # endif
 
 # ifndef PLAYER_SPEED
-#  define PLAYER_SPEED 3
+#  define PLAYER_SPEED 2.5
 # endif
 
 # ifndef ROT_SPEED
-#  define ROT_SPEED 0.035
+#  define ROT_SPEED 0.025
 # endif
 
 #endif // MACROS_H
