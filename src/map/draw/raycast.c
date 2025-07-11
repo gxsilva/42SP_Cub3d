@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:14:07 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/09 18:07:41 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/11 18:05:46 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,6 @@
 void	define_ray_dir(t_ray *ray, t_player *player, int x);
 void	raycast(void *param);
 
-// camera_x = define se a coluna que estamos verificando está mais a esquerda
-// ou direita da tela.
-// dir_x, dir_y = define para qual direção o raio deve ir.
-// deltadist = o quanto o raio vai percorrer a cada vez, isso por si ja nos
-// permite verificar os indexes da matrix e dizer se estamos batendo ema parede
-//  ou não.
-// resumindo, permite que o raio se mova exatamente a distancia necessario para
-//  ir para proximo x ou y na matriz;
-// map_x, map_y é a posição do raio dentro da matrix.
 void	define_ray_dir(t_ray *ray, t_player *player, int x)
 {
 	ray->camera_x = 2 * x / (double)WIN_WIDTH -1;
