@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 19:09:58 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/10 20:05:55 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/10 20:57:13 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,23 +92,24 @@ static void	tex_pixel_to_image(t_cube *cube, int x)
 
 void	draw_3dmap(t_cube *cube, int x)
 {
-	if (cube->ray->side == 0)
-	{
-		if (cube->ray->dir_x > 0)
-			cube->textures->tex = cube->textures->west;
-		else
-			cube->textures->tex = cube->textures->east;
-		if (cube->door)
-			cube->textures->tex = cube->textures->door;
-	}
+	if (cube->door)
+		cube->textures->tex = cube->textures->door;
 	else
 	{
-		if (cube->ray->dir_y > 0)
-			cube->textures->tex = cube->textures->south;
+		if (cube->ray->side == 0)
+		{
+			if (cube->ray->dir_x > 0)
+				cube->textures->tex = cube->textures->west;
+			else
+				cube->textures->tex = cube->textures->east;
+		}
 		else
-			cube->textures->tex = cube->textures->north;
-		if (cube->door)
-			cube->textures->tex = cube->textures->door;
+		{
+			if (cube->ray->dir_y > 0)
+				cube->textures->tex = cube->textures->south;
+			else
+				cube->textures->tex = cube->textures->north;
+		}
 	}
 	tex_pixel_to_image(cube, x);
 }

@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 17:56:07 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 20:29:30 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/10 21:28:54 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,43 @@
 static void	key_press(mlx_key_data_t keydata, t_cube *cube);
 static void	key_release(mlx_key_data_t keydata, t_cube *cube);
 void		update_key_state(mlx_key_data_t keydata, void *param);
-
 void	interact_with_door(mlx_key_data_t keydata, t_cube *cube)
 {
-	int		px;
-	int		py;
-	int		dx;
-	int		dy;
+	int px, py;
+	int dx[4] = { 1, -1, 0, 0 }; // direita, esquerda, nada, nada
+	int dy[4] = { 0, 0, 1, -1 }; // nada, nada, baixo, cima
+	int i;
+	int tx, ty;
 
 	if (keydata.key == MLX_KEY_SPACE && keydata.action == MLX_PRESS)
 	{
-		px = (int)cube->player->pos_x;
-		py = (int)cube->player->pos_y;
-		dx = px + (int)cube->player->dir_x;
-		dy = py +(int)cube->player->dir_y;
-		if (cube->map->matrix[dy][dx] == 3)
-			cube->map->matrix[dy][dx] = 4;
+		px = (int)floor(cube->player->pos_x);
+		py = (int)floor(cube->player->pos_y);
+
+		for (i = 0; i < 4; i++)
+		{
+			tx = px + dx[i];
+			ty = py + dy[i];
+
+			if (ty >= 0 && ty < cube->map->height &&
+				tx >= 0 && tx < cube->map->width)
+			{
+				int cell = cube->map->matrix[ty][tx];
+
+				if (cell == 3) // porta fechada
+				{
+					cube->map->matrix[ty][tx] = 4; // abre
+					printf("Abrindo porta em [%d][%d]\n", ty, tx);
+					return;
+				}
+				else if (cell == 4) // porta aberta
+				{
+					cube->map->matrix[ty][tx] = 3; // fecha
+					printf("Fechando porta em [%d][%d]\n", ty, tx);
+					return;
+				}
+			}
+		}
 	}
 }
 
