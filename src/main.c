@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/11 17:47:44 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/11 19:15:25 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,17 +100,13 @@ void	init_mlx(t_cube *cube)
 	if (!cube->minimap)
 		error_msg (UNABLE_CREAT_MINIMAP, BRIGHT_RED, DEBUG_FLAG, 1);
 		
-	// cube->door = mlx_new_image(cube->mlx, WIN_WIDTH, WIN_HEIGHT);
-	// if (!cube->principal_map)
-	// 	error_msg (UNABLE_CREAT_MAP, BRIGHT_RED, DEBUG_FLAG, 1);		
-
 		
 	// raycast(cube);
 	mlx_image_to_window(cube->mlx, cube->principal_map, 0, 0);
-	// mlx_image_to_window(cube->mlx, cube->door, 0, 0);
 	mlx_image_to_window(cube->mlx, cube->minimap, 0, 0);
 
 	mlx_loop_hook(cube->mlx, raycast, cube);
+	mlx_loop_hook(cube->mlx, new_ray, cube);
 	mlx_loop_hook(cube->mlx, render_minimap, cube);
 	
 	mlx_key_hook(cube->mlx, set_hooks, cube);

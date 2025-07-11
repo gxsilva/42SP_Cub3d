@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:14:07 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/11 19:12:28 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/11 19:49:35 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,47 +42,47 @@ void	clear_image(mlx_image_t *img)
 			mlx_put_pixel(img, x, y, 0x00000000); // preto opaco ou transparente: 0x00000000
 }
 
-bool	is_pixel_transparent(mlx_texture_t *tex, int tex_x, int tex_y)
-{
-	int	index;
+// bool	is_pixel_transparent(mlx_texture_t *tex, int tex_x, int tex_y)
+// {
+// 	int	index;
 	
-	index = (tex_y * tex->width + tex_x) * 4;
-	return (tex->pixels[index + 3] == 0);
-}
+// 	index = (tex_y * tex->width + tex_x) * 4;
+// 	return (tex->pixels[index + 3] == 0);
+// }
 
-// testando
-void	cast_until_wall(t_cube *cube, int x)
-{
-	t_ray		*ray = cube->ray;
-	t_dda		*dda = cube->dda;
-	int			hit = 0;
-	// int			tex_x, tex_y;
+// // testando
+// void	cast_until_wall(t_cube *cube, int x)
+// {
+// 	t_ray		*ray = cube->ray;
+// 	t_dda		*dda = cube->dda;
+// 	int			hit = 0;
+// 	// int			tex_x, tex_y;
 
-	// salta a porta: continue DDA
-	while (!hit)
-	{
-		if (dda->side_dist_x < dda->side_dist_y)
-		{
-			dda->side_dist_x += ray->deltadist_x;
-			ray->map_x += dda->step_x;
-			ray->side = 0;
-		}
-		else
-		{
-			dda->side_dist_y += ray->deltadist_y;
-			ray->map_y += dda->step_y;
-			ray->side = 1;
-		}
-		if (cube->map->matrix[ray->map_y][ray->map_x] > 0 &&
-			cube->map->matrix[ray->map_y][ray->map_x] < 3)
-			hit = 1;
-	}
-	// (void)x;
-	// desenha parede que está atrás da porta
-	calc_wall_dist(dda, ray, cube->player);
-	calc_wall_height(dda);
-	draw_3dmap(cube, x, 1);
-}
+// 	// salta a porta: continue DDA
+// 	while (!hit)
+// 	{
+// 		if (dda->side_dist_x < dda->side_dist_y)
+// 		{
+// 			dda->side_dist_x += ray->deltadist_x;
+// 			ray->map_x += dda->step_x;
+// 			ray->side = 0;
+// 		}
+// 		else
+// 		{
+// 			dda->side_dist_y += ray->deltadist_y;
+// 			ray->map_y += dda->step_y;
+// 			ray->side = 1;
+// 		}
+// 		if (cube->map->matrix[ray->map_y][ray->map_x] > 0 &&
+// 			cube->map->matrix[ray->map_y][ray->map_x] < 3)
+// 			hit = 1;
+// 	}
+// 	// (void)x;
+// 	// desenha parede que está atrás da porta
+// 	calc_wall_dist(dda, ray, cube->player);
+// 	calc_wall_height(dda);
+// 	draw_3dmap(cube, x, 1);
+// }
 
 
 
@@ -102,8 +102,27 @@ uint32_t	get_tex_colorss(int index, mlx_texture_t *tex)
 }
 
 
+bool	is_horizontal_door(t_cube *cube, int map_x, int map_y)
+{
+	if (map_x > 0 && map_x < cube->map->width && map_y > 0 && map_y < cube->map->height)
+	{
+		if (map_x > 0 && cube->map->matrix[map_y][map_x - 1] == 1)
+			return (true);
+		if (map_x < cube->map->width - 1 && cube->map->matrix[map_y][map_x + 1] == 1)
+			return (true);
+	}
+	return (false);
+}
+
 void draw_doors(t_cube *cube, int x)
 {
+
+	bool is_horizontal;
+	is_horizontal = is_horizontal_door(cube, cube->ray->map_x, cube->ray->map_y);
+
+	if ((is_horizontal && cube->ray->side != 1) || (!is_horizontal && cube->ray->side != 0))
+		return ;
+
 	if (cube->door)
 		cube->textures->tex = cube->textures->door;
 	else
@@ -191,6 +210,7 @@ void new_ray(void *param)
 		new_perform_dda(cube, cube->ray, cube->player, cube->map->matrix);
 		calc_wall_dist(cube->dda, cube->ray, cube->player);
 		calc_wall_height(cube->dda);
+		// if (cube->ray->side == 1)
 		draw_doors(cube, x);
 		free(cube->dda);
 		cube->dda = NULL;
@@ -222,5 +242,4 @@ void	raycast(void *param)
 	}
 	free(cube->ray);
 	cube->ray = NULL;
-	new_ray(param);
 }
