@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 19:09:58 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/10 20:57:13 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/11 18:01:39 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void		init_textures(t_cube *cube);
 uint32_t	get_tex_color(int index, mlx_texture_t *tex);
 static void	tex_pixel_to_image(t_cube *cube, int x);
 static void	draw_texture(t_cube *cube, int x, int y, int tex_x);
-void		draw_3dmap(t_cube *cube, int x);
+// void		draw_3dmap(t_cube *cube, int x);
+void	draw_3dmap(t_cube *cube, int x, int map);
 
 void	init_textures(t_cube *cube)
 {
@@ -35,7 +36,7 @@ void	init_textures(t_cube *cube)
 	cube->textures->west = mlx_load_png(cube->file->we_path);
 	if (!cube->textures->west)
 		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
-	cube->textures->door = mlx_load_png("./textures/ghost.png");
+	cube->textures->door = mlx_load_png("./textures/new_ghost.png");
 	if (!cube->textures->door)
 		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
 }
@@ -51,8 +52,6 @@ uint32_t	get_tex_color(int index, mlx_texture_t *tex)
 	g = tex->pixels[index + 1];
 	b = tex->pixels[index + 2];
 	a = tex->pixels[index + 3];
-	// if (a == 0)
-		// return ;
 	return ((a << 24) | (r << 16) | (g << 8) | b);
 }
 
@@ -65,6 +64,9 @@ static void	draw_texture(t_cube *cube, int x, int y, int tex_x)
 	tex_y = ((y - cube->dda->draw_start) * cube->textures->tex->height)
 		/ (cube->dda->draw_end - cube->dda->draw_start);
 	index = (tex_y * cube->textures->tex->width + tex_x) * 4;
+	uint8_t a = cube->textures->tex->pixels[index + 3];
+	if (a == 0)
+		return;
 	color = get_tex_color(index, cube->textures->tex);
 	mlx_put_pixel(cube->principal_map, x, y, color);
 }
@@ -90,12 +92,13 @@ static void	tex_pixel_to_image(t_cube *cube, int x)
 	}
 }
 
-void	draw_3dmap(t_cube *cube, int x)
+void	draw_3dmap(t_cube *cube, int x, int map)
 {
-	if (cube->door)
-		cube->textures->tex = cube->textures->door;
-	else
-	{
+	(void)map;
+	// if (cube->door && map == 0)
+	// 	cube->textures->tex = cube->textures->door;
+	// else
+	// {
 		if (cube->ray->side == 0)
 		{
 			if (cube->ray->dir_x > 0)
@@ -110,6 +113,6 @@ void	draw_3dmap(t_cube *cube, int x)
 			else
 				cube->textures->tex = cube->textures->north;
 		}
-	}
+	// }
 	tex_pixel_to_image(cube, x);
 }

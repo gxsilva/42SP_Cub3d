@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 20:03:27 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/10 20:46:54 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/11 18:06:03 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,17 @@ void	init_dda(t_cube *cube, t_ray *ray, double pos_x, double pos_y)
 
 static void	check_hit(t_cube *cube, t_ray *ray, int **matrix, int *hit)
 {
+	// cube->door = false;
+	(void)cube;
 	if (matrix[ray->map_y][ray->map_x] > 0
-		&& matrix[ray->map_y][ray->map_x] < 4)
+		&& matrix[ray->map_y][ray->map_x] < 3)
 	{
 		*hit = 1;
-		cube->door = false;
-		if (matrix[ray->map_y][ray->map_x] == 3)
-			cube->door = true;
+		// if (matrix[ray->map_y][ray->map_x] == 3)
+		// 	cube->door = true;
 	}
+	// if (matrix[ray->map_y][ray->map_x] == 3)
+	// 		cube->door = true;
 }
 
 void	perform_dda(t_cube *cube, t_ray *ray, t_player *player, int **matrix)
