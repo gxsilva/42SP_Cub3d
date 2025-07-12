@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/11 18:32:03 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/11 19:21:44 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ typedef struct s_cube
 	t_textures	*textures;
 	double		last_t;
 	double		elapsed_t;
+	double		mouse_lx; //mouse last x pst
 }	t_cube;
 
 #endif //STRUCT_H

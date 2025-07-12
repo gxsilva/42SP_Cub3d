@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:35:15 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/11 18:15:10 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/12 19:16:53 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@
 
 # ifndef FOV
 #  define FOV 0.66
+# endif
+
+# ifndef MOUSE_SENS
+#  define MOUSE_SENS 0.001
 # endif
 
 # ifndef PLAYER_SPEED

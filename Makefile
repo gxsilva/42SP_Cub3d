@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/11 19:00:46 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/07/11 19:40:16 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	player/init_player.c \
 	player/state_player.c \
 	mlx/mlx_hooks.c \
+	mlx/mlx_mouse.c \
 	mlx/mlx_initialize.c \
 	mlx/utils_key_hooks.c \
 )
