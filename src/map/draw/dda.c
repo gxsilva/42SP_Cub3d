@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 20:03:27 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/11 18:06:03 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/12 07:51:32 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_dda(t_cube *cube, t_ray *ray, double pos_x, double pos_y);
 void	perform_dda(t_cube *cube, t_ray *ray, t_player *player, int **matrix);
-void	calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player);
+// void	calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player);
 void	calc_wall_height(t_dda *dda);
 
 // side_dist = distancia inicial ate a primeira linha no eixo x/y 
@@ -97,18 +97,21 @@ void	calc_wall_height(t_dda *dda)
 
 void	calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player)
 {
-	double	perp_wall_dist;
-
+	// double	perp_wall_dist;
+	t_cube *cube = get_cube();
+	
 	if (ray->side == 0)
 	{
-		perp_wall_dist = (dda->side_dist_x - ray->deltadist_x);
-		ray->wall_x = player->pos_y + perp_wall_dist * ray->dir_y;
+		cube->ray->perp_wall_dist = (dda->side_dist_x - ray->deltadist_x);
+		ray->wall_x = player->pos_y + cube->ray->perp_wall_dist * ray->dir_y;
 	}
 	else
 	{
-		perp_wall_dist = (dda->side_dist_y - ray->deltadist_y);
-		ray->wall_x = player->pos_x + perp_wall_dist * ray->dir_x;
+		cube->ray->perp_wall_dist = (dda->side_dist_y - ray->deltadist_y);
+		ray->wall_x = player->pos_x + cube->ray->perp_wall_dist * ray->dir_x;
 	}
 	ray->wall_x -= floor(ray->wall_x);
-	dda->line_height = (int)(WIN_HEIGHT / perp_wall_dist);
+	dda->line_height = (int)(WIN_HEIGHT / cube->ray->perp_wall_dist);
+	// (get_cube())->z_buffer[x] = perp_wall_dist;
+	
 }

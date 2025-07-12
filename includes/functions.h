@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/11 19:15:50 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/12 07:53:11 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void		perform_dda(t_cube *cube, t_ray *ray, t_player *player,
 void		raycast(void *param);
 void		calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player);
 void		calc_wall_height(t_dda *dda);
+// void		calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player, int x);
 
 // Textures
 void		init_textures(t_cube *cube);

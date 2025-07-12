@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/11 17:37:49 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/12 07:57:28 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ typedef struct s_ray
 	int		map_x;
 	int		map_y;
 	int		side;
+	double	perp_wall_dist;
 	double	wall_x;
 }	t_ray;
 
@@ -117,6 +118,7 @@ typedef struct s_cube
 	t_ray		*ray;
 	t_dda		*dda;
 	bool		door;
+	double		z_buffer[1280];
 	mlx_t		*mlx;
 	mlx_image_t	*minimap;
 	mlx_image_t	*principal_map;

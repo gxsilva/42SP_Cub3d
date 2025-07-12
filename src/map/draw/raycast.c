@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:14:07 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/11 19:59:14 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/12 07:59:08 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,9 @@ void draw_doors(t_cube *cube, int x)
 	bool is_horizontal;
 	is_horizontal = is_horizontal_door(cube, cube->ray->map_x, cube->ray->map_y);
 
+	if (cube->ray->perp_wall_dist > cube->z_buffer[x])
+		return ;
+
 	if ((is_horizontal && cube->ray->side != 1) || (!is_horizontal && cube->ray->side != 0))
 		return ;
 
@@ -210,6 +213,7 @@ void new_ray(void *param)
 		new_perform_dda(cube, cube->ray, cube->player, cube->map->matrix);
 		calc_wall_dist(cube->dda, cube->ray, cube->player);
 		calc_wall_height(cube->dda);
+		// cube->z_buuffer[x] = cube->ray->perp_wall_dist;
 		draw_doors(cube, x);
 		free(cube->dda);
 		cube->dda = NULL;
@@ -235,6 +239,7 @@ void	raycast(void *param)
 		perform_dda(cube, cube->ray, cube->player, cube->map->matrix);
 		calc_wall_dist(cube->dda, cube->ray, cube->player);
 		calc_wall_height(cube->dda);
+		cube->z_buffer[x] = cube->ray->perp_wall_dist;
 		draw_3dmap(cube, x, 0);
 		free(cube->dda);
 		cube->dda = NULL;
