@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 20:03:27 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/10 18:13:09 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/11 18:04:37 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	perform_dda(t_cube *cube, t_ray *ray, t_player *player, int **matrix);
 void	calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player);
 void	calc_wall_height(t_dda *dda);
 
-// side_dist = distancia inicial ate a primeira linha no eixo x/y 
-// step = direção para onde o raio vai ter que andar
 void	init_dda(t_cube *cube, t_ray *ray, double pos_x, double pos_y)
 {
 	cube->dda = malloc(sizeof(t_dda));

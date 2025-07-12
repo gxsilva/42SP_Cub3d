@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 18:06:10 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 18:39:03 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/12 19:32:18 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,13 @@ void	init_mlx(t_cube *cube)
 
 void	set_mlx_hooks(t_cube *cube)
 {
+	mlx_set_cursor_mode(cube->mlx, MLX_MOUSE_HIDDEN);
 	mlx_loop_hook(cube->mlx, raycast, cube);
 	mlx_loop_hook(cube->mlx, render_minimap, cube);
 	mlx_loop_hook(cube->mlx, player_pst, cube);
+	mlx_loop_hook(cube->mlx, mouse_loop_hook, cube->player);
 	mlx_loop_hook(cube->mlx, track_elapsed_time, cube);
+	mlx_set_mouse_pos(cube->mlx, WIN_WIDTH / 2, WIN_HEIGHT / 2);
 	mlx_key_hook(cube->mlx, set_hooks, cube);
 }
 

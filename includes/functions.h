@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 18:25:28 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/12 19:28:38 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ void		init_mlx(t_cube *cube);
 void		check_map(char **argv);
 void		cube_loop(t_cube *cube);
 
+//Mouse bonus
+void mouse_loop_hook(void *param);
+// void	mouse_callback(enum mouse_key key, enum action action, enum modifier_key mods, void *param);
+
 // raycast
 void		define_ray_dir(t_ray *ray, t_player *player, int x);
 void		init_dda(t_cube *cube, t_ray *ray, double pos_x, double pos_y);
@@ -36,6 +40,7 @@ void		calc_wall_height(t_dda *dda);
 // Textures
 void		init_textures(t_cube *cube);
 void		draw_3dmap(t_cube *cube, int x);
+void		tex_pixel_to_image(t_cube *cube, int x);
 
 //Player functions
 t_player	*init_player(int i, int *j, char dir);

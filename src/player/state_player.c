@@ -6,13 +6,12 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 17:24:22 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 18:13:51 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/11 18:05:53 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/header.h"
 
-//Player update state
 void	key_press(mlx_key_data_t keydata, t_cube *cube);
 void	key_release(mlx_key_data_t keydata, t_cube *cube);
 void	update_key_state(mlx_key_data_t keydata, void *param);
