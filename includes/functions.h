@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/12 07:53:11 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/13 17:26:02 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,24 @@ t_cube		*get_cube(void);
 
 void		init_map(t_cube *cube, char **argv);
 
-void new_ray(void *param);
-
 // raycast
 void		define_ray_dir(t_ray *ray, t_player *player, int x);
 void		init_dda(t_cube *cube, t_ray *ray, double pos_x, double pos_y);
-void		perform_dda(t_cube *cube, t_ray *ray, t_player *player,
-				int **matrix);
+void		perform_dda(t_cube *cube,
+				void (*check_hit)(t_cube *cube, int *hit));
 void		raycast(void *param);
 void		calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player);
 void		calc_wall_height(t_dda *dda);
-// void		calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player, int x);
+void		check_hit(t_cube *cube, int *hit);
 
 // Textures
+void		render_doors(void *param);
 void		init_textures(t_cube *cube);
-// void		draw_3dmap(t_cube *cube, int x);
-void		draw_3dmap(t_cube *cube, int x, int map);
+void		draw_3dmap(t_cube *cube, int x);
+void		tex_pixel_to_image(t_cube *cube, int x);
+void		draw_texture(t_cube *cube, int x, int y, int tex_x);
+int			get_tex_x(t_cube *cube);
+uint32_t	get_tex_color(int index, mlx_texture_t *tex);
 
 //Player functions
 t_player	*init_player(int i, int *j, char dir);

@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/12 07:57:28 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/13 15:30:36 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ typedef struct s_ray
 }	t_ray;
 
 typedef struct s_keys {
+
 	bool w;
 	bool s;
 	bool a;
@@ -109,6 +110,10 @@ typedef struct s_textures
 	int				tex_x;
 }	t_textures;
 
+# ifndef WIN_WIDTH
+#  define WIN_WIDTH 1280
+# endif
+
 typedef struct s_cube
 {
 	t_map		*map;
@@ -118,7 +123,7 @@ typedef struct s_cube
 	t_ray		*ray;
 	t_dda		*dda;
 	bool		door;
-	double		z_buffer[1280];
+	double		z_buffer[WIN_WIDTH];
 	mlx_t		*mlx;
 	mlx_image_t	*minimap;
 	mlx_image_t	*principal_map;

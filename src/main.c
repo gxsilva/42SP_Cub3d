@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/11 19:56:50 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/13 16:54:35 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	init_mlx(t_cube *cube)
 	mlx_image_to_window(cube->mlx, cube->minimap, 0, 0);
 
 	mlx_loop_hook(cube->mlx, raycast, cube);
-	mlx_loop_hook(cube->mlx, new_ray, cube);
+	mlx_loop_hook(cube->mlx, render_doors, cube);
 	mlx_loop_hook(cube->mlx, render_minimap, cube);
 	
 	mlx_key_hook(cube->mlx, set_hooks, cube);

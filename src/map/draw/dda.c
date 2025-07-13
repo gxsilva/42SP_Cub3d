@@ -6,16 +6,15 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 20:03:27 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/12 07:51:32 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/13 17:38:54 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/header.h"
 
-void	init_dda(t_cube *cube, t_ray *ray, double pos_x, double pos_y);
-void	perform_dda(t_cube *cube, t_ray *ray, t_player *player, int **matrix);
-// void	calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player);
 void	calc_wall_height(t_dda *dda);
+void	init_dda(t_cube *cube, t_ray *ray, double pos_x, double pos_y);
+void	check_hit(t_cube *cube, int *hit);
 
 // side_dist = distancia inicial ate a primeira linha no eixo x/y 
 // step = direção para onde o raio vai ter que andar
@@ -46,42 +45,41 @@ void	init_dda(t_cube *cube, t_ray *ray, double pos_x, double pos_y)
 	}
 }
 
-static void	check_hit(t_cube *cube, t_ray *ray, int **matrix, int *hit)
+void	check_hit(t_cube *cube, int *hit)
 {
-	// cube->door = false;
-	(void)cube;
+	t_ray	*ray;
+	int		**matrix;
+
+	ray = cube->ray;
+	matrix = cube->map->matrix;
 	if (matrix[ray->map_y][ray->map_x] > 0
 		&& matrix[ray->map_y][ray->map_x] < 3)
-	{
 		*hit = 1;
-		// if (matrix[ray->map_y][ray->map_x] == 3)
-		// 	cube->door = true;
-	}
-	// if (matrix[ray->map_y][ray->map_x] == 3)
-	// 		cube->door = true;
 }
 
-void	perform_dda(t_cube *cube, t_ray *ray, t_player *player, int **matrix)
+void	perform_dda(t_cube *cube, void (*check_hit)(t_cube *cube, int *hit))
 {
 	int		hit;
 
-	init_dda(cube, ray, player->pos_x, player->pos_y);
+	init_dda(cube, cube->ray, cube->player->pos_x, cube->player->pos_y);
 	hit = 0;
-	while (hit == 0)
+	while (hit == 0 && (cube->ray->map_x >= 0
+			&& cube->ray->map_x < cube->map->width
+			&& cube->ray->map_y >= 0 && cube->ray->map_y < cube->map->height))
 	{
 		if (cube->dda->side_dist_x < cube->dda->side_dist_y)
 		{
-			cube->dda->side_dist_x += ray->deltadist_x;
-			ray->map_x += cube->dda->step_x;
-			ray->side = 0 ;
+			cube->dda->side_dist_x += cube->ray->deltadist_x;
+			cube->ray->map_x += cube->dda->step_x;
+			cube->ray->side = 0 ;
 		}
 		else
 		{
-			cube->dda->side_dist_y += ray->deltadist_y;
-			ray->map_y += cube->dda->step_y;
-			ray->side = 1;
+			cube->dda->side_dist_y += cube->ray->deltadist_y;
+			cube->ray->map_y += cube->dda->step_y;
+			cube->ray->side = 1;
 		}
-		check_hit(cube, ray, matrix, &hit);
+		check_hit(cube, &hit);
 	}
 }
 
@@ -97,9 +95,9 @@ void	calc_wall_height(t_dda *dda)
 
 void	calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player)
 {
-	// double	perp_wall_dist;
-	t_cube *cube = get_cube();
-	
+	t_cube	*cube;
+
+	cube = get_cube();
 	if (ray->side == 0)
 	{
 		cube->ray->perp_wall_dist = (dda->side_dist_x - ray->deltadist_x);
@@ -112,6 +110,4 @@ void	calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player)
 	}
 	ray->wall_x -= floor(ray->wall_x);
 	dda->line_height = (int)(WIN_HEIGHT / cube->ray->perp_wall_dist);
-	// (get_cube())->z_buffer[x] = perp_wall_dist;
-	
 }
