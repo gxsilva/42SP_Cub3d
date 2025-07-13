@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:35:15 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 18:57:32 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/13 18:18:25 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 
 # ifndef DEBUG_FLAG
 #  define DEBUG_FLAG 1
-# endif
-
-# ifndef WIN_WIDTH
-#  define WIN_WIDTH 1280
 # endif
 
 # ifndef WIN_HEIGHT
@@ -33,12 +29,16 @@
 #  define FOV 0.66
 # endif
 
+# ifndef MOUSE_SENS
+#  define MOUSE_SENS 0.001
+# endif
+
 # ifndef PLAYER_SPEED
-#  define PLAYER_SPEED 0.1
+#  define PLAYER_SPEED 2.5
 # endif
 
 # ifndef ROT_SPEED
-#  define ROT_SPEED 0.065
+#  define ROT_SPEED 0.025
 # endif
 
 #endif // MACROS_H

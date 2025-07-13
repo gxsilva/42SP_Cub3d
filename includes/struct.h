@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 15:30:36 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/13 18:18:45 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ typedef struct s_vec
 	double	y;
 }	t_vec;
 
+typedef struct s_vec_i
+{
+	double	x;
+	double	y;
+}	t_vec_i;
+
 typedef struct s_player
 {
 	double	dir_x;
@@ -90,13 +96,12 @@ typedef struct s_ray
 }	t_ray;
 
 typedef struct s_keys {
-
-	bool w;
-	bool s;
-	bool a;
-	bool d;
-	bool left;
-	bool right;
+	bool	w;
+	bool	s;
+	bool	a;
+	bool	d;
+	bool	left;
+	bool	right;
 }	t_keys;
 
 typedef struct s_textures
@@ -129,6 +134,9 @@ typedef struct s_cube
 	mlx_image_t	*principal_map;
 	mlx_image_t	*doors;
 	t_textures	*textures;
+	double		last_t;
+	double		elapsed_t;
+	double		mouse_lx; //mouse last x pst
 }	t_cube;
 
 #endif //STRUCT_H

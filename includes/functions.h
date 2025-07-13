@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 17:26:02 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/13 18:28:46 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,16 @@
 
 t_cube		*get_cube(void);
 
+//Initial functions
 void		init_map(t_cube *cube, char **argv);
+void		init_cube(t_cube *cube, char **argv);
+void		init_mlx(t_cube *cube);
+void		check_map(char **argv);
+void		cube_loop(t_cube *cube);
+
+//Mouse bonus
+void mouse_loop_hook(void *param);
+// void	mouse_callback(enum mouse_key key, enum action action, enum modifier_key mods, void *param);
 
 // raycast
 void		define_ray_dir(t_ray *ray, t_player *player, int x);
@@ -45,6 +54,17 @@ int			wall_collision_player(t_cube *cube, int direction);
 double		calc_pst(double rot_angle, int opt);
 void		draw_line_dda(t_vec init, t_vec end, uint32_t color);
 void		set_player_plane(t_player *player);
+void		player_pst(void *param);
+void		set_arrows_hooks(void *param);
+void		rotate_direction(int turn_direction, t_cube *cube);
+
+//Player elapsed movement
+void		track_elapsed_time(void *param);
+
+//Player state functions
+void		update_key_state(mlx_key_data_t keydata, void *param);
+void		key_press(mlx_key_data_t keydata, t_cube *cube);
+void		key_release(mlx_key_data_t keydata, t_cube *cube);
 
 //Map functions
 void		clean_static(int fd);
@@ -53,6 +73,7 @@ int			is_empty_line(char *line, int pos);
 void		parse_map(t_map *map);
 
 //Minimap functions
+void		render_minimap(void *param);
 void		draw_minimap(t_cube *cube);
 
 //Map infos
@@ -122,6 +143,7 @@ int			verify_png_path(t_file *file);
 void		free_cube(t_cube *cube);
 void		free_file(t_file *file);
 void		free_map(t_map *map);
+void		free_textures(t_textures *textures);
 void		free_player(t_player *player);
 void		free_split(void **matrix);
 

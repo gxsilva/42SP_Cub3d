@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_hooks_utils.c                                  :+:      :+:    :+:   */
+/*   elapsed_player.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/13 18:29:41 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 18:30:55 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/07/10 17:42:08 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/07/10 18:13:47 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/header.h"
 
-void	interact_with_door(mlx_key_data_t keydata, t_cube *cube)
-{
-	int	dx;
-	int	dy;
+void	track_elapsed_time(void *param);
 
-	dx = (int)floor(cube->player->pos_x + cube->player->dir_x);
-	dy = (int)floor(cube->player->pos_y + cube->player->dir_y);
-	if (keydata.key == MLX_KEY_SPACE && keydata.action == MLX_PRESS)
-	{
-		if (cube->map->matrix[dy][dx] == 3)
-			cube->map->matrix[dy][dx] = 4;
-	}
+void	track_elapsed_time(void *param)
+{
+	t_cube	*cube;
+	double	current_t;
+
+	cube = (t_cube *)param;
+	current_t = mlx_get_time();
+	cube->elapsed_t = current_t - cube->last_t;
+	cube->last_t = current_t;
 }

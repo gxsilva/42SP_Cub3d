@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 19:09:58 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/13 17:40:06 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/13 19:22:58 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,22 @@ uint32_t	get_tex_color(int index, mlx_texture_t *tex)
 	a = tex->pixels[index + 3];
 	return ((a << 24) | (r << 16) | (g << 8) | b);
 }
-
 void	draw_texture(t_cube *cube, int x, int y, int tex_x)
 {
 	uint32_t	color;
 	int			tex_y;
 	int			index;
+	float		step;
 	uint8_t		a;
 
+	step = (float)cube->textures->tex->height / (float)cube->dda->line_height;
 	if (y >= cube->dda->draw_start && y < cube->dda->draw_end)
 	{
-		tex_y = ((y - cube->dda->draw_start) * cube->textures->tex->height)
-			/ (cube->dda->draw_end - cube->dda->draw_start);
+		tex_y = (cube->dda->draw_start - WIN_HEIGHT / 2 + cube->dda->line_height / 2) * step + (y - cube->dda->draw_start) * step;
+		if (tex_y < 0)
+			tex_y = 0;
+		if (tex_y >= (int)cube->textures->tex->height)
+			tex_y = cube->textures->tex->height - 1;
 		index = (tex_y * cube->textures->tex->width + tex_x) * 4;
 		a = cube->textures->tex->pixels[index + 3];
 		if (a == 0)

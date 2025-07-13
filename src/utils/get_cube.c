@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_hooks_utils.c                                  :+:      :+:    :+:   */
+/*   get_cube.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/13 18:29:41 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 18:30:55 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/07/10 18:07:43 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/07/10 18:15:29 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/header.h"
 
-void	interact_with_door(mlx_key_data_t keydata, t_cube *cube)
+t_cube	*get_cube(void)
 {
-	int	dx;
-	int	dy;
+	static t_cube	cube;
 
-	dx = (int)floor(cube->player->pos_x + cube->player->dir_x);
-	dy = (int)floor(cube->player->pos_y + cube->player->dir_y);
-	if (keydata.key == MLX_KEY_SPACE && keydata.action == MLX_PRESS)
-	{
-		if (cube->map->matrix[dy][dx] == 3)
-			cube->map->matrix[dy][dx] = 4;
-	}
+	return (&cube);
 }

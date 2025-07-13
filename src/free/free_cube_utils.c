@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_hooks_utils.c                                  :+:      :+:    :+:   */
+/*   free_cube_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/13 18:29:41 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 18:30:55 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/07/10 18:15:46 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/07/10 18:16:07 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/header.h"
 
-void	interact_with_door(mlx_key_data_t keydata, t_cube *cube)
-{
-	int	dx;
-	int	dy;
+void	free_map(t_map *map);
+void	free_player(t_player *player);
 
-	dx = (int)floor(cube->player->pos_x + cube->player->dir_x);
-	dy = (int)floor(cube->player->pos_y + cube->player->dir_y);
-	if (keydata.key == MLX_KEY_SPACE && keydata.action == MLX_PRESS)
+void	free_map(t_map *map)
+{
+	if (!map)
+		return ;
+	if (map->matrix)
+		clear_matrix(map);
+	if (map->fd > 0)
 	{
-		if (cube->map->matrix[dy][dx] == 3)
-			cube->map->matrix[dy][dx] = 4;
+		clean_static(map->fd);
+		close(map->fd);
 	}
+	free(map);
+}
+
+void	free_player(t_player *player)
+{
+	if (!player)
+		return ;
+	free(player);
+	player = NULL;
 }

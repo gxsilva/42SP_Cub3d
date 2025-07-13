@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 20:03:27 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/13 17:38:54 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/13 18:20:28 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	calc_wall_height(t_dda *dda);
 void	init_dda(t_cube *cube, t_ray *ray, double pos_x, double pos_y);
 void	check_hit(t_cube *cube, int *hit);
 
-// side_dist = distancia inicial ate a primeira linha no eixo x/y 
-// step = direção para onde o raio vai ter que andar
 void	init_dda(t_cube *cube, t_ray *ray, double pos_x, double pos_y)
 {
 	cube->dda = malloc(sizeof(t_dda));

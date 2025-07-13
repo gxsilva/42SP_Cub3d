@@ -6,17 +6,16 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:13:39 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/09 20:18:42 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:16:51 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/header.h"
 
 void	free_cube(t_cube *cube);
-void	free_file(t_file *file);
-void	free_map(t_map *map);
-void	free_player(t_player *player);
 void	free_textures(t_textures *textures);
+void	free_file(t_file *file);
+void	clear_matrix(t_map *map);
 
 void	free_cube(t_cube *cube)
 {
@@ -68,26 +67,4 @@ void	clear_matrix(t_map *map)
 		free(map->matrix[i]);
 	free(map->matrix);
 	map->matrix = NULL;
-}
-
-void	free_map(t_map *map)
-{
-	if (!map)
-		return ;
-	if (map->matrix)
-		clear_matrix(map);
-	if (map->fd > 0)
-	{
-		clean_static(map->fd);
-		close(map->fd);
-	}
-	free(map);
-}
-
-void	free_player(t_player *player)
-{
-	if (!player)
-		return ;
-	free(player);
-	player = NULL;
 }
