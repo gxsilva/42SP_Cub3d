@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/12 19:28:38 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/13 19:43:54 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,16 @@
 t_cube		*get_cube(void);
 
 //Initial functions
+//Initial functions
 void		init_map(t_cube *cube, char **argv);
+void		init_cube(t_cube *cube, char **argv);
+void		init_mlx(t_cube *cube);
+void		check_map(char **argv);
+void		cube_loop(t_cube *cube);
+
+//Mouse bonus
+void mouse_loop_hook(void *param);
+// void	mouse_callback(enum mouse_key key, enum action action, enum modifier_key mods, void *param);
 void		init_cube(t_cube *cube, char **argv);
 void		init_mlx(t_cube *cube);
 void		check_map(char **argv);
@@ -31,16 +40,21 @@ void mouse_loop_hook(void *param);
 // raycast
 void		define_ray_dir(t_ray *ray, t_player *player, int x);
 void		init_dda(t_cube *cube, t_ray *ray, double pos_x, double pos_y);
-void		perform_dda(t_cube *cube, t_ray *ray, t_player *player,
-				int **matrix);
+void		perform_dda(t_cube *cube,
+				void (*check_hit)(t_cube *cube, int *hit));
 void		raycast(void *param);
 void		calc_wall_dist(t_dda *dda, t_ray *ray, t_player *player);
 void		calc_wall_height(t_dda *dda);
+void		check_hit(t_cube *cube, int *hit);
 
 // Textures
+void		render_doors(void *param);
 void		init_textures(t_cube *cube);
 void		draw_3dmap(t_cube *cube, int x);
 void		tex_pixel_to_image(t_cube *cube, int x);
+void		draw_texture(t_cube *cube, int x, int y, int tex_x);
+int			get_tex_x(t_cube *cube);
+uint32_t	get_tex_color(int index, mlx_texture_t *tex);
 
 //Player functions
 t_player	*init_player(int i, int *j, char dir);
@@ -60,6 +74,14 @@ void		track_elapsed_time(void *param);
 void		update_key_state(mlx_key_data_t keydata, void *param);
 void		key_press(mlx_key_data_t keydata, t_cube *cube);
 void		key_release(mlx_key_data_t keydata, t_cube *cube);
+void		player_pst(void *param);
+void		set_arrows_hooks(void *param);
+void		rotate_direction(int turn_direction, t_cube *cube);
+
+//Player state functions
+void		update_key_state(mlx_key_data_t keydata, void *param);
+void		key_press(mlx_key_data_t keydata, t_cube *cube);
+void		key_release(mlx_key_data_t keydata, t_cube *cube);
 
 //Map functions
 void		clean_static(int fd);
@@ -68,6 +90,7 @@ int			is_empty_line(char *line, int pos);
 void		parse_map(t_map *map);
 
 //Minimap functions
+void		render_minimap(void *param);
 void		render_minimap(void *param);
 void		draw_minimap(t_cube *cube);
 
@@ -139,6 +162,7 @@ void		free_cube(t_cube *cube);
 void		free_file(t_file *file);
 void		free_map(t_map *map);
 void		free_textures(t_textures *textures);
+void		free_textures(t_textures *textures);
 void		free_player(t_player *player);
 void		free_split(void **matrix);
 
@@ -146,5 +170,9 @@ void		free_split(void **matrix);
 void		set_hooks(mlx_key_data_t keydata, void *param);
 void		set_left_right(void *param);
 void		set_up_down(void *param);
+
+//MLX key hook functions
+void		update_key_state(mlx_key_data_t keydata, void *param);
+void		interact_with_door(mlx_key_data_t keydata, t_cube *cube);
 
 #endif // FUNCTIONS_H

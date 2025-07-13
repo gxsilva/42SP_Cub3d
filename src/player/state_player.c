@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 17:24:22 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/11 18:05:53 by lsilva-x         ###   ########.fr       */
+/*   Created: Invalid date        by                   #+#    #+#             */
+/*   Updated: 2025/07/13 19:37:47 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../../includes/header.h"
 
@@ -22,6 +23,7 @@ void	set_hooks(mlx_key_data_t keydata, void *param)
 {
 	update_key_state(keydata, param);
 	set_escape_hooks(keydata, param);
+	interact_with_door(keydata, get_cube());
 }
 
 void	update_key_state(mlx_key_data_t keydata, void *param)

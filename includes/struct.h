@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/11 19:21:44 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/13 19:37:01 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,12 @@ typedef struct s_ray
 	int		map_x;
 	int		map_y;
 	int		side;
+	double	perp_wall_dist;
 	double	wall_x;
 }	t_ray;
 
-typedef struct s_keys {
+typedef struct s_keys
+{
 	bool	w;
 	bool	s;
 	bool	a;
@@ -109,9 +111,14 @@ typedef struct s_textures
 	mlx_texture_t	*south;
 	mlx_texture_t	*east;
 	mlx_texture_t	*west;
+	mlx_texture_t	*door;
 	mlx_texture_t	*tex;
 	int				tex_x;
 }	t_textures;
+
+# ifndef WIN_WIDTH
+#  define WIN_WIDTH 1280
+# endif
 
 typedef struct s_cube
 {
@@ -121,13 +128,16 @@ typedef struct s_cube
 	t_keys		keys;
 	t_ray		*ray;
 	t_dda		*dda;
+	bool		door;
+	double		z_buffer[WIN_WIDTH];
 	mlx_t		*mlx;
 	mlx_image_t	*minimap;
 	mlx_image_t	*principal_map;
+	mlx_image_t	*doors;
 	t_textures	*textures;
-	double		last_t;
 	double		elapsed_t;
 	double		mouse_lx; //mouse last x pst
+	double		last_t;
 }	t_cube;
 
 #endif //STRUCT_H

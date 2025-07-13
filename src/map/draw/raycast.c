@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:14:07 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/11 18:05:46 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/13 19:35:13 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	define_ray_dir(t_ray *ray, t_player *player, int x);
 void	raycast(void *param);
+void	draw_3dmap(t_cube *cube, int x);
 
 void	define_ray_dir(t_ray *ray, t_player *player, int x)
 {
@@ -39,18 +40,33 @@ void	raycast(void *param)
 	while (++x < WIN_WIDTH)
 	{
 		define_ray_dir(cube->ray, cube->player, x);
-		perform_dda(cube, cube->ray, cube->player, cube->map->matrix);
+		perform_dda(cube, &check_hit);
 		calc_wall_dist(cube->dda, cube->ray, cube->player);
 		calc_wall_height(cube->dda);
+		cube->z_buffer[x] = cube->ray->perp_wall_dist;
 		draw_3dmap(cube, x);
-		if (DEBUG_FLAG)
-		{
-			print_ray_struct(cube->ray);
-			print_dda_struct(cube->dda);
-		}
 		free(cube->dda);
 		cube->dda = NULL;
 	}
 	free(cube->ray);
 	cube->ray = NULL;
+}
+
+void	draw_3dmap(t_cube *cube, int x)
+{
+	if (cube->ray->side == 0)
+	{
+		if (cube->ray->dir_x > 0)
+			cube->textures->tex = cube->textures->west;
+		else
+			cube->textures->tex = cube->textures->east;
+	}
+	else
+	{
+		if (cube->ray->dir_y > 0)
+			cube->textures->tex = cube->textures->south;
+		else
+			cube->textures->tex = cube->textures->north;
+	}
+	tex_pixel_to_image(cube, x);
 }

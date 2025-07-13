@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/11 19:40:16 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/07/13 19:45:42 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,9 +61,9 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	map/minimap/minimap.c \
 	map/minimap/player_minimap.c \
 	map/draw/dda.c \
-	map/draw/draw_game_utils.c \
-	map/draw/draw_game.c \
 	map/draw/raycast.c \
+	map/draw/render_doors.c \
+	map/draw/texture.c \
 	free/free_split.c \
 	free/free_cube.c \
 	free/free_cube_utils.c \
@@ -80,8 +80,9 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	player/elapsed_player.c \
 	player/init_player.c \
 	player/state_player.c \
-	mlx/mlx_hooks.c \
+	mlx/mlx_hooks_utils.c \
 	mlx/mlx_mouse.c \
+	mlx/mlx_hooks.c \
 	mlx/mlx_initialize.c \
 	mlx/utils_key_hooks.c \
 )

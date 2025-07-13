@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_game.c                                        :+:      :+:    :+:   */
+/*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 19:09:58 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/11 19:03:38 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/13 19:46:29 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void		init_textures(t_cube *cube);
 uint32_t	get_tex_color(int index, mlx_texture_t *tex);
 void		tex_pixel_to_image(t_cube *cube, int x);
-void		draw_3dmap(t_cube *cube, int x);
+void		draw_texture(t_cube *cube, int x, int y, int tex_x);
+int			get_tex_x(t_cube *cube);
 
 void	init_textures(t_cube *cube)
 {
@@ -34,49 +35,46 @@ void	init_textures(t_cube *cube)
 	cube->textures->west = mlx_load_png(cube->file->we_path);
 	if (!cube->textures->west)
 		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
+	cube->textures->door = mlx_load_png("./textures/new_ghost.png");
+	if (!cube->textures->door)
+		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
 }
 
-static int	calc_tex_x(t_cube *cube)
+uint32_t	get_tex_color(int index, mlx_texture_t *tex)
 {
-	int		tex_x;
+	uint8_t	r;
+	uint8_t	g;
+	uint8_t	b;
+	uint8_t	a;
 
-	tex_x = (int)(cube->ray->wall_x * cube->textures->tex->width);
-	if ((cube->ray->side == 0 && cube->ray->dir_x > 0)
-		|| (cube->ray->side == 1 && cube->ray->dir_y < 0))
-		tex_x = cube->textures->tex->width - tex_x - 1;
-	return (tex_x);
+	r = tex->pixels[index + 0];
+	g = tex->pixels[index + 1];
+	b = tex->pixels[index + 2];
+	a = tex->pixels[index + 3];
+	return ((a << 24) | (r << 16) | (g << 8) | b);
 }
-
-static uint32_t	get_color(t_textures *textures, int tex_x, int tex_y)
+void	draw_texture(t_cube *cube, int x, int y, int tex_x)
 {
-	int			index;
-
-	if (tex_y < 0)
-		tex_y = 0;
-	if (tex_y >= (int)textures->tex->height)
-		tex_y = textures->tex->height - 1;
-	index = (tex_y * textures->tex->width + tex_x) * 4;
-	return (get_tex_color(index, textures->tex));
-}
-
-static void	draw_tex_line(t_cube *cube, int x, int tex_x)
-{
-	float		step;
-	float		tex_pos;
-	int			y;
-	int			tex_y;
 	uint32_t	color;
+	int			tex_y;
+	int			index;
+	float		step;
+	uint8_t		a;
 
 	step = (float)cube->textures->tex->height / (float)cube->dda->line_height;
-	tex_pos = (cube->dda->draw_start - WIN_HEIGHT
-			/ 2 + cube->dda->line_height / 2) * step;
-	y = cube->dda->draw_start - 1;
-	while (++y < cube->dda->draw_end)
+	if (y >= cube->dda->draw_start && y < cube->dda->draw_end)
 	{
-		tex_y = (int)tex_pos;
-		color = get_color(cube->textures, tex_x, tex_y);
+		tex_y = (cube->dda->draw_start - WIN_HEIGHT / 2 + cube->dda->line_height / 2) * step + (y - cube->dda->draw_start) * step;
+		if (tex_y < 0)
+			tex_y = 0;
+		if (tex_y >= (int)cube->textures->tex->height)
+			tex_y = cube->textures->tex->height - 1;
+		index = (tex_y * cube->textures->tex->width + tex_x) * 4;
+		a = cube->textures->tex->pixels[index + 3];
+		if (a == 0)
+			return ;
+		color = get_tex_color(index, cube->textures->tex);
 		mlx_put_pixel(cube->principal_map, x, y, color);
-		tex_pos += step;
 	}
 }
 
@@ -85,19 +83,26 @@ void	tex_pixel_to_image(t_cube *cube, int x)
 	int	tex_x;
 	int	y;
 
-	tex_x = calc_tex_x(cube);
+	tex_x = get_tex_x(cube);
 	y = -1;
 	while (++y < WIN_HEIGHT)
 	{
 		if (y < cube->dda->draw_start)
 			mlx_put_pixel(cube->principal_map, x, y, cube->file->ceiling);
-		else if (y < cube->dda->draw_end)
-			break ;
+		else if (y >= cube->dda->draw_start && y < cube->dda->draw_end)
+			draw_texture(cube, x, y, tex_x);
 		else
 			mlx_put_pixel(cube->principal_map, x, y, cube->file->floor);
 	}
-	draw_tex_line(cube, x, tex_x);
-	y = cube->dda->draw_end - 1;
-	while (++y < WIN_HEIGHT)
-		mlx_put_pixel(cube->principal_map, x, y, cube->file->floor);
+}
+
+int	get_tex_x(t_cube *cube)
+{
+	int	tex_x;
+
+	tex_x = (int)(cube->ray->wall_x * cube->textures->tex->width);
+	if ((cube->ray->side == 0 && cube->ray->dir_x > 0)
+		|| (cube->ray->side == 1 && cube->ray->dir_y < 0))
+		tex_x = cube->textures->tex->width - tex_x - 1;
+	return (tex_x);
 }

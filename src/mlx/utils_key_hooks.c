@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 15:50:37 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/10 18:39:15 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/13 19:39:37 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int	wall_collision_player(t_cube *cube, int direction)
 		pos.y = (int)(cube->player->pos_y - offset.y);
 	}
 	wall_colission_node(&pos, offset, direction);
-	if (matrix[(int)pos.y][(int)pos.x] == 1)
+	if (matrix[(int)pos.y][(int)pos.x] == 1
+		|| matrix[(int)pos.y][(int)pos.x] == 3)
 		return (1);
 	return (0);
 }
