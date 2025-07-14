@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 21:13:25 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 03:06:10 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ void		init_cube(t_cube *cube, char **argv);
 void		init_mlx(t_cube *cube);
 void		check_map(char **argv);
 void		cube_loop(t_cube *cube);
+
+
+/*------------ SPRITES ---------------*/
+void	init_sprites(t_cube *cube);
+void	render_sprite(void *param);
+void	update_sprites(t_cube *cube);
+/*------------------------------------*/
 
 //Mouse bonus
 void		mouse_loop_hook(void *param);
@@ -135,6 +142,7 @@ int			strlen_space(char *line);
 char		*sanitize_string(char *line);
 void		format_path(char **png_path);
 void		free_two(void *ptr, void *ptr2);
+int			ft_random(int min, int max);
 void		print_color(char *str, char *color);
 
 //File functions

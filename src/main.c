@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:07:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 19:46:30 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 02:42:37 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	init_cube(t_cube *cube, char **argv)
 	check_file(cube);
 	if (DEBUG_FLAG)
 		debug_file_struct(cube->file);
+	init_sprites(cube);
 	parse_map(cube->map);
-	cube->mouse_lx = -1;
 	cube->mouse_lx = -1;
 }

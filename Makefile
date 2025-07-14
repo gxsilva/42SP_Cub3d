@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/13 21:14:02 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/07/14 03:07:34 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,7 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	free/free_cube_utils.c \
 	utils/strlen_space.c \
 	utils/format_path.c \
+	utils/ft_random.c \
 	utils/free_two.c \
 	utils/get_cube.c \
 	utils/print_color.c \
@@ -86,6 +87,8 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	mlx/mlx_hooks.c \
 	mlx/mlx_initialize.c \
 	mlx/utils_key_hooks.c \
+	sprites/sprite.c \
+	sprites/render_sprite.c \
 )
 
 OBJS		:= $(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)/%.o,$(SRCS))

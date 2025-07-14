@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 19:09:58 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/13 21:13:38 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 03:28:35 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	draw_texture(t_cube *cube, int x, int y, int tex_x)
 	int			tex_y;
 	int			index;
 	float		step;
-	uint8_t		a;
 
 	step = (float)cube->textures->tex->height / (float)cube->dda->line_height;
 	if (y >= cube->dda->draw_start && y < cube->dda->draw_end)
@@ -72,8 +71,7 @@ void	draw_texture(t_cube *cube, int x, int y, int tex_x)
 		if (tex_y >= (int)cube->textures->tex->height)
 			tex_y = cube->textures->tex->height - 1;
 		index = (tex_y * cube->textures->tex->width + tex_x) * 4;
-		a = cube->textures->tex->pixels[index + 3];
-		if (a == 0)
+		if (cube->textures->tex->pixels[index + 3] == 0)
 			return ;
 		color = get_tex_color(index, cube->textures->tex);
 		mlx_put_pixel(cube->principal_map, x, y, color);

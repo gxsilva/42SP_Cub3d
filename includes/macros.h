@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:35:15 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 19:34:04 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 03:31:45 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,21 @@
 #  define ROT_SPEED 0.025
 #  define ROT_SPEED 0.025
 # endif
+
+# ifndef SPRITE_CNT
+#  define SPRITE_CNT 5
+# endif
+
+# ifndef SPRITE_REFRESH
+#  define SPRITE_REFRESH 4
+# endif
+
+//Sprites path
+# define SPRITE_01 "./sprites/frame01.png"
+# define SPRITE_02 "./sprites/frame02.png"
+# define SPRITE_03 "./sprites/frame03.png"
+# define SPRITE_04 "./sprites/frame04.png"
+# define SPRITE_05 "./sprites/frame05.png"
+
 
 #endif // MACROS_H

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 19:37:01 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 02:54:53 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,20 @@ typedef struct s_textures
 #  define WIN_WIDTH 1280
 # endif
 
+typedef struct s_sprite
+{
+	mlx_texture_t	**frames; //sprite images
+
+	double sprite_timer;
+	double sprite_speed; //sec per sprite
+	double refresh_time;
+	int		sprite_cnt; //amount of sprites
+	int		crr_frame;
+	// map pst
+	int		x;
+	int		y;
+} t_sprite;
+
 typedef struct s_cube
 {
 	t_map		*map;
@@ -129,9 +143,11 @@ typedef struct s_cube
 	t_ray		*ray;
 	t_dda		*dda;
 	bool		door;
+	bool		sprite;
 	double		z_buffer[WIN_WIDTH];
 	mlx_t		*mlx;
 	mlx_image_t	*minimap;
+	t_sprite	*sprites;
 	mlx_image_t	*principal_map;
 	mlx_image_t	*doors;
 	t_textures	*textures;
