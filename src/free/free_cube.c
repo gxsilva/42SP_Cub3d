@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_cube.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:13:39 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 20:01:37 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/13 21:19:45 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	free_cube(t_cube *cube)
 	free_map(cube->map);
 	free_player(cube->player);
 	free_textures(cube->textures);
+	if (cube->mlx)
+		mlx_terminate(cube->mlx);
 }
 
 void	free_textures(t_textures *textures)

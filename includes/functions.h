@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 20:14:53 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/13 21:13:25 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 t_cube		*get_cube(void);
 
-//Initial functions
 //Initial functions
 void		init_map(t_cube *cube, char **argv);
 void		init_cube(t_cube *cube, char **argv);
@@ -50,6 +49,7 @@ void		check_hit(t_cube *cube, int *hit);
 // Textures
 void		render_doors(void *param);
 void		init_textures(t_cube *cube);
+void		init_struct_texture(t_textures *texture);
 void		draw_3dmap(t_cube *cube, int x);
 void		tex_pixel_to_image(t_cube *cube, int x);
 void		draw_texture(t_cube *cube, int x, int y, int tex_x);

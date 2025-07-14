@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 19:09:58 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/13 20:27:15 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/13 21:13:38 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	init_textures(t_cube *cube)
 	cube->textures = malloc(sizeof(t_textures));
 	if (!cube->textures)
 		error_msg(INVALID_MALLOC, BRIGHT_RED, DEBUG_FLAG, 1);
+	init_struct_texture(cube->textures);
 	cube->textures->north = mlx_load_png(cube->file->no_path);
 	if (!cube->textures->north)
 		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);

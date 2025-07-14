@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/13 19:45:42 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/07/13 21:14:02 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,7 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	map/draw/raycast.c \
 	map/draw/render_doors.c \
 	map/draw/texture.c \
+	map/draw/texture_utils.c \
 	free/free_split.c \
 	free/free_cube.c \
 	free/free_cube_utils.c \
