@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:13:39 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 19:32:31 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:45:07 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,26 @@ void	free_textures(t_textures *textures);
 void	free_file(t_file *file);
 void	clear_matrix(t_map *map);
 
+void	free_sprites(t_sprite *sprite)
+{
+	int		i;
+	
+	i = -1;
+	if (!sprite)
+		return ;
+	while (++i < SPRITE_CNT)
+		mlx_delete_texture(sprite->frames[i]);
+	free (sprite->frames);
+	free (sprite);
+}
+
 void	free_cube(t_cube *cube)
 {
 	free_file(cube->file);
 	free_map(cube->map);
 	free_player(cube->player);
 	free_textures(cube->textures);
+	free_sprites(cube->sprites);
 	if (cube->mlx)
 		mlx_terminate(cube->mlx);
 }
