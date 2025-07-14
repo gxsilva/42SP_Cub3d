@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 16:23:38 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:15:46 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,18 @@ typedef struct s_keys
 	bool	left;
 	bool	right;
 }	t_keys;
+
+//i'm sorry for this
+typedef struct d_sprite
+{
+	t_vec_i	sprite_d;
+	t_vec_i	sprite;
+	t_vec	draw_start;
+	t_vec	transform;
+	t_vec	draw_end;
+	double	inv_det;
+	int		sprite_screen;
+}	t_sprited;
 
 typedef struct s_textures
 {

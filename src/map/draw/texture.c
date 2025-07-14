@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 19:09:58 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/14 03:28:35 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 18:55:01 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ uint32_t	get_tex_color(int index, mlx_texture_t *tex)
 	g = tex->pixels[index + 1];
 	b = tex->pixels[index + 2];
 	a = tex->pixels[index + 3];
-	return ((a << 24) | (r << 16) | (g << 8) | b);
+	return ((r << 24) | (g << 16) | (b << 8) | a);
 }
 
 void	draw_texture(t_cube *cube, int x, int y, int tex_x)
