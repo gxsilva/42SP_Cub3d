@@ -1,7 +1,7 @@
-NO textures/matrix.xpm
-SO textures/matrix.xpm
-WE textures/matrix.xpm
-EA textures/matrix.xpm
+NO assets/brick.png
+SO assets/img.png
+WE assets/img2.png
+EA assets/img3.png
 
 F 0,0,0
 C 0,0,0

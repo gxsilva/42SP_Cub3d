@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:18:35 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/10 20:47:50 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/14 18:56:13 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	put_in_matrix(t_map *map, int i, int *j, char *line)
 		(get_cube())->player = init_player(i, j, line[*j]);
 		map->matrix[i][*j] = 0;
 	}
-	else if (line[*j] == 'P')
+	else if (line[*j] == 'D')
 		map->matrix[i][*j] = 3;
 	else if (line[*j] == '\n')
 	{

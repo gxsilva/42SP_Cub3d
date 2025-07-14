@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 19:37:01 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 18:14:36 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ typedef struct s_textures
 	mlx_texture_t	*east;
 	mlx_texture_t	*west;
 	mlx_texture_t	*door;
+	mlx_texture_t	*sky;
 	mlx_texture_t	*tex;
 	int				tex_x;
 }	t_textures;
