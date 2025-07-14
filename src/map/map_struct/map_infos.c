@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:22:33 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/04 20:15:02 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/13 21:42:28 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	width_len(char *line, int fd)
 	start = ft_strchr(line, '1');
 	end = ft_strrchr(line, '1');
 	width = end - start;
-	if (line[width] && !ft_strchr("10NSEW\n\t ", line[width]))
+	if (line[width] && !ft_strchr("10NSEWC\n\t ", line[width]))
 	{
 		close(fd);
 		free(line);

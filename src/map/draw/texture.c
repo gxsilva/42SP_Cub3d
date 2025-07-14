@@ -3,9 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 19:09:58 by ailbezer          #+#    #+#             */
+/*   Updated: 2025/07/14 19:34:00 by lsilva-x         ###   ########.fr       */
 /*   Updated: 2025/07/14 19:31:34 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -23,6 +24,7 @@ void	init_textures(t_cube *cube)
 	cube->textures = malloc(sizeof(t_textures));
 	if (!cube->textures)
 		error_msg(INVALID_MALLOC, BRIGHT_RED, DEBUG_FLAG, 1);
+	init_struct_texture(cube->textures);
 	cube->textures->north = mlx_load_png(cube->file->no_path);
 	if (!cube->textures->north)
 		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
@@ -55,6 +57,7 @@ uint32_t	get_tex_color(int index, mlx_texture_t *tex)
 	b = tex->pixels[index + 2];
 	a = tex->pixels[index + 3];
 	return ((r << 24) | (g << 16) | (b << 8) | a);
+	return ((r << 24) | (g << 16) | (b << 8) | a);
 }
 
 void	draw_texture(t_cube *cube, int x, int y, int tex_x)
@@ -63,7 +66,6 @@ void	draw_texture(t_cube *cube, int x, int y, int tex_x)
 	int			tex_y;
 	int			index;
 	float		step;
-	uint8_t		a;
 
 	step = (float)cube->textures->tex->height / (float)cube->dda->line_height;
 	if (y >= cube->dda->draw_start && y < cube->dda->draw_end)
@@ -74,8 +76,7 @@ void	draw_texture(t_cube *cube, int x, int y, int tex_x)
 		if (tex_y >= (int)cube->textures->tex->height)
 			tex_y = cube->textures->tex->height - 1;
 		index = (tex_y * cube->textures->tex->width + tex_x) * 4;
-		a = cube->textures->tex->pixels[index + 3];
-		if (a == 0)
+		if (cube->textures->tex->pixels[index + 3] == 0)
 			return ;
 		color = get_tex_color(index, cube->textures->tex);
 		mlx_put_pixel(cube->principal_map, x, y, color);

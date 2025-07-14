@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:57:51 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/10 18:13:29 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:37:41 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ static uint32_t	get_pixel_color(t_map *map, int y, int x)
 		return (WHITE_PX);
 	else if (map->matrix[y][x] == 1)
 		return (GRAY_PX);
+	else if (map->matrix[y][x] == 3)
+		return (GOLD_PX);
+	else if (map->matrix[y][x] == 5)
+		return (RED_PX);
 	else
 		return (GREEN_PX);
 }

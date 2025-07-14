@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_matrix.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:18:35 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/14 18:56:13 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:32:37 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ void	put_in_matrix(t_map *map, int i, int *j, char *line)
 	}
 	else if (line[*j] == 'D')
 		map->matrix[i][*j] = 3;
+	else if (line[*j] == 'C')
+	{
+		get_cube()->sprites->x = *j;
+		get_cube()->sprites->y = i;
+		map->matrix[i][*j] = 5;
+	}
 	else if (line[*j] == '\n')
 	{
 		while (*j < map->width)

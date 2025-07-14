@@ -3,9 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/07/14 19:32:20 by lsilva-x         ###   ########.fr       */
 /*   Updated: 2025/07/14 19:30:31 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -14,16 +15,6 @@
 # define STRUCT_H
 
 # include "header.h"
-
-/*
- ░▒▓██████▓▒░       ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓███████▓▒░       ░▒▓████████▓▒░      ░▒▓███████▓▒░  
-░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░ 
-░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░ 
-░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓███████▓▒░       ░▒▓██████▓▒░        ░▒▓█▓▒░░▒▓█▓▒░ 
-░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░ 
-░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░ 
- ░▒▓██████▓▒░        ░▒▓██████▓▒░       ░▒▓███████▓▒░       ░▒▓████████▓▒░      ░▒▓███████▓▒░  
-*/
 
 typedef struct s_map
 {
@@ -105,6 +96,18 @@ typedef struct s_keys
 	bool	right;
 }	t_keys;
 
+//i'm sorry for this
+typedef struct d_sprite
+{
+	t_vec_i	sprite_d;
+	t_vec_i	sprite;
+	t_vec	draw_start;
+	t_vec	transform;
+	t_vec	draw_end;
+	double	inv_det;
+	int		sprite_screen;
+}	t_sprited;
+
 typedef struct s_textures
 {
 	mlx_texture_t	*north;
@@ -121,6 +124,18 @@ typedef struct s_textures
 #  define WIN_WIDTH 1280
 # endif
 
+typedef struct s_sprite
+{
+	mlx_texture_t	**frames;
+	double			sprite_timer;
+	double			sprite_speed;
+	double			refresh_time;
+	int				sprite_cnt;
+	int				crr_frame;
+	int				x;
+	int				y;
+}	t_sprite;
+
 typedef struct s_cube
 {
 	t_map		*map;
@@ -130,9 +145,11 @@ typedef struct s_cube
 	t_ray		*ray;
 	t_dda		*dda;
 	bool		door;
+	bool		sprite;
 	double		z_buffer[WIN_WIDTH];
 	mlx_t		*mlx;
 	mlx_image_t	*minimap;
+	t_sprite	*sprites;
 	mlx_image_t	*principal_map;
 	mlx_image_t	*doors;
 	t_textures	*textures;
