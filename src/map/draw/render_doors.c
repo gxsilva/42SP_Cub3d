@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 15:32:20 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/13 17:39:01 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/14 18:50:48 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	render_doors(void *param);
 void	check_door_hit(t_cube *cube, int *hit);
-void	draw_doors(t_cube *cube, int x);
 
 void	render_doors(void *param)
 {
@@ -54,16 +53,3 @@ void	check_door_hit(t_cube *cube, int *hit)
 	}
 }
 
-void	draw_doors(t_cube *cube, int x)
-{
-	int	tex_x;
-	int	y;
-
-	if (cube->ray->perp_wall_dist > cube->z_buffer[x] || !cube->door)
-		return ;
-	cube->textures->tex = cube->textures->door;
-	tex_x = get_tex_x(cube);
-	y = -1;
-	while (++y < WIN_HEIGHT)
-		draw_texture(cube, x, y, tex_x);
-}

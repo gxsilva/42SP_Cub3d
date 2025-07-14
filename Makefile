@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/14 03:07:34 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/07/14 19:31:45 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ SRCS		:= $(addprefix $(SRCS_DIR), \
 	map/minimap/minimap.c \
 	map/minimap/player_minimap.c \
 	map/draw/dda.c \
+	map/draw/draw_game_utils.c \
 	map/draw/raycast.c \
 	map/draw/render_doors.c \
 	map/draw/texture.c \

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:13:39 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 21:28:48 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:32:31 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	free_textures(t_textures *textures)
 		mlx_delete_texture(textures->west);
 	if (textures->door)
 		mlx_delete_texture(textures->door);
+	if (textures->sky)
+		mlx_delete_texture(textures->sky);
 	free(textures);
 }
 

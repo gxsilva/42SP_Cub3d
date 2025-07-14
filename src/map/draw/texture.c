@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 19:09:58 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/14 18:55:01 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:34:00 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ void	init_textures(t_cube *cube)
 	cube->textures->door = mlx_load_png("./textures/new_ghost.png");
 	if (!cube->textures->door)
 		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
+	cube->textures->sky = mlx_load_png("./textures/new_sky.png");
+	if (!cube->textures->sky)
+		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
 }
 
 uint32_t	get_tex_color(int index, mlx_texture_t *tex)
@@ -52,6 +55,7 @@ uint32_t	get_tex_color(int index, mlx_texture_t *tex)
 	g = tex->pixels[index + 1];
 	b = tex->pixels[index + 2];
 	a = tex->pixels[index + 3];
+	return ((r << 24) | (g << 16) | (b << 8) | a);
 	return ((r << 24) | (g << 16) | (b << 8) | a);
 }
 
@@ -80,17 +84,25 @@ void	draw_texture(t_cube *cube, int x, int y, int tex_x)
 
 void	tex_pixel_to_image(t_cube *cube, int x)
 {
-	int	tex_x;
-	int	y;
+	int			tex_x;
+	int			y;
 
-	tex_x = get_tex_x(cube);
 	y = -1;
 	while (++y < WIN_HEIGHT)
 	{
 		if (y < cube->dda->draw_start)
-			mlx_put_pixel(cube->principal_map, x, y, cube->file->ceiling);
+		{	
+			// if (BONUS)
+				draw_sky(cube, y, x);
+			// else
+				mlx_put_pixel(cube->principal_map, x, y, cube->file->ceiling);	
+			
+		}
 		else if (y >= cube->dda->draw_start && y < cube->dda->draw_end)
+		{
+			tex_x = get_tex_x(cube);
 			draw_texture(cube, x, y, tex_x);
+		}
 		else
 			mlx_put_pixel(cube->principal_map, x, y, cube->file->floor);
 	}

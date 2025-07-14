@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 19:14:07 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/13 19:35:13 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 18:50:44 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	define_ray_dir(t_ray *ray, t_player *player, int x);
 void	raycast(void *param);
-void	draw_3dmap(t_cube *cube, int x);
 
 void	define_ray_dir(t_ray *ray, t_player *player, int x)
 {
@@ -50,23 +49,4 @@ void	raycast(void *param)
 	}
 	free(cube->ray);
 	cube->ray = NULL;
-}
-
-void	draw_3dmap(t_cube *cube, int x)
-{
-	if (cube->ray->side == 0)
-	{
-		if (cube->ray->dir_x > 0)
-			cube->textures->tex = cube->textures->west;
-		else
-			cube->textures->tex = cube->textures->east;
-	}
-	else
-	{
-		if (cube->ray->dir_y > 0)
-			cube->textures->tex = cube->textures->south;
-		else
-			cube->textures->tex = cube->textures->north;
-	}
-	tex_pixel_to_image(cube, x);
 }

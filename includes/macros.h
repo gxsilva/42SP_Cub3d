@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:35:15 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 19:15:53 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:36:01 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # endif
 
 # ifndef SPRITE_REFRESH
-#  define SPRITE_REFRESH 50
+#  define SPRITE_REFRESH 3
 # endif
 
 //Sprites path

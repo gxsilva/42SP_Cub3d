@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 19:15:46 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:32:20 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ typedef struct s_textures
 	mlx_texture_t	*east;
 	mlx_texture_t	*west;
 	mlx_texture_t	*door;
+	mlx_texture_t	*sky;
 	mlx_texture_t	*tex;
 	int				tex_x;
 }	t_textures;
