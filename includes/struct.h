@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 02:54:53 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 16:23:38 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,6 @@
 # define STRUCT_H
 
 # include "header.h"
-
-/*
- ░▒▓██████▓▒░       ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓███████▓▒░       ░▒▓████████▓▒░      ░▒▓███████▓▒░  
-░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░ 
-░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░ 
-░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓███████▓▒░       ░▒▓██████▓▒░        ░▒▓█▓▒░░▒▓█▓▒░ 
-░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░ 
-░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░ 
- ░▒▓██████▓▒░        ░▒▓██████▓▒░       ░▒▓███████▓▒░       ░▒▓████████▓▒░      ░▒▓███████▓▒░  
-*/
 
 typedef struct s_map
 {
@@ -122,17 +112,15 @@ typedef struct s_textures
 
 typedef struct s_sprite
 {
-	mlx_texture_t	**frames; //sprite images
-
-	double sprite_timer;
-	double sprite_speed; //sec per sprite
-	double refresh_time;
-	int		sprite_cnt; //amount of sprites
-	int		crr_frame;
-	// map pst
-	int		x;
-	int		y;
-} t_sprite;
+	mlx_texture_t	**frames;
+	double			sprite_timer;
+	double			sprite_speed;
+	double			refresh_time;
+	int				sprite_cnt;
+	int				crr_frame;
+	int				x;
+	int				y;
+}	t_sprite;
 
 typedef struct s_cube
 {
@@ -152,7 +140,7 @@ typedef struct s_cube
 	mlx_image_t	*doors;
 	t_textures	*textures;
 	double		elapsed_t;
-	double		mouse_lx; //mouse last x pst
+	double		mouse_lx;
 	double		last_t;
 }	t_cube;
 

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 21:21:35 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 03:18:42 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 16:18:51 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,14 @@ void	load_sprites(t_sprite *sprites)
 		error_msg(FAILED_LOAD_PNG, BRIGHT_RED, DEBUG_FLAG, 1);
 }
 
-	void	init_sprite_struct(t_sprite *sprites)
+void	init_sprite_struct(t_sprite *sprites)
 {
 	sprites->sprite_cnt = SPRITE_CNT;
-	sprites->frames = (mlx_texture_t **)malloc(sizeof(mlx_texture_t *) * SPRITE_CNT);
+	sprites->frames = (mlx_texture_t **)malloc(sizeof(mlx_texture_t *)
+			* SPRITE_CNT);
 	if (!sprites->frames)
 		error_msg(INVALID_MALLOC, BRIGHT_RED, DEBUG_FLAG, 1);
-	sprites->sprite_speed = 0.5; // mudando 1 frame a cada 0.2s
+	sprites->sprite_speed = 0.5;
 	sprites->sprite_timer = 0;
 	sprites->crr_frame = 0;
 	sprites->refresh_time = 0;
@@ -47,8 +48,9 @@ void	update_sprites(t_cube *cube)
 {
 	t_sprite	*sprite;
 
-	sprite = cube->sprites;
-	if ((sprite->sprite_timer += cube->elapsed_t) >= sprite->sprite_speed)
+	sprite = (cube->sprites);
+	sprite->sprite_timer += cube->elapsed_t;
+	if (sprite->sprite_timer >= sprite->sprite_speed)
 	{
 		sprite->sprite_timer -= sprite->sprite_speed;
 		sprite->crr_frame = (sprite->crr_frame + 1) % sprite->sprite_cnt;

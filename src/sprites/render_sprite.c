@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 21:32:19 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 03:31:29 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 16:19:04 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	draw_sprites(t_cube *cube, int x)
 
 	if (cube->ray->perp_wall_dist > cube->z_buffer[x] || !cube->sprite)
 		return ;
-	cube->textures->tex =  cube->sprites->frames[cube->sprites->crr_frame];
+	cube->textures->tex = cube->sprites->frames[cube->sprites->crr_frame];
 	tex_x = get_tex_x(cube);
 	y = -1;
 	while (++y < WIN_HEIGHT)

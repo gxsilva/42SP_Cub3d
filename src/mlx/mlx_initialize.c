@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 18:06:10 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 02:38:28 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 16:21:30 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,27 @@ void	init_mlx(t_cube *cube)
 		error_msg (UNABLE_CREAT_MINIMAP, BRIGHT_RED, DEBUG_FLAG, 1);
 }
 
-//! aparentemente é mais perfomático chamar tudo dentro de um único mlx_loop_hook
+static void	main_loop(void *param)
+{
+	t_cube	*cube;
+
+	cube = (t_cube *)param;
+	mouse_loop_hook(cube->player);
+	player_pst(cube);
+	track_elapsed_time(cube);
+	render_minimap(cube);
+	raycast(cube);
+	render_doors(cube);
+	render_sprite(cube);
+}
+
 void	set_mlx_hooks(t_cube *cube)
 {
 	mlx_set_cursor_mode(cube->mlx, MLX_MOUSE_HIDDEN);
 	mlx_set_mouse_pos(cube->mlx, WIN_WIDTH / 2, WIN_HEIGHT / 2);
-
-	mlx_loop_hook(cube->mlx, mouse_loop_hook, cube->player);
-	mlx_loop_hook(cube->mlx, player_pst, cube);
-	mlx_loop_hook(cube->mlx, track_elapsed_time, cube);
-
-	mlx_loop_hook(cube->mlx, render_minimap, cube);
-	mlx_loop_hook(cube->mlx, raycast, cube);
-	mlx_loop_hook(cube->mlx, render_sprite, cube);
-	mlx_loop_hook(cube->mlx, render_doors, cube);
-	
+	mlx_loop_hook(cube->mlx, main_loop, cube);
 	mlx_key_hook(cube->mlx, set_hooks, cube);
 }
-
 
 void	cube_loop(t_cube *cube)
 {
@@ -58,5 +61,4 @@ void	cube_loop(t_cube *cube)
 	mlx_image_to_window(cube->mlx, cube->principal_map, 0, 0);
 	mlx_image_to_window(cube->mlx, cube->minimap, 0, 0);
 	mlx_loop(cube->mlx);
-}	
-
+}

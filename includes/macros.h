@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:35:15 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 03:31:45 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 16:23:43 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MACROS_H
 
 # ifndef DEBUG_FLAG
-#  define DEBUG_FLAG 1
+#  define DEBUG_FLAG 0
 # endif
 
 # ifndef WIN_HEIGHT
@@ -33,17 +33,11 @@
 #  define MOUSE_SENS 0.001
 # endif
 
-# ifndef MOUSE_SENS
-#  define MOUSE_SENS 0.001
-# endif
-
 # ifndef PLAYER_SPEED
-#  define PLAYER_SPEED 2.5
 #  define PLAYER_SPEED 2.5
 # endif
 
 # ifndef ROT_SPEED
-#  define ROT_SPEED 0.025
 #  define ROT_SPEED 0.025
 # endif
 
@@ -52,7 +46,7 @@
 # endif
 
 # ifndef SPRITE_REFRESH
-#  define SPRITE_REFRESH 4
+#  define SPRITE_REFRESH 50
 # endif
 
 //Sprites path
@@ -61,6 +55,5 @@
 # define SPRITE_03 "./sprites/frame03.png"
 # define SPRITE_04 "./sprites/frame04.png"
 # define SPRITE_05 "./sprites/frame05.png"
-
 
 #endif // MACROS_H

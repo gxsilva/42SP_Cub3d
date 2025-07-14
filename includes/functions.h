@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 03:06:10 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 16:22:14 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,12 @@ void		init_mlx(t_cube *cube);
 void		check_map(char **argv);
 void		cube_loop(t_cube *cube);
 
-
-/*------------ SPRITES ---------------*/
-void	init_sprites(t_cube *cube);
-void	render_sprite(void *param);
-void	update_sprites(t_cube *cube);
-/*------------------------------------*/
+void		init_sprites(t_cube *cube);
+void		render_sprite(void *param);
+void		update_sprites(t_cube *cube);
 
 //Mouse bonus
 void		mouse_loop_hook(void *param);
-// void	mouse_callback(enum mouse_key key, enum action action, enum modifier_key mods, void *param);
 void		init_cube(t_cube *cube, char **argv);
 void		init_mlx(t_cube *cube);
 void		check_map(char **argv);
@@ -41,7 +37,6 @@ void		cube_loop(t_cube *cube);
 
 //Mouse bonus
 void		mouse_loop_hook(void *param);
-// void	mouse_callback(enum mouse_key key, enum action action, enum modifier_key mods, void *param);
 
 // raycast
 void		define_ray_dir(t_ray *ray, t_player *player, int x);
