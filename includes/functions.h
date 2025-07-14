@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 20:14:53 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/14 18:52:09 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ void		init_cube(t_cube *cube, char **argv);
 void		init_mlx(t_cube *cube);
 void		check_map(char **argv);
 void		cube_loop(t_cube *cube);
+
+// Draw_utils
+void		draw_sky(t_cube *cube, int y, int x);
+void		draw_doors(t_cube *cube, int x);
+void		draw_3dmap(t_cube *cube, int x);
+
 
 //Mouse bonus
 void		mouse_loop_hook(void *param);
@@ -50,7 +56,6 @@ void		check_hit(t_cube *cube, int *hit);
 // Textures
 void		render_doors(void *param);
 void		init_textures(t_cube *cube);
-void		draw_3dmap(t_cube *cube, int x);
 void		tex_pixel_to_image(t_cube *cube, int x);
 void		draw_texture(t_cube *cube, int x, int y, int tex_x);
 int			get_tex_x(t_cube *cube);

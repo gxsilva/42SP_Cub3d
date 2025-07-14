@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:13:39 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/13 20:01:37 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:16:48 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	free_textures(t_textures *textures)
 		mlx_delete_texture(textures->west);
 	if (textures->door)
 		mlx_delete_texture(textures->door);
+	if (textures->sky)
+		mlx_delete_texture(textures->sky);
 	free(textures);
 }
 
