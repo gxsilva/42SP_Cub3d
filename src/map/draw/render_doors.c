@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 15:32:20 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/14 18:50:48 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:32:24 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,3 @@ void	check_door_hit(t_cube *cube, int *hit)
 		}
 	}
 }
-
