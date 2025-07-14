@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 18:14:36 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:30:31 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ typedef struct s_cube
 	mlx_image_t	*doors;
 	t_textures	*textures;
 	double		elapsed_t;
-	double		mouse_lx; //mouse last x pst
+	double		mouse_lx;
 	double		last_t;
 }	t_cube;
 
