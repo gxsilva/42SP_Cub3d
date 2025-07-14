@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 18:06:10 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 16:21:30 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 20:04:15 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,16 @@ static void	main_loop(void *param)
 	t_cube	*cube;
 
 	cube = (t_cube *)param;
-	mouse_loop_hook(cube->player);
+	if (BONUS)
+		mouse_loop_hook(cube->player);
 	player_pst(cube);
 	track_elapsed_time(cube);
 	render_minimap(cube);
 	raycast(cube);
-	render_doors(cube);
-	render_sprite(cube);
+	if (BONUS)
+		render_doors(cube);
+	if (BONUS)
+		render_sprite(cube);
 }
 
 void	set_mlx_hooks(t_cube *cube)
@@ -59,6 +62,7 @@ void	cube_loop(t_cube *cube)
 {
 	set_mlx_hooks(cube);
 	mlx_image_to_window(cube->mlx, cube->principal_map, 0, 0);
-	mlx_image_to_window(cube->mlx, cube->minimap, 0, 0);
+	if (BONUS)
+		mlx_image_to_window(cube->mlx, cube->minimap, 0, 0);
 	mlx_loop(cube->mlx);
 }

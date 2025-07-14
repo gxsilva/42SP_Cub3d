@@ -6,12 +6,13 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/23 16:22:54 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/07/14 19:31:45 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/07/14 20:09:24 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # DEFINES
 NAME		:= cub3D
+BONUS_NAME	:= cub3D_bonus
 CC			:= cc
 CFLAGS		:= -Wextra -Wall -Werror -Wunreachable-code -Ofast -g3 -O0
 MLXFLAGS	:= -ldl -lmlx42 -lglfw -lpthread -lm -lft -lgnl -fPIC
@@ -137,13 +138,20 @@ $(DEBUG_OBJ_DIR)/%.o: $(SRCS_DIR)%.c
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -D DEBUG_FLAG=1 $(HEADERS) -c $< -o $@
 
-# debug: fclean $(OBJS) $(GNL_LIB) $(LIBFT_LIB) $(MLX_LIB)
-# 	@$(CC) $(CFLAGS) -D DEBUG_FLAG=1 $(HEADERS) $(OBJS) $(LIBS) $(MLXFLAGS) -o $@
-# 	@echo "$(GREEN)✅ $(BOLD)$(NAME) compiled debug successfully!$(END)"
 
 debug: $(DEBUG_OBJS) $(GNL_LIB) $(LIBFT_LIB) $(MLX_LIB)
 	@$(CC) $(CFLAGS) -D DEBUG_FLAG=1 $(HEADERS) $(DEBUG_OBJS) $(LIBS) $(MLXFLAGS) -o debug_bin
 	@echo "$(GREEN)✅ $(BOLD)Debug build successful!$(END)"
+
+BONUS_OBJS := $(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)/bonus_%.o,$(SRCS))
+
+$(OBJ_DIR)/bonus_%.o: $(SRCS_DIR)%.c | $(OBJ_DIR)
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -D BONUS=1 $(HEADERS) -c $< -o $@
+
+bonus: clean $(BONUS_OBJS) $(GNL_LIB) $(LIBFT_LIB) $(MLX_LIB)
+	@$(CC) $(CFLAGS) -D BONUS=1 $(HEADERS) $(BONUS_OBJS) $(LIBS) $(MLXFLAGS) -o $(BONUS_NAME)
+	@echo "$(GREEN)✅ $(BOLD)Bonus build successful!$(END)"
 
 clean:
 	@rm -rf $(OBJ_DIR)
@@ -154,6 +162,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f $(BONUS_NAME)
 	@rm -f debug_bin
 	@rm -rf $(MLX_DIR)/build
 	@make -C $(GNL_DIR) fclean $(NO_PRINT) > /dev/null

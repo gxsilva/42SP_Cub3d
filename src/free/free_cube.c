@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 18:13:39 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 19:45:07 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:46:24 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	clear_matrix(t_map *map);
 void	free_sprites(t_sprite *sprite)
 {
 	int		i;
-	
+
 	i = -1;
 	if (!sprite)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 17:42:08 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 16:20:12 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 20:02:13 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ void	track_elapsed_time(void *param)
 	current_t = mlx_get_time();
 	cube->elapsed_t = current_t - cube->last_t;
 	cube->last_t = current_t;
-	update_sprites(cube);
-	sprite_refresh(cube, cube->elapsed_t);
+	if (BONUS)
+	{
+		update_sprites(cube);
+		sprite_refresh(cube, cube->elapsed_t);
+	}
 }

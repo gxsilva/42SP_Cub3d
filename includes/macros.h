@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:35:15 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 19:36:01 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/14 20:09:48 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@
 
 # ifndef SPRITE_CNT
 #  define SPRITE_CNT 12
+# endif
+
+# ifndef BONUS
+#  define BONUS 0
 # endif
 
 # ifndef SPRITE_REFRESH

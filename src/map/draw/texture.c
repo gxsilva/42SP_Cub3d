@@ -6,8 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 19:09:58 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/14 19:34:00 by lsilva-x         ###   ########.fr       */
-/*   Updated: 2025/07/14 19:31:34 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/14 20:09:41 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +91,11 @@ void	tex_pixel_to_image(t_cube *cube, int x)
 	while (++y < WIN_HEIGHT)
 	{
 		if (y < cube->dda->draw_start)
-		{	
-			// if (BONUS)
-			// 	draw_sky(cube, y, x);
-			// else
-				mlx_put_pixel(cube->principal_map, x, y, cube->file->ceiling);	
+		{
+			if (BONUS)
+				draw_sky(cube, y, x);
+			else
+				mlx_put_pixel(cube->principal_map, x, y, cube->file->ceiling);
 		}
 		else if (y >= cube->dda->draw_start && y < cube->dda->draw_end)
 		{
