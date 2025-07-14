@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 19:00:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 18:51:14 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/14 19:33:59 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	draw_sky(t_cube *cube, int y, int x)
 	int			tex_y;
 	uint32_t	color;
 	int			index;
-	
+
 	tex_y = (y * cube->textures->sky->height) / cube->dda->draw_start;
 	tex_x = (x * cube->textures->sky->width) / WIN_WIDTH;
 	index = (tex_y * cube->textures->sky->width + tex_x) * 4;
