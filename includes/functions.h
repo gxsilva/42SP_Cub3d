@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:59:01 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/14 19:33:48 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/07/18 14:56:50 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void		render_sprite(void *param);
 void		update_sprites(t_cube *cube);
 
 // Draw_utils
+void		draw_floor(t_cube *cube, int y, int x);
 void		draw_sky(t_cube *cube, int y, int x);
 void		draw_doors(t_cube *cube, int x);
 void		draw_3dmap(t_cube *cube, int x);
