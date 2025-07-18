@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 19:00:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/18 16:05:04 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/18 16:12:41 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,10 @@ void	draw_3dmap(t_cube *cube, int x);
 
 void	draw_floor(t_cube *cube, int y, int x)
 {
-	// int			tex_x;
-	// int			tex_y;
 	uint32_t	color;
 	int			index;
 
-	// tex_y = (y * cube->textures->floor->height) / cube->dda->draw_start;
-	// tex_x = (x * cube->textures->floor->width) / WIN_WIDTH;
 	index = ((y / 2) * cube->textures->floor->width + (x / 2)) * 4;
-	// index = ((tex_y / 10) * cube->textures->floor->width + (tex_x / 10)) * 4;
 	color = get_tex_color(index, cube->textures->floor);
 	mlx_put_pixel(cube->principal_map, x, y, color);
 }

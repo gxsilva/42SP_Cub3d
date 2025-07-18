@@ -6,10 +6,9 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 15:05:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/07/18 14:52:39 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/18 16:13:04 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef STRUCT_H
 # define STRUCT_H
