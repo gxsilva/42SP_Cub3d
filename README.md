@@ -88,11 +88,6 @@ sudo pacman -S glfw-x11
 
 The main build produces `cub3D`. The bonus target produces `cub3D_bonus`. Additional targets available in the Makefile include `make clean`, `make fclean`, `make re`, `make debug`, `make leak`, and `make norm`.
 
-## 🎬 Demo
-
-<!-- Replace this placeholder with the final GIF path. -->
-![Cub3d demo](path/to/demo.gif)
-
 ## 🧱 Project Structure
 
 - `src/` contains the application code.
